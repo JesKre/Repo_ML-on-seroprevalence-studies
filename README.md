@@ -59,7 +59,7 @@ The following external inputs are required:
 
 ## Software requirements
 
-The repository does not include a lockfile, so exact R package versions are not recorded. The active scripts use the following packages:
+The active scripts use the following packages:
 
 ```r
 install.packages(c(
