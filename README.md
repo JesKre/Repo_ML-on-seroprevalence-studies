@@ -33,7 +33,8 @@ The baselines use only time for LASSO and MLP and only previous incidence for VA
 ```text
 .
 ├── Data_Preprocessing/   # Daily aggregation and construction of modeling datasets
-├── LASSO/                # MuSPAD and time-only LASSO models
+├── Datasets/             # Committed modeling dataset inputs (weekly time-series RData)
+├── LASSO/                # MuSPAD and time-only LASSO models and reproduction results
 ├── MLP/                  # MLP, baseline, optimizer comparison, and DP-SGD
 ├── VAR/                  # Sparse VAR models and incidence-only baselines
 ├── LSTM/                 # R/Python LSTM workflow and explanation post-processing
@@ -114,6 +115,10 @@ Data_Preprocessing
 |---|---|
 | [`LASSO/LASSO_model_levelcount_log_scale_all_cities_varsubsetbasic_without_cities_var_imp.R`](LASSO/LASSO_model_levelcount_log_scale_all_cities_varsubsetbasic_without_cities_var_imp.R) | Fits the main MuSPAD LASSO model. It applies a chronological 90/10 train-test split, separate `missForest` imputation, training-derived z-scaling, a log transform of incidence, and 10-fold `cv.glmnet` selection of `lambda.min`. It back-transforms predictions, calculates errors, ranks non-zero coefficients for variable importance, and saves predictions for cross-model plots. |
 | [`LASSO/LASSO_model_only_time_log_all_cities.R`](LASSO/LASSO_model_only_time_log_all_cities.R) | Fits the time-only LASSO baseline with the same chronological split, log-incidence target, 10-fold lambda selection, back-transformed predictions, metrics, and plotting outputs. |
+| [`LASSO/LASSO_testset_moving_block_bootstrap.R`](LASSO/LASSO_testset_moving_block_bootstrap.R) | Computes 95% confidence intervals for the test-set RMSE and SMAPE of both LASSO models by moving-block bootstrap (block length 7, B = 10000, seed 42) on the saved paired test predictions, with an IID bootstrap reported for comparison. No re-fitting; the CIs refer to the published point estimates and capture only test-observation resampling uncertainty. |
+| [`LASSO/lasso_fullmetrics_pi_2026-10-02.R`](LASSO/lasso_fullmetrics_pi_2026-10-02.R) | Computes the paper's Table 1 point estimates and the full Table S3 metric set (MAE, MASE, R², MAPE) from the saved anchor predictions, re-derives the bootstrap script's moving-block resampling bit-identically as a guard, and adds prediction-interval coverage by residual bootstrap (seed 20261025, B = 2000). |
+| [`LASSO/lasso_pointcalibration_2026-10-02.R`](LASSO/lasso_pointcalibration_2026-10-02.R) | Computes the Table S5 calibration of the 27 held-out test predictions by OLS (intercept/slope, t-based 95% CIs, joint test of the ideal values α = 0, β = 1); fully deterministic and run after the fullmetrics script, whose PI-coverage CSV it reads as a guard. |
+| [`LASSO/LASSO_reproduce_paper_results.R`](LASSO/LASSO_reproduce_paper_results.R) | Optional sanity check: re-fits both LASSO protocols from the dataset on seeds 1–10 plus a canonical seed 42 and compares the five original metrics against the paper's tables, the saved `mse_LASSO_*.csv` files, the anchor predictions, and the latest `Variablelist_*` file. |
 
 ### Multilayer perceptron and differential privacy
 

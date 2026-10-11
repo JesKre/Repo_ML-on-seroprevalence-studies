@@ -1,3 +1,28 @@
+# Original fitting calculations retained; paths configured for this repository.
+# Repository-relative paths; optional overrides for external inputs/outputs.
+script_file <- sub("^--file=", "", grep("^--file=", commandArgs(FALSE), value = TRUE))
+if (length(script_file) != 1) stop("Run this script with Rscript.")
+LASSO_DIR <- normalizePath(dirname(script_file), mustWork = TRUE)
+REPO_ROOT <- dirname(LASSO_DIR)
+PV_DIR <- Sys.getenv("LASSO_PRED_DIR", unset = file.path(REPO_ROOT, "Compare_models", "Graphics", "Predicted_values"))
+OUT_DIR <- Sys.getenv("LASSO_OUT_DIR", unset = file.path(LASSO_DIR, "repro_results"))
+dir.create(OUT_DIR, recursive = TRUE, showWarnings = FALSE)
+dir.create(PV_DIR, recursive = TRUE, showWarnings = FALSE)
+GRAPH_DIR <- file.path(OUT_DIR, "Graphics")
+dir.create(GRAPH_DIR, recursive = TRUE, showWarnings = FALSE)
+DATA_FILE <- Sys.getenv("LASSO_DATA_FILE", unset = "")
+if (!nzchar(DATA_FILE)) {
+  candidates <- list.files(file.path(REPO_ROOT, "Datasets"),
+    pattern = "binary_classnumber_var_subset_missing_zero", full.names = TRUE)
+  if (!length(candidates)) stop("Set LASSO_DATA_FILE to the original modeling RData file; see README.md.")
+  DATA_FILE <- tail(candidates, 1)
+}
+DATA_FILE <- normalizePath(DATA_FILE, mustWork = TRUE)
+# The original fits were unseeded; this optional seed supports repeatable refits.
+seed <- Sys.getenv("LASSO_SEED", unset = "")
+if (nzchar(seed)) { stopifnot(!is.na(as.integer(seed))); set.seed(as.integer(seed)) }
+setwd(OUT_DIR)
+
 
 
 
@@ -6,10 +31,7 @@ library(glmnet)
 library(missForest)
 
 
-setwd("S:\\PROJACTIVE\\MUSPAD-LABORERGEBNISSE\\LOKI_ML\\Datasets")
-
-file <- tail(list.files(pattern = "binary_classnumber_var_subset_missing_zero"), n=1)
-load(file)
+load(DATA_FILE)
 
 df_ts_inc$time_day <- as.numeric(df_ts_inc$time_day)
 df_ts_inc <- df_ts_inc[-which(df_ts_inc$time_day=="168"),]
@@ -123,12 +145,12 @@ r_p_graph_train <- real_vs_pred %>%
 
 graph_LASSO_7day_BL <- rbind(r_p_graph_train, r_p_graph_test)
 
-setwd("S:/PROJACTIVE/MUSPAD-LABORERGEBNISSE/LOKI_ML/muspad-ml-loki-sp2.1/Compare_models/Graphics/Predicted_values")
+setwd(PV_DIR)
 save(graph_LASSO_7day_BL, file = "LASSO_7day_baseline.RData")
 
 
 
-setwd("S:\\PROJACTIVE\\MUSPAD-LABORERGEBNISSE\\LOKI_ML\\muspad-ml-loki-sp2.1\\LASSO\\Graphics")
+setwd(GRAPH_DIR)
 
 png(file=paste0("LASSO_only_time_log_",Sys.Date(),".png"), width=38, height=34, unit="cm", res=800)
 
@@ -149,11 +171,11 @@ dev.off()
 mse_LASSO_onlyTime <- data.frame(mse_train, mse_test)
 
 # Save results
-setwd("S:/PROJACTIVE/MUSPAD-LABORERGEBNISSE/LOKI_ML/muspad-ml-loki-sp2.1/LASSO")
+setwd(OUT_DIR)
 write.csv2(mse_LASSO_onlyTime, "mse_LASSO_onlyTime.csv", row.names = FALSE)
 
 
-setwd("S:/PROJACTIVE/MUSPAD-LABORERGEBNISSE/LOKI_ML/muspad-ml-loki-sp2.1/Compare_models/Graphics/Single_graphics")
+setwd(GRAPH_DIR)
 
 png(file=paste0("LASSO_only_time_log_",Sys.Date(),".png"), width=38, height=34, unit="cm", res=800)
 
