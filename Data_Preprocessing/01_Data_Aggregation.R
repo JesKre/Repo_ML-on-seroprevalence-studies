@@ -162,9 +162,15 @@ valid_days <- sort(unique(df$time_day[!is.na(df$time_day)]))
 #   colnames(dat_num)[ncol(dat_num)] <- v
 # }
 
+num_var <- which(sapply(colnames(df), function(x) 
+  class(df[[x]])) == "numeric")
+
+# exclude 0,1 binary variables
+num_var_sub <- num_var[setdiff(names(num_var), var_01)]
+
 dat_num <- data.frame(time_day = valid_days)
 
-for(v in num_vars){
+for(v in num_var_sub){
   x <- tapply(df[[v]], df$time_day, mean, na.rm=TRUE)  # exactly like original
   dat_num <- merge(dat_num,
                    data.frame(time_day=names(x), val=as.vector(x)),
@@ -258,6 +264,26 @@ df$present <- 1
 result_table <- dcast(df, time_day ~ standort,
                       value.var="present", fill=0, fun.aggregate=any)
 df$present <- NULL
+
+
+#------------------------------------------------------------------------------
+# In-Between) Investigate participants numbers per time point
+#------------------------------------------------------------------------------
+
+participant_num <- table(df$time_day)[-c(1:3, 
+                                        length(table(df$time_day))-1, 
+                                        length(table(df$time_day)))]
+
+max(participant_num)
+# 278
+min(participant_num)
+# 1
+which(participant_num=="1")
+# 5 times only 1 participant
+mean(participant_num)
+# 141.9821
+sd(participant_num)
+# 67.76761
 
 
 #------------------------------------------------------------------------------
