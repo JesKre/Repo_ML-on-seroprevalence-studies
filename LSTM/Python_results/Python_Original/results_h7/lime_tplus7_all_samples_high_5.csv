@@ -1,0 +1,1587 @@
+Feature,LIME Value,Sample,Label
+mask_home_1_t-0 > 1.53,0.08902917863791712,266,6
+mask_public_places_1_t-0 > 1.61,0.08149143403561085,266,6
+vacc_first_1_t-1 > 1.13,0.0796510925895628,266,6
+nl63s1_t-0 > 0.46,0.07835985585057209,266,6
+mask_other_0_t-3 > 1.78,0.07609378977432617,266,6
+0.69 < Inzidenz_t-0 <= 1.01,0.07566903970999707,266,6
+mask_home_1_t-2 > 1.53,0.07377330692812566,266,6
+quarantine_mandatory.voluntary.quarantine_t-3 > 1.28,-0.07314050819893952,266,6
+mask_building_1_t-5 > 1.82,0.0730324262837935,266,6
+0.61 < langfragen_restriction_contact_yn_Nein..überhaupt.nicht_t-2 <= 1.33,0.0716951449383688,266,6
+-0.76 < Inzidenz_t-3 <= -0.50,-0.07120892039709405,266,6
+mask_home_1_t-3 > 1.53,0.06956362264405068,266,6
+langfragen_restriction_contact_yn_Ja..teilweise_t-1 > 1.64,0.06846271270042445,266,6
+cofeanfa_t-1 > 0.54,-0.06811010303746719,266,6
+mask_home_1_t-6 > 1.53,0.06784086590244943,266,6
+langfragen_hand_cleaning_time_Etwa.60.Sekunden_t-1 > 1.61,0.06741211038460966,266,6
+langfragen_restriction_contact_yn_Nein..überhaupt.nicht_t-4 > 1.33,0.06733784104477349,266,6
+0.41 < nat_immun_0_t-5 <= 1.97,0.06649895656892307,266,6
+mask_public_places_0_t-6 > 1.19,0.0663246991419826,266,6
+langfragen_household_n_t-3 > 1.21,0.06375047920598627,266,6
+mask_restaurant_1_t-1 > 1.43,0.0635677094569533,266,6
+mask_other_1_t-2 > 1.37,-0.05960100054693152,266,6
+quarantine_missing_t-2 > 1.39,0.058970044410802336,266,6
+serostatus_1_t-3 > 0.99,0.05846410740276631,266,6
+mask_other_1_t-5 > 1.37,-0.05814237633066464,266,6
+hku1n_t-0 > 0.82,-0.05751771120969966,266,6
+kurzfragen_employment_consequences_Nein..keine.dieser.Veränderungen_t-3 > 1.55,0.057148296520969914,266,6
+-0.63 < contact_no.contact_t-2 <= -0.30,0.05507795467933628,266,6
+mask_public_places_0_t-2 > 1.19,0.05487313074664975,266,6
+-0.55 < mask_walk_0_t-4 <= -0.23,-0.05424656627599131,266,6
+mask_shop_0_t-2 > 0.50,-0.05356502825009108,266,6
+mask_other_1_t-1 > 1.37,-0.05347244164676817,266,6
+0.04 < mask_shop_0_t-6 <= 0.50,-0.05338549568522223,266,6
+mask_building_0_t-0 > 1.56,0.05307547653027211,266,6
+0.51 < kurzfragen_healthstatus_t-0 <= 1.01,0.052827324893422574,266,6
+langfragen_hand_cleaning_time_Etwa.5.Sekunden_t-6 > 0.68,0.05214639097763023,266,6
+mask_building_0_t-3 > 1.64,0.05195174578269211,266,6
+nat_immun_0_t-4 > 1.97,0.051929899586164355,266,6
+no_vacc_0_t-4 > 0.95,0.05150018503081263,266,6
+-0.40 < kurzfragen_cov19_tested_febr2020_yn_No_t-4 <= 0.25,0.050855511215162394,266,6
+langfragen_hand_cleaning_time_Etwa.10.Sekunden_t-1 > 0.97,-0.05041332488660913,266,6
+0.31 < mask_other_0_t-6 <= 1.78,0.0500071680557133,266,6
+mask_public_places_0_t-0 > 1.16,0.04998251339443303,266,6
+langfragen_household_n_t-2 > 1.21,0.04972577445200616,266,6
+mask_public_places_0_t-1 > 1.19,0.04964825319934353,266,6
+-1.09 < kurzfragen_cov19_household_tested_febr2020_yn_Ja..jemand.wurde.getestet..das.Ergebnis.war.negativ_t-3 <= -0.67,0.049582130943013634,266,6
+langfragen_hand_cleaning_time_Etwa.60.Sekunden_t-3 > 1.61,0.049561187810522225,266,6
+0.02 < PCR_positive_0_t-1 <= 1.94,0.04934144252505588,266,6
+-0.98 < household_PCR_someone.tested..result.positive_t-5 <= -0.66,-0.04909401477586216,266,6
+employ_parental.other.leave_t-6 > 1.49,0.049073868396785354,266,6
+-0.03 < langfragen_hand_cleaning_cope_Ja..vollständig_t-3 <= 0.28,-0.04865879782680854,266,6
+-0.62 < cofeanfa_con_t-5 <= -0.22,0.04853277941025797,266,6
+langfragen_restriction_contact_yn_Nein..überhaupt.nicht_t-6 > 1.33,0.048459033135922376,266,6
+-0.78 < sero_group_vaccinated.1st_t-1 <= 0.34,-0.04754419336026428,266,6
+-1.13 < mask_building_0_t-2 <= -0.65,-0.04722195486692174,266,6
+0.59 < employ_change_short_time_0_t-3 <= 1.68,-0.047220622818792087,266,6
+kurzfragen_employment_consequences_Ja..folgende.Änderung.en.._t-1 > -0.30,0.04708984572170341,266,6
+langfragen_household_n_t-4 > 1.21,0.04684893935486714,266,6
+0.20 < sero_group_natural.immunity_t-0 <= 0.66,0.04682303829042682,266,6
+x229es1_t-0 > 0.59,0.04675115930602983,266,6
+0.59 < contact_do.not.know.no.information_t-3 <= 1.46,0.046712407744056564,266,6
+-1.04 < langfragen_hand_cleaning_time_Etwa.60.Sekunden_t-4 <= -0.54,-0.046333831618385585,266,6
+hku1n_t-4 > 0.81,-0.04434943282130104,266,6
+-0.67 < quarantine_no.quarantine_t-6 <= -0.18,0.04389897280655429,266,6
+-0.93 < mask_shop_0_t-0 <= -0.10,0.043886319003483866,266,6
+kurzfragen_cov19_household_tested_febr2020_yn_Keine.Angabe_t-3 > 1.10,0.04337404068336793,266,6
+langfragen_hand_cleaning_time_Etwa.60.Sekunden_t-0 <= -1.07,-0.04312340611939409,266,6
+-0.63 < employ_apprenticeship_t-2 <= -0.47,-0.042527341617675775,266,6
+nl63n_t-3 > 1.01,0.04245153999048158,266,6
+-0.34 < household_PCR_not.tested_t-1 <= 0.37,0.042437488799571384,266,6
+kurzfragen_healthstatus_t-3 > 1.06,0.04237589963765176,266,6
+-0.54 < langfragen_hand_cleaning_time_Etwa.60.Sekunden_t-6 <= -0.23,0.04220258874899321,266,6
+nat_immun_0_t-2 > 1.97,0.04210217309882794,266,6
+-0.38 < PCR_positive_0_t-2 <= -0.20,-0.04166787729891933,266,6
+0.20 < sero_group_no.immunity_t-2 <= 0.48,-0.04144865088917386,266,6
+mask_work_1_t-1 > 1.82,0.04123169325993523,266,6
+-0.43 < employ_self.employed_t-1 <= -0.29,0.041193249508520324,266,6
+0.09 < kurzfragen_cov19_tested_febr2020_result_Ich.hatte.mindestens.einmal.ein.positives.Testergebnis_t-3 <= 0.25,-0.040961278058053004,266,6
+-1.46 < household_PCR_.someone.tested..result.negative_t-6 <= -1.09,-0.04045951775966065,266,6
+0.68 < nl63n_t-0 <= 1.10,-0.04037592571045607,266,6
+-0.29 < employ_change_short_time_1_t-4 <= -0.04,0.04036200195088598,266,6
+-0.20 < kurzfragen_cov19_tested_febr2020_result_Ich.hatte.mindestens.einmal.ein.positives.Testergebnis_t-2 <= 0.09,0.040328556514933986,266,6
+s1_t-5 > 0.85,0.040243731026767746,266,6
+-0.81 < nat_immun_1_t-3 <= -0.61,0.040075630982856145,266,6
+-0.62 < employ_unemployed_t-0 <= -0.31,-0.03928006783508357,266,6
+mask_building_0_t-6 > 1.64,0.03894202388543556,266,6
+0.41 < nat_immun_0_t-6 <= 1.97,0.038800554270545115,266,6
+mask_home_0_t-1 > 1.77,0.03879213449979106,266,6
+langfragen_restriction_contact_yn_Nein..überhaupt.nicht_t-1 > 1.33,0.03848059270299841,266,6
+-0.43 < employ_apprenticeship_t-6 <= 0.27,0.038189061203673,266,6
+nc_t-4 > 0.67,0.037538950801312615,266,6
+kurzfragen_cov19_household_tested_febr2020_yn_Nein_t-2 > 1.48,-0.03727517912096305,266,6
+serostatus_1_t-0 > 1.15,0.03723484952125831,266,6
+nl63s1_t-3 > 0.45,0.03715334512888572,266,6
+kurzfragen_cov19_household_tested_febr2020_yn_Keine.Angabe_t-1 > 1.10,0.03709076826535119,266,6
+-0.87 < household_PCR_unclear_t-3 <= -0.17,-0.03703360889819329,266,6
+0.58 < full_vacc_0_t-4 <= 2.12,-0.036642963169380975,266,6
+nat_immun_1_t-0 > 0.65,0.03634559049425273,266,6
+0.44 < mask_home_1_t-4 <= 1.53,0.03461723004469367,266,6
+0.47 < mask_work_0_t-0 <= 1.57,0.03376158774933126,266,6
+-0.73 < no_vacc_0_t-3 <= 0.33,0.03355611523438553,266,6
+hku1s1_t-2 > 0.90,0.033269200660265036,266,6
+0.44 < vacc_first_0_t-2 <= 1.99,-0.0332127848221221,266,6
+0.42 < classification_Negative_t-2 <= 1.98,0.03287237634112436,266,6
+-0.03 < langfragen_hand_cleaning_cope_Ja..vollständig_t-6 <= 0.28,-0.032871935608378845,266,6
+-0.76 < Inzidenz_t-4 <= -0.50,-0.032828677891688036,266,6
+nl63s1_t-1 > 0.46,0.03277990250042659,266,6
+mask_work_1_t-2 > 1.82,0.03237976051820832,266,6
+0.55 < x229en_t-6 <= 1.10,-0.03233355811814129,266,6
+-0.73 < employ_change_termination_1_t-0 <= -0.37,0.032256230341462855,266,6
+hku1n_t-6 > 0.82,-0.031412257735053586,266,6
+-0.22 < euroimmun_result_qualitativ_negativ_t-2 <= 0.11,0.031197382583480825,266,6
+-0.93 < household_PCR_missing_t-0 <= -0.49,-0.030575697438963392,266,6
+0.58 < full_vacc_0_t-3 <= 2.12,-0.028416671082723173,266,6
+-0.90 < household_PCR_not.tested_t-5 <= -0.61,0.028143903777341113,266,6
+-0.87 < household_PCR_unclear_t-6 <= -0.17,-0.027404747198972835,266,6
+oc43s1_t-4 > 0.92,0.02698061418072837,266,6
+oc43s1_t-3 > 0.93,-0.026903903777877165,266,6
+-1.20 < serostatus_0_t-1 <= -0.60,-0.024722076039085453,266,6
+-0.65 < vacc_second_1_t-5 <= -0.51,-0.024275564935696523,266,6
+langfragen_restriction_contact_yn_Ja..vollständig_t-1 > 1.37,0.023469587440214545,266,6
+-0.09 < employ_change_homeoffice_0_t-0 <= 0.33,-0.019174283034110128,266,6
+Inzidenz_t-6 > 1.01,0.16426263391235785,267,6
+household_PCR_unclear_t-5 > 1.93,0.12092009159089379,267,6
+0.49 < mask_work_0_t-6 <= 1.58,0.0943763522773668,267,6
+vacc_first_1_t-0 > 1.23,0.08839647315820694,267,6
+0.31 < mask_other_0_t-5 <= 1.78,0.08501358112293778,267,6
+-1.11 < cofeanfa_con_t-2 <= -0.62,0.08482567567362972,267,6
+-0.64 < kurzfragen_cov19_tested_febr2020_result_Ich.hatte.ausschließlich.negative.Testergebnisse_t-0 <= -0.31,0.08172757326096122,267,6
+-0.67 < langfragen_hand_cleaning_perday_t-0 <= -0.30,0.08131444493917495,267,6
+cofeanfa_t-0 > 0.54,-0.07953461001437631,267,6
+mask_other_1_t-0 > 1.37,-0.07769954605613195,267,6
+-0.64 < full_vacc_1_t-0 <= -0.47,0.07741011609770643,267,6
+vacc_first_1_t-1 > 1.13,0.07261510120816932,267,6
+0.30 < mask_other_0_t-1 <= 1.78,0.07219782356740875,267,6
+-0.70 < quarantine_no.quarantine_t-5 <= -0.18,0.07203484277267297,267,6
+-0.84 < langfragen_restriction_contact_yn_Nein..überhaupt.nicht_t-5 <= -0.21,-0.07161715923401817,267,6
+-0.22 < mask_walk_1_t-2 <= 0.08,0.06974337726008234,267,6
+0.75 < household_PCR_.someone.tested..result.negative_t-0 <= 1.17,-0.0696979690699292,267,6
+0.44 < mask_home_1_t-3 <= 1.53,0.0690090926804267,267,6
+tested_PCR_missing_t-0 > 0.76,0.06834032273686708,267,6
+tested_PCR_no.PCR.test_t-5 > 1.39,0.06779818016916998,267,6
+-0.32 < mask_sport_1_t-2 <= 0.06,-0.06755557728983297,267,6
+full_vacc_1_t-6 > 0.44,0.06693464609347712,267,6
+langfragen_restriction_contact_yn_Nein..überhaupt.nicht_t-4 > 1.33,0.0640339671674368,267,6
+-0.09 < vacc_second_1_t-5 <= -0.03,-0.06382104649863934,267,6
+0.44 < mask_home_1_t-4 <= 1.53,0.06343901717994319,267,6
+0.49 < mask_work_0_t-2 <= 1.58,0.06329380183983743,267,6
+0.64 < household_PCR_missing_t-3 <= 1.30,0.06317935231946321,267,6
+-0.62 < euroimmun_result_quantitativ_t-1 <= 0.11,0.06277291304244374,267,6
+0.08 < rbd_t-2 <= 1.08,0.06264813562839013,267,6
+employ_change_short_time_1_t-3 > 1.34,0.061890227923007,267,6
+0.02 < PCR_positive_0_t-0 <= 1.94,0.06169072304014922,267,6
+employ_change_termination_1_t-2 > 1.70,-0.06108335273868391,267,6
+household_PCR_unclear_t-4 > 1.93,0.06015358465159192,267,6
+symp_count_t-4 > 0.71,-0.059622826813351786,267,6
+quarantine_missing_t-2 > 1.39,0.05905804004639956,267,6
+cofeanfa_t-1 > 0.54,-0.05803261598237661,267,6
+-1.01 < symp_count_t-0 <= -0.47,0.057951017087206215,267,6
+serostatus_0_t-3 > 1.98,0.05772564237605327,267,6
+employ_change_homeoffice_1_t-6 > 1.60,0.05749147798777466,267,6
+-0.35 < langfragen_restriction_contact_yn_Ja..vollständig_t-3 <= 0.09,0.05675158019300173,267,6
+-0.95 < employ_self.employed_t-4 <= -0.56,-0.05662787362494155,267,6
+vacc_second_1_t-0 > 0.86,0.05619158209842638,267,6
+mask_work_1_t-0 > 1.82,0.0561475369756039,267,6
+symptomatic_1_t-3 <= -1.27,0.055719537835454344,267,6
+mask_home_1_t-0 > 1.53,0.055182116541814916,267,6
+-1.46 < household_PCR_.someone.tested..result.negative_t-6 <= -1.09,0.05422841248369108,267,6
+mask_building_0_t-3 > 1.64,0.05420536505614758,267,6
+home_combined_t-2 <= -0.95,0.05408994744749649,267,6
+mask_restaurant_1_t-5 > 1.43,0.054018779175033324,267,6
+nat_immun_1_t-4 > 0.59,0.053871056907672785,267,6
+employ_change_short_time_0_t-0 > 1.68,-0.05386681132094312,267,6
+-0.01 < s_t-0 <= 0.01,0.05366663072985369,267,6
+PCR_positive_1_t-3 > 0.56,0.05358070140674629,267,6
+mask_building_0_t-6 > 1.64,0.05358029301126027,267,6
+cofeanfa_t-2 > 0.51,-0.05273939843466676,267,6
+cofeanfa_t-6 > 0.51,-0.05246726353012843,267,6
+mask_shop_1_t-1 > 1.78,0.05214840788400217,267,6
+vacc_first_1_t-5 > 0.93,0.05214214297592576,267,6
+langfragen_hand_cleaning_time_Etwa.60.Sekunden_t-0 <= -1.07,-0.05197544497587203,267,6
+kurzfragen_cov19_household_tested_febr2020_yn_Ja..jemand.wurde.getestet..das.Ergebnis.war.positiv_t-0 > 0.95,0.05189905253948932,267,6
+-0.39 < nl63s1_t-2 <= -0.28,0.05124018870610788,267,6
+-0.03 < vacc_second_1_t-6 <= 0.47,-0.050822702735894086,267,6
+nl63s1_t-6 > 0.44,0.05030423637007594,267,6
+-0.53 < mask_transport_1_t-6 <= -0.36,0.050303465538872626,267,6
+0.44 < mask_home_1_t-1 <= 1.53,0.050099167284923224,267,6
+-0.66 < quarantine_missing_t-0 <= -0.29,-0.0496635976539792,267,6
+employ_change_short_time_1_t-0 > 1.34,0.04958560027602003,267,6
+0.49 < employ_change_termination_1_t-1 <= 1.70,0.04939238439585251,267,6
+0.24 < mask_walk_0_t-0 <= 1.73,0.048408622140688036,267,6
+-0.36 < employ_missing_t-3 <= 2.18,-0.048012673905150176,267,6
+-1.18 < classification_Negative_t-6 <= -0.49,-0.047779087008405496,267,6
+-0.80 < mask_walk_1_t-4 <= -0.38,-0.04777501440449198,267,6
+-0.17 < oc43n_t-1 <= -0.10,0.04725930235049235,267,6
+full_vacc_1_t-5 > 0.49,0.0467848136362195,267,6
+nat_immun_0_t-4 > 1.97,0.04668061195301952,267,6
+0.44 < langfragen_restriction_contact_yn_Ja..teilweise_t-0 <= 1.64,0.0463991027959195,267,6
+mask_shop_0_t-0 > 0.50,-0.045452796424793704,267,6
+sero_group_vaccinated.1st_t-5 > 1.08,-0.04500341679952402,267,6
+0.25 < PCR_combined_not.tested_t-4 <= 0.92,0.04469711880591626,267,6
+-1.21 < langfragen_restriction_contact_yn_Nein..überhaupt.nicht_t-3 <= -0.84,0.04462197662306175,267,6
+-0.83 < langfragen_hand_cleaning_time_Etwa.5.Sekunden_t-4 <= 0.06,-0.044597164333151224,267,6
+0.68 < household_PCR_missing_t-0 <= 1.30,0.044516386925447425,267,6
+-0.83 < langfragen_hand_cleaning_time_Etwa.5.Sekunden_t-1 <= 0.06,-0.044418423057670624,267,6
+-0.19 < household_PCR_.someone.tested..result.negative_t-1 <= 0.48,-0.04440140322514972,267,6
+tested_PCR_missing_t-2 > 0.76,0.044037864450110584,267,6
+-0.03 < vacc_second_1_t-1 <= 0.85,-0.04402071596176989,267,6
+classification_Positive_t-5 <= -1.04,-0.043587406823329594,267,6
+mask_work_1_t-2 > 1.82,0.043318971491343713,267,6
+-0.96 < langfragen_hand_cleaning_time_Etwa.20.Sekunden_t-4 <= -0.54,-0.043005686649456476,267,6
+0.19 < s2_t-1 <= 1.10,0.04260347420640078,267,6
+-0.01 < sero_group_vaccinated.2nd_t-2 <= 0.81,-0.04255741595499927,267,6
+0.91 < household_PCR_not.tested_t-2 <= 1.49,-0.04253534655545595,267,6
+-0.00 < x229es1_t-1 <= 0.21,0.04206027662760246,267,6
+PCR_combined_missing_t-3 > 1.07,-0.042056254352911764,267,6
+household_PCR_someone.tested..result.positive_t-2 > 0.73,0.04166797203593803,267,6
+tested_PCR_no.PCR.test_t-3 > 1.39,0.04147626715905069,267,6
+0.16 < tested_PCR_missing_t-5 <= 0.42,0.04141590570018324,267,6
+-0.34 < kurzfragen_cov19_household_tested_febr2020_yn_Nein_t-2 <= 0.40,-0.040883407241139924,267,6
+-0.28 < contact_do.not.know.no.information_t-6 <= 0.10,-0.0408725928834888,267,6
+-0.85 < tested_PCR_PCR.tested..once.positive_t-4 <= -0.58,-0.04056455224322027,267,6
+0.44 < symptomatic_1_t-6 <= 1.36,-0.040015279631595735,267,6
+mask_home_1_t-6 > 1.53,0.03994728237758998,267,6
+mask_shop_0_t-6 > 0.50,-0.03978918987032591,267,6
+-0.71 < mask_sport_1_t-6 <= -0.52,0.03970027355174864,267,6
+-0.77 < kurzfragen_cov19_tested_febr2020_result_Ich.hatte.mindestens.einmal.ein.positives.Testergebnis_t-3 <= -0.48,0.03937551869303306,267,6
+0.40 < euroimmun_result_qualitativ_negativ_t-6 <= 1.97,-0.03849045507049546,267,6
+0.48 < sero_group_no.immunity_t-4 <= 1.99,-0.03785366232533452,267,6
+mask_transport_1_t-0 > 1.59,-0.03770041535422185,267,6
+sero_group_vaccinated.2nd_t-6 > 0.46,0.03757721036340683,267,6
+-0.45 < kurzfragen_healthstatus_t-0 <= -0.07,-0.03656408714235762,267,6
+-0.06 < employ_unemployed_t-4 <= 0.14,0.036213094107235375,267,6
+mask_home_0_t-1 > 1.77,0.03576081484475692,267,6
+-0.38 < oc43s1_t-6 <= -0.04,-0.035049360066511916,267,6
+vacc_second_0_t-5 > 2.12,0.034997617064339924,267,6
+-0.20 < quarantine_mandatory.voluntary.quarantine_t-4 <= 0.01,-0.03449216817318587,267,6
+-0.78 < s_t-5 <= -0.57,-0.03264728198670714,267,6
+-0.54 < hku1n_t-0 <= -0.21,-0.03188475322028313,267,6
+0.20 < mask_transport_0_t-3 <= 1.68,-0.03170257849758684,267,6
+vacc_first_1_t-4 > 0.96,0.029265815535156614,267,6
+-0.93 < kurzfragen_cov19_household_tested_febr2020_yn_Nein_t-6 <= -0.63,-0.023590082968174515,267,6
+-0.86 < classification_Positive_t-0 <= -0.43,-0.022528081081619158,267,6
+-0.62 < employ_unemployed_t-0 <= -0.31,-0.001800906680815332,267,6
+Inzidenz_t-0 > 1.01,0.1276371960745083,268,6
+cofeanfa_t-2 > 0.51,-0.09253340252479415,268,6
+Inzidenz_t-6 > 1.01,0.08529197487262653,268,6
+employ_change_short_time_1_t-0 > 1.34,0.08521178822774564,268,6
+langfragen_hand_cleaning_time_Etwa.5.Sekunden_t-6 > 0.68,0.08514382421841385,268,6
+contact_no.contact_t-1 > 1.47,-0.08494243177333016,268,6
+symp_count_t-4 > 0.71,-0.08477493914346018,268,6
+kurzfragen_employment_consequences_Ja..folgende.Änderung.en.._t-2 > -0.30,0.08462336872281974,268,6
+quarantine_mandatory.voluntary.quarantine_t-2 > 1.28,-0.08254957419215804,268,6
+mask_home_1_t-6 > 1.53,0.08169629074871546,268,6
+mask_home_1_t-3 > 1.53,0.08023782921228734,268,6
+mask_home_1_t-0 > 1.53,0.07981331512565319,268,6
+langfragen_household_n_t-4 > 1.21,0.07777341715284829,268,6
+employ_change_termination_1_t-2 > 1.70,0.07533275465403744,268,6
+kurzfragen_cov19_tested_febr2020_yn_No_t-2 > 1.37,-0.07385753556436364,268,6
+mask_other_1_t-5 > 1.37,-0.0736596778224931,268,6
+mask_building_0_t-3 > 1.64,0.07125702090378906,268,6
+cofeanfa_t-1 > 0.54,-0.07021193583873586,268,6
+langfragen_household_n_t-6 > 1.26,0.0697265957267977,268,6
+contact_missing_t-4 > 1.28,0.06504382159204891,268,6
+symp_count_t-1 > 0.71,-0.0636145285154417,268,6
+hku1n_t-0 > 0.82,-0.0629532187292428,268,6
+0.47 < quarantine_mandatory.voluntary.quarantine_t-1 <= 1.28,-0.061862330906337124,268,6
+0.49 < mask_public_places_1_t-3 <= 1.61,0.061795758582360825,268,6
+mask_other_0_t-2 > 1.78,0.060394548031378247,268,6
+mask_home_0_t-0 > 1.77,0.059552110075302006,268,6
+-0.78 < sero_group_vaccinated.1st_t-3 <= 0.34,-0.05882298016569789,268,6
+0.37 < cofeanfa_con_t-0 <= 1.03,-0.05819830477004513,268,6
+home_combined_t-2 <= -0.95,0.057703960829899335,268,6
+nl63n_t-6 > 1.00,0.05743946356139835,268,6
+-0.30 < vacc_first_0_t-1 <= 0.14,-0.05699030078092546,268,6
+hku1n_t-6 > 0.82,-0.05682059403738681,268,6
+0.51 < employ_change_termination_0_t-5 <= 1.80,-0.05673482231406241,268,6
+-0.35 < employ_missing_t-1 <= 2.22,-0.05608128293269688,268,6
+-0.99 < kurzfragen_cov19_household_tested_febr2020_yn_Ja..jemand.wurde.getestet..das.Ergebnis.war.positiv_t-5 <= -0.67,-0.05556167990269708,268,6
+langfragen_hand_cleaning_time_Etwa.60.Sekunden_t-2 > 1.61,0.05550361587295467,268,6
+contact_do.not.know.no.information_t-1 > 1.46,0.054491680616015184,268,6
+0.24 < mask_restaurant_0_t-5 <= 0.32,-0.05389819229628387,268,6
+employ_apprenticeship_t-4 > 1.18,0.05384359588545395,268,6
+0.49 < mask_public_places_0_t-5 <= 1.19,0.05329590201307825,268,6
+0.27 < mask_building_1_t-1 <= 1.82,0.05328190451425786,268,6
+langfragen_household_n_t-1 > 1.21,0.05307346494893382,268,6
+employ_parental.other.leave_t-3 > 1.49,0.05301827355232671,268,6
+employ_change_short_time_1_t-1 > 1.34,0.05293191843183037,268,6
+-1.09 < kurzfragen_cov19_household_tested_febr2020_yn_Ja..jemand.wurde.getestet..das.Ergebnis.war.negativ_t-5 <= -0.67,0.05268225246706479,268,6
+0.13 < symptomatic_0_t-5 <= 0.51,-0.052232158661310035,268,6
+0.59 < employ_change_short_time_0_t-0 <= 1.68,-0.05166350201848564,268,6
+0.47 < langfragen_hand_cleaning_time_Etwa.60.Sekunden_t-1 <= 1.61,0.051456782504385915,268,6
+mask_public_places_1_t-5 > 1.61,0.051196241979884455,268,6
+0.04 < tested_PCR_PCR.tested.but.always.negative_t-3 <= 0.39,-0.05094671514475201,268,6
+0.62 < x229en_t-0 <= 1.19,-0.050196993110395216,268,6
+langfragen_household_n_t-5 > 1.25,0.04946063555574269,268,6
+home_combined_t-0 <= -0.86,-0.049411278681786866,268,6
+0.08 < rbd_t-1 <= 1.15,0.04939338561020957,268,6
+cofeanfa_t-0 > 0.54,-0.04930761494780604,268,6
+mask_transport_0_t-0 > 1.68,0.049256860090856995,268,6
+0.59 < contact_do.not.know.no.information_t-0 <= 1.46,-0.04918370345485015,268,6
+mask_public_places_1_t-4 > 1.61,0.04902225249282678,268,6
+0.31 < no_immun_0_t-1 <= 1.07,0.04880662735094225,268,6
+-0.53 < langfragen_restriction_contact_yn_Ja..teilweise_t-5 <= -0.27,0.048792834219100585,268,6
+mask_home_1_t-2 > 1.53,0.0486781694719437,268,6
+mask_other_0_t-3 > 1.78,0.0485935150856368,268,6
+langfragen_household_n_t-3 > 1.21,0.04849308524938609,268,6
+kurzfragen_healthstatus_t-6 > 1.08,0.04835821509795593,268,6
+quarantine_missing_t-2 > 1.39,0.047287672516834425,268,6
+quarantine_mandatory.voluntary.quarantine_t-3 > 1.28,-0.046943522521222615,268,6
+mask_other_1_t-4 > 1.37,-0.046692383714061265,268,6
+kurzfragen_employment_consequences_Nein..keine.dieser.Veränderungen_t-4 <= -0.76,-0.04656936995987944,268,6
+-0.32 < household_PCR_not.tested_t-5 <= 0.47,-0.04647700100334518,268,6
+mask_work_1_t-0 > 1.82,0.046367575293616736,268,6
+0.49 < employ_change_termination_1_t-0 <= 1.70,0.0462824362901705,268,6
+-0.67 < langfragen_hand_cleaning_perday_t-1 <= -0.30,0.04535621570961029,268,6
+-0.79 < sero_group_vaccinated.1st_t-5 <= 0.39,-0.04464561700914979,268,6
+-1.03 < mask_walk_0_t-2 <= -0.57,-0.04437488278551577,268,6
+-0.66 < household_PCR_.someone.tested..result.negative_t-4 <= -0.19,-0.04435769724970068,268,6
+euroimmun_result_qualitativ_positiv_t-5 > 0.86,0.04369175842332051,268,6
+x229es1_t-1 > 0.57,0.0430136000767763,268,6
+employ_self.employed_t-3 > 1.66,0.04299052830767903,268,6
+-0.54 < hku1n_t-1 <= -0.21,0.04291479282210944,268,6
+-0.85 < vacc_second_0_t-1 <= -0.58,-0.042856730781747544,268,6
+-0.35 < kurzfragen_cov19_household_tested_febr2020_yn_Keine.Angabe_t-1 <= 1.10,-0.042535454736274,268,6
+0.40 < serostatus_0_t-1 <= 1.98,0.041796233921006724,268,6
+0.56 < mask_other_1_t-3 <= 1.37,-0.0417417492756795,268,6
+-0.60 < sero_group_natural.immunity_t-1 <= -0.20,-0.04165407735212883,268,6
+-0.73 < no_vacc_0_t-3 <= 0.33,-0.0415997808567078,268,6
+0.28 < langfragen_hand_cleaning_cope_Ja..vollständig_t-5 <= 1.84,0.04139654868164047,268,6
+no_immun_1_t-0 > 1.99,-0.040190747141048845,268,6
+0.13 < s_t-1 <= 1.32,-0.04006419530434578,268,6
+-0.55 < mask_home_0_t-4 <= -0.25,-0.039477343285199175,268,6
+-0.01 < kurzfragen_employment_consequences_Keine.Angabe_t-3 <= 1.39,-0.039313902228409775,268,6
+-0.58 < classification_Positive_t-3 <= 0.20,0.03891177156810094,268,6
+vacc_first_1_t-6 > 0.93,0.038597286062725535,268,6
+-0.85 < langfragen_hand_cleaning_time_Etwa.10.Sekunden_t-4 <= -0.24,0.03857355229952936,268,6
+x229en_t-5 > 1.16,0.038477056987386196,268,6
+-0.81 < nat_immun_1_t-3 <= -0.61,-0.03816294784065822,268,6
+0.48 < no_immun_1_t-2 <= 1.99,0.038059175468186296,268,6
+classification_Positive_t-5 <= -1.04,-0.0379378776205691,268,6
+-0.95 < vacc_inf_Vaccinated_t-4 <= -0.65,-0.03713465127275481,268,6
+symp_count_t-2 > 0.71,-0.03657730384865921,268,6
+mask_public_places_1_t-0 > 1.61,0.0359689137886856,268,6
+nc_t-4 > 0.67,0.03587509161750596,268,6
+0.40 < serostatus_0_t-0 <= 1.98,0.03586969720911762,268,6
+-0.23 < classification_Negative_t-3 <= 0.13,0.03566496073172389,268,6
+mask_building_0_t-5 > 1.64,0.034928401247724956,268,6
+-0.66 < household_PCR_.someone.tested..result.negative_t-3 <= -0.19,0.03492703339010839,268,6
+-0.44 < employ_change_termination_0_t-0 <= -0.31,-0.03472699524579836,268,6
+-0.83 < langfragen_hand_cleaning_time_Etwa.5.Sekunden_t-1 <= 0.06,0.034646733632080234,268,6
+-0.42 < employ_change_homeoffice_0_t-5 <= -0.31,0.03408376753334814,268,6
+hku1s1_t-6 > 0.89,0.033271019700083206,268,6
+mask_shop_0_t-1 > 0.50,-0.03226934108515231,268,6
+0.31 < mask_home_0_t-3 <= 1.77,0.03135269714704149,268,6
+s2_t-2 > 1.07,-0.03093401962101187,268,6
+mask_shop_1_t-1 > 1.78,0.030831401630693606,268,6
+hku1s1_t-5 > 0.89,0.03057339689631651,268,6
+-0.31 < kurzfragen_cov19_tested_febr2020_result_Ich.hatte.ausschließlich.negative.Testergebnisse_t-1 <= 0.51,-0.029664266882174106,268,6
+0.55 < x229en_t-4 <= 1.16,-0.02929879342861637,268,6
+0.31 < mask_other_0_t-4 <= 1.78,-0.025330135036964654,268,6
+-0.62 < employ_unemployed_t-1 <= -0.31,0.02428992668499808,268,6
+-1.16 < oc43n_t-2 <= -0.70,-0.023620465357557206,268,6
+0.06 < s1_t-2 <= 0.95,0.022629145549363867,268,6
+mask_sport_0_t-4 <= -1.00,-0.022528006401193786,268,6
+0.39 < Inzidenz_t-1 <= 0.69,0.022485547776011285,268,6
+-0.62 < employ_unemployed_t-0 <= -0.31,0.1461701730322745,269,6
+cofeanfa_t-2 > 0.51,-0.11211516176671718,269,6
+mask_other_0_t-3 > 1.78,0.09715383570389988,269,6
+cofeanfa_t-0 > 0.54,-0.08405222366325654,269,6
+household_PCR_unclear_t-2 > 1.93,0.0825891072148964,269,6
+tested_PCR_missing_t-3 > 0.76,0.07652624089283735,269,6
+household_PCR_unclear_t-0 > 1.93,0.0720245580933013,269,6
+sero_group_vaccinated.2nd_t-4 > 0.63,0.07132795728570299,269,6
+tested_PCR_missing_t-4 > 0.76,0.07077324318094572,269,6
+cofeanfa_t-1 > 0.54,-0.07003856198758934,269,6
+-1.01 < symp_count_t-0 <= -0.47,0.06736578430894447,269,6
+hku1n_t-0 > 0.82,-0.0651557253819713,269,6
+tested_PCR_missing_t-1 > 0.76,0.06495645398290473,269,6
+tested_PCR_missing_t-2 > 0.76,0.064204879113102,269,6
+0.66 < langfragen_household_n_t-2 <= 1.21,0.06292589910281599,269,6
+-0.64 < mask_home_1_t-5 <= -0.21,-0.06262799565821982,269,6
+langfragen_household_n_t-4 > 1.21,0.06236636797468137,269,6
+-0.52 < contact_missing_t-1 <= 0.24,0.05806089777142628,269,6
+-0.86 < classification_Positive_t-1 <= -0.45,-0.05793034946418013,269,6
+0.06 < s1_t-2 <= 0.95,0.057817582763625086,269,6
+mask_shop_0_t-0 > 0.50,-0.05766870451281221,269,6
+0.10 < quarantine_mandatory.voluntary.quarantine_t-6 <= 0.47,-0.05711287060739597,269,6
+0.16 < cofeanfa_con_t-1 <= 0.17,-0.05696923710802332,269,6
+sero_group_vaccinated.1st_t-2 > 1.08,0.05625624135587424,269,6
+euroimmun_result_qualitativ_positiv_t-5 > 0.86,0.05572864893568773,269,6
+-0.76 < Inzidenz_t-3 <= -0.50,-0.05502763513368159,269,6
+Inzidenz_t-6 > 1.01,0.05495091316107407,269,6
+tested_PCR_no.PCR.test_t-3 > 1.39,0.05463733366941711,269,6
+-1.22 < quarantine_no.quarantine_t-1 <= -0.73,0.05454896147488197,269,6
+0.89 < sero_group_vaccinated.1st_t-3 <= 1.08,0.05412801197448429,269,6
+mask_walk_0_t-5 > 1.73,0.053590780213843676,269,6
+0.61 < langfragen_restriction_contact_yn_Nein..überhaupt.nicht_t-5 <= 1.33,0.053254949234125104,269,6
+0.43 < langfragen_hand_cleaning_time_Etwa.20.Sekunden_t-5 <= 1.82,-0.05305164079028414,269,6
+x229es1_t-0 > 0.59,0.052900375014881464,269,6
+langfragen_household_n_t-3 > 1.21,0.052711221269296865,269,6
+-0.56 < langfragen_restriction_contact_yn_Ja..teilweise_t-1 <= -0.30,-0.05259428717324965,269,6
+-1.04 < langfragen_hand_cleaning_time_Etwa.60.Sekunden_t-3 <= -0.60,-0.05250884384931404,269,6
+symp_count_t-2 > 0.71,-0.05214444673397369,269,6
+home_combined_t-4 > 0.94,-0.05213852391973802,269,6
+nc_t-1 > 0.70,0.05207899265379379,269,6
+-1.13 < mask_building_0_t-2 <= -0.65,-0.05199537939069884,269,6
+kurzfragen_cov19_household_tested_febr2020_yn_Nein_t-4 > 1.50,-0.05160091608713958,269,6
+employ_change_short_time_1_t-4 > 1.34,0.051011402370722464,269,6
+0.48 < vacc_first_1_t-6 <= 0.93,-0.05093649836820371,269,6
+-0.70 < oc43n_t-3 <= -0.27,0.05040486390866323,269,6
+employ_change_termination_0_t-3 > 1.80,-0.05009269997326479,269,6
+sero_group_vaccinated.2nd_t-3 > 0.77,0.04990462301394379,269,6
+-0.04 < quarantine_no.quarantine_t-4 <= 0.14,0.04930358661327429,269,6
+kurzfragen_employment_consequences_Ja..folgende.Änderung.en.._t-2 > -0.30,0.049070243379764344,269,6
+0.27 < employ_apprenticeship_t-0 <= 1.18,0.04835364263630455,269,6
+-0.40 < contact_do.not.know.no.information_t-2 <= -0.03,-0.04830409949498146,269,6
+-0.32 < tested_PCR_PCR.tested..once.positive_t-1 <= 0.21,-0.04793674996319514,269,6
+vacc_inf_Infected_t-5 > 0.72,0.04779260370052142,269,6
+0.69 < quarantine_missing_t-4 <= 1.34,0.047578396795550364,269,6
+mask_shop_0_t-4 > 0.50,-0.04711531549408057,269,6
+employ_change_short_time_1_t-3 > 1.34,0.046014899281398784,269,6
+-0.24 < employ_pupil.retired_t-4 <= 0.13,0.045848024651456695,269,6
+hku1n_t-4 > 0.81,-0.04568349276673727,269,6
+-0.54 < hku1n_t-5 <= -0.21,0.0456509636846121,269,6
+quarantine_missing_t-2 > 1.39,0.045533500620306956,269,6
+-1.06 < kurzfragen_cov19_tested_febr2020_result_Ich.hatte.mindestens.einmal.ein.positives.Testergebnis_t-4 <= -0.77,0.04542880775470351,269,6
+0.54 < langfragen_restriction_contact_yn_Ja..vollständig_t-6 <= 1.37,0.04517279524799638,269,6
+-0.01 < mask_building_0_t-6 <= 0.44,0.04505156422966317,269,6
+0.49 < employ_change_termination_1_t-1 <= 1.70,0.044346991142046294,269,6
+0.50 < home_combined_t-5 <= 0.94,-0.04389462292512997,269,6
+0.10 < employ_change_homeoffice_1_t-4 <= 0.75,0.04351569863630822,269,6
+sero_group_vaccinated.1st_t-6 > 1.08,0.04337579077870366,269,6
+0.30 < mask_other_0_t-1 <= 1.78,0.04325220141258666,269,6
+0.53 < household_PCR_unclear_t-5 <= 1.93,0.043011720802191386,269,6
+-0.44 < employ_change_termination_0_t-0 <= -0.31,0.04298858870086569,269,6
+PCR_combined_missing_t-2 > 1.07,-0.04289592813139958,269,6
+-0.01 < langfragen_hand_cleaning_cope_Ja..teilweise_t-1 <= 0.69,-0.04247873187023663,269,6
+-1.22 < quarantine_no.quarantine_t-2 <= -0.73,0.04243596535294332,269,6
+kurzfragen_cov19_household_tested_febr2020_yn_Nein_t-0 > 1.44,0.04234346012587467,269,6
+-0.22 < symptomatic_1_t-6 <= 0.01,0.04227207615731094,269,6
+0.43 < mask_restaurant_0_t-3 <= 0.82,-0.0421056448204439,269,6
+-1.18 < mask_home_1_t-3 <= -0.64,-0.04191467825539988,269,6
+kurzfragen_employment_consequences_Nein..keine.dieser.Veränderungen_t-1 > 1.55,0.041469065400211585,269,6
+-0.59 < mask_work_0_t-3 <= -0.21,0.04017053992011627,269,6
+tested_PCR_missing_t-0 > 0.76,0.03983640413782178,269,6
+-0.10 < mask_work_1_t-2 <= 0.38,-0.03967714036661835,269,6
+symp_count_t-1 > 0.71,-0.039462645856759224,269,6
+s1_t-1 > 1.01,0.039443638788976554,269,6
+0.48 < sero_group_no.immunity_t-0 <= 1.99,-0.03919218302897282,269,6
+symptomatic_0_t-4 > 1.30,-0.038891205776046406,269,6
+kurzfragen_employment_consequences_Ja..folgende.Änderung.en.._t-1 > -0.30,0.03886794523437795,269,6
+0.61 < langfragen_restriction_contact_yn_Nein..überhaupt.nicht_t-2 <= 1.33,0.0388236134607193,269,6
+0.42 < household_PCR_not.tested_t-2 <= 0.91,0.038660987440006844,269,6
+sero_group_unclear_t-4 > 1.11,-0.03846655871745844,269,6
+-0.63 < employ_pupil.retired_t-1 <= -0.24,-0.038322691813950545,269,6
+-0.62 < cofeanfa_con_t-4 <= -0.20,0.03818777580075459,269,6
+employ_change_homeoffice_1_t-6 > 1.60,0.03710533578214101,269,6
+0.38 < mask_work_1_t-0 <= 1.82,0.03682889847590876,269,6
+langfragen_household_n_t-0 > 1.17,0.036653030468918005,269,6
+-0.86 < classification_Positive_t-2 <= -0.48,-0.03637842997317533,269,6
+symp_count_t-4 > 0.71,-0.03617439779083824,269,6
+-0.52 < mask_transport_0_t-4 <= -0.19,0.03526180446993991,269,6
+-0.65 < mask_building_0_t-1 <= -0.41,-0.03524001216059796,269,6
+-0.51 < full_vacc_1_t-6 <= -0.14,-0.03519324990969321,269,6
+kurzfragen_healthstatus_t-4 > 1.06,0.03497911200273677,269,6
+nl63s1_t-5 > 0.45,0.034930337771534606,269,6
+s1_t-5 > 0.85,0.03486279084017357,269,6
+-0.59 < s_t-6 <= -0.03,-0.03466629507251553,269,6
+-0.93 < mask_transport_1_t-4 <= -0.53,0.03449190698031419,269,6
+tested_PCR_missing_t-5 > 0.76,0.034313185102046374,269,6
+x229es1_t-4 > 0.48,0.03359401092770179,269,6
+nl63n_t-2 <= -0.69,-0.03251665267742447,269,6
+0.39 < sero_group_vaccinated.1st_t-4 <= 0.81,-0.03228194512301431,269,6
+kurzfragen_employment_consequences_Nein..keine.dieser.Veränderungen_t-3 > 1.55,0.03227477504574479,269,6
+0.28 < tested_PCR_PCR.tested..once.positive_t-3 <= 0.56,0.031697566699658626,269,6
+0.27 < nc_t-2 <= 0.69,0.03123214386777026,269,6
+-0.98 < mask_public_places_1_t-5 <= -0.81,-0.031184922672728432,269,6
+-0.65 < quarantine_mandatory.voluntary.quarantine_t-5 <= -0.20,0.030313001941580726,269,6
+langfragen_restriction_contact_yn_Nein..überhaupt.nicht_t-4 > 1.33,0.03014180540867009,269,6
+kurzfragen_cov19_tested_febr2020_result_Ich.hatte.ausschließlich.negative.Testergebnisse_t-6 > 1.16,-0.02973804668783917,269,6
+0.51 < employ_change_termination_0_t-6 <= 1.80,-0.027695679836946187,269,6
+tested_PCR_no.PCR.test_t-4 > 1.39,0.027645289489241057,269,6
+kurzfragen_healthstatus_t-2 > 1.06,0.027521297284153864,269,6
+-1.04 < langfragen_hand_cleaning_time_Etwa.60.Sekunden_t-4 <= -0.54,-0.02706685452911369,269,6
+-0.59 < mask_work_0_t-6 <= -0.17,-0.025572732179946562,269,6
+0.12 < vacc_inf_Infected_t-2 <= 0.72,-0.021331035136685713,269,6
+-0.60 < mask_public_places_0_t-5 <= -0.14,-0.02032373129471565,269,6
+Inzidenz_t-0 > 1.01,0.12559658626115103,270,6
+Inzidenz_t-6 > 1.01,0.11163882419044131,270,6
+quarantine_mandatory.voluntary.quarantine_t-3 > 1.28,-0.1052237907945165,270,6
+household_PCR_unclear_t-2 > 1.93,0.08703073656185115,270,6
+contact_contact.with.confirmed.COVID.19.patient_t-4 > 0.73,-0.08113678925023865,270,6
+quarantine_mandatory.voluntary.quarantine_t-4 > 1.28,-0.07874910516522096,270,6
+tested_PCR_missing_t-0 > 0.76,0.07751935168169931,270,6
+cofeanfa_t-5 <= -0.81,0.07729381126686204,270,6
+kurzfragen_healthstatus_t-4 > 1.06,0.07537520595378912,270,6
+household_PCR_unclear_t-4 > 1.93,0.07527208490969874,270,6
+hku1n_t-0 > 0.82,-0.07226529176080553,270,6
+tested_PCR_missing_t-1 > 0.76,0.07047073657655054,270,6
+0.02 < PCR_positive_0_t-0 <= 1.94,0.0699552896500097,270,6
+0.31 < no_immun_0_t-1 <= 1.07,0.06855563026093942,270,6
+PCR_positive_1_t-3 > 0.56,0.06849485537978896,270,6
+quarantine_missing_t-6 > 1.15,0.06588308276902426,270,6
+rbd_t-3 > 1.05,0.06481929138860364,270,6
+0.07 < vacc_inf_Infected_t-5 <= 0.72,0.06380923307769718,270,6
+tested_PCR_no.PCR.test_t-4 > 1.39,0.06372693529400743,270,6
+-1.13 < mask_building_0_t-4 <= -0.65,-0.06267966630574383,270,6
+0.19 < sero_group_unclear_t-1 <= 1.11,0.062086614882720964,270,6
+-0.22 < euroimmun_result_qualitativ_negativ_t-2 <= 0.11,-0.06158720310606261,270,6
+-0.25 < mask_home_0_t-3 <= -0.16,-0.06145279646336945,270,6
+cofeanfa_con_t-3 <= -1.11,0.06078918206983375,270,6
+sero_group_vaccinated.2nd_t-4 > 0.63,0.060144699880698926,270,6
+hku1n_t-4 > 0.81,-0.059461408455539745,270,6
+sero_group_vaccinated.2nd_t-6 > 0.46,0.05863235855127109,270,6
+-0.24 < mask_building_1_t-5 <= -0.15,0.058436399687168475,270,6
+cofeanfa_con_t-1 > 1.03,-0.058364414484293185,270,6
+contact_missing_t-0 > 1.36,0.05756790000750076,270,6
+-1.07 < langfragen_hand_cleaning_time_Etwa.60.Sekunden_t-0 <= -0.64,-0.05645881495514977,270,6
+0.44 < mask_home_1_t-1 <= 1.53,0.05627127037344433,270,6
+-0.46 < kurzfragen_cov19_household_tested_febr2020_yn_Nein_t-0 <= -0.37,0.05609309430335051,270,6
+cofeanfa_t-6 > 0.51,-0.05562961591054536,270,6
+vacc_first_1_t-2 > 1.10,0.05505076095156701,270,6
+langfragen_hand_cleaning_cope_Ja..vollständig_t-4 > 1.84,0.053714297363954895,270,6
+PCR_combined_not.tested_t-2 > 1.37,-0.053118266082905284,270,6
+mask_walk_0_t-0 > 1.73,0.05280621619191181,270,6
+-0.24 < kurzfragen_employment_consequences_Keine.Angabe_t-5 <= -0.01,0.05229407144024647,270,6
+x229es1_t-6 > 0.48,-0.051621401948602035,270,6
+no_immun_0_t-5 > 0.91,0.05091478089665628,270,6
+0.25 < langfragen_hand_cleaning_cope_Ja..vollständig_t-1 <= 1.84,0.050743892825691396,270,6
+-0.40 < household_PCR_missing_t-5 <= -0.05,-0.04998154224535704,270,6
+-0.93 < mask_transport_1_t-3 <= -0.53,0.04983313591202325,270,6
+nat_immun_1_t-2 > 0.59,0.04957148615254339,270,6
+household_PCR_unclear_t-5 > 1.93,0.049098839050061495,270,6
+-0.50 < Inzidenz_t-4 <= -0.06,-0.04850540149927595,270,6
+no_immun_0_t-6 > 0.83,0.04842858710688565,270,6
+tested_PCR_no.PCR.test_t-0 > 1.38,0.04840755581634159,270,6
+-0.37 < kurzfragen_employment_consequences_Nein..keine.dieser.Veränderungen_t-2 <= 0.01,-0.04798404057032057,270,6
+sero_group_vaccinated.2nd_t-3 > 0.77,0.04796688666464383,270,6
+nc_t-6 > 0.59,0.047878729407561056,270,6
+tested_PCR_missing_t-6 > 0.76,0.04743225885255806,270,6
+nat_immun_1_t-0 > 0.65,0.04677542137878857,270,6
+-0.62 < euroimmun_result_quantitativ_t-2 <= 0.10,-0.04675070207853706,270,6
+-0.21 < hku1n_t-3 <= -0.05,-0.046416933287791326,270,6
+symp_count_t-2 > 0.71,-0.046254250818232784,270,6
+0.48 < no_immun_1_t-3 <= 1.99,0.0461293964907861,270,6
+0.41 < nat_immun_0_t-2 <= 1.97,0.04594392877383915,270,6
+-0.35 < employ_missing_t-1 <= 2.22,-0.04518297081041196,270,6
+-1.18 < mask_home_1_t-3 <= -0.64,-0.04497380737438203,270,6
+s2_t-1 > 1.10,0.04455522508654953,270,6
+-0.67 < kurzfragen_cov19_household_tested_febr2020_yn_Ja..jemand.wurde.getestet..das.Ergebnis.war.positiv_t-2 <= -0.34,-0.043485204452729444,270,6
+langfragen_household_n_t-6 > 1.26,0.04331240223403754,270,6
+employ_change_short_time_1_t-2 > 1.34,0.0432672107618461,270,6
+-0.10 < mask_work_1_t-5 <= 0.38,-0.043180080191270384,270,6
+-0.42 < employ_change_homeoffice_0_t-0 <= -0.32,0.042808832097081514,270,6
+PCR_combined_missing_t-2 > 1.07,-0.0426514152262105,270,6
+-0.23 < mask_sport_0_t-5 <= -0.12,0.04243955276615131,270,6
+-0.51 < vacc_second_1_t-5 <= -0.14,-0.04240399117769518,270,6
+full_vacc_1_t-6 > 0.44,0.04235760829054443,270,6
+contact_do.not.know.no.information_t-3 > 1.46,0.042311273682287466,270,6
+home_combined_t-4 > 0.94,-0.041853363386066274,270,6
+employ_change_short_time_0_t-2 > 1.68,-0.04121804751875721,270,6
+sero_group_natural.immunity_t-6 > 0.60,-0.04099939526965639,270,6
+-0.42 < kurzfragen_cov19_tested_febr2020_yn_No_t-1 <= 0.21,0.040149022082635065,270,6
+-0.81 < mask_transport_0_t-4 <= -0.52,-0.040057642009079325,270,6
+-0.33 < kurzfragen_cov19_household_tested_febr2020_yn_Nein_t-6 <= 0.46,0.03990702609005406,270,6
+PCR_combined_not.tested_t-3 > 1.39,-0.03931526726079379,270,6
+-1.03 < mask_building_1_t-4 <= -0.57,-0.03914472590678619,270,6
+-0.26 < mask_building_1_t-1 <= -0.15,-0.03899274273948373,270,6
+tested_PCR_missing_t-3 > 0.76,0.03895389210701903,270,6
+langfragen_household_n_t-4 > 1.21,0.03869195318858536,270,6
+0.20 < cofeanfa_t-4 <= 0.51,-0.03867342304881951,270,6
+vacc_second_0_t-5 > 2.12,0.03859247819082522,270,6
+-0.35 < kurzfragen_cov19_household_tested_febr2020_yn_Keine.Angabe_t-2 <= 1.10,-0.038502828397392636,270,6
+0.48 < sero_group_no.immunity_t-2 <= 1.99,0.0383693086294526,270,6
+-0.17 < symp_count_t-3 <= -0.01,-0.03821401848253904,270,6
+serostatus_1_t-6 > 0.84,0.03811478599658819,270,6
+contact_contact.with.confirmed.COVID.19.patient_t-6 > 0.73,-0.037878217901243905,270,6
+-0.36 < kurzfragen_cov19_household_tested_febr2020_yn_Nein_t-1 <= 0.35,-0.03768647459357628,270,6
+-0.93 < mask_shop_0_t-6 <= -0.10,0.03691392923914861,270,6
+-0.80 < mask_walk_1_t-5 <= -0.38,-0.036636438133466655,270,6
+0.12 < cofeanfa_t-3 <= 0.20,0.03660523950175484,270,6
+0.30 < mask_other_0_t-1 <= 1.78,0.036581842946877094,270,6
+-0.03 < mask_building_0_t-0 <= 0.44,-0.03604745456698429,270,6
+-0.37 < symptomatic_0_t-0 <= -0.16,-0.03604633402838074,270,6
+employ_parental.other.leave_t-5 > 1.49,0.035895989727649506,270,6
+-0.63 < vacc_inf_Vaccinated_t-0 <= 0.16,0.03581877301584047,270,6
+nat_immun_1_t-6 > 0.59,0.03544018743065978,270,6
+household_PCR_missing_t-4 <= -1.20,-0.03538653869259848,270,6
+symptomatic_1_t-1 <= -1.28,0.03498617101330979,270,6
+-0.80 < vacc_inf_Infected_t-0 <= -0.37,-0.03444240410261942,270,6
+-0.65 < euroimmun_result_qualitativ_positiv_t-5 <= 0.21,-0.03416550128122164,270,6
+household_PCR_not.tested_t-4 > 1.51,-0.033887008418592164,270,6
+0.44 < mask_home_1_t-4 <= 1.53,0.033769965405496045,270,6
+-1.27 < symptomatic_1_t-4 <= -0.61,0.03336652790586291,270,6
+no_immun_0_t-3 > 0.98,0.03280007103443934,270,6
+0.18 < contact_no.contact_t-0 <= 0.55,0.032646617809759644,270,6
+0.27 < kurzfragen_cov19_tested_febr2020_result_Ich.hatte.mindestens.einmal.ein.positives.Testergebnis_t-5 <= 0.32,-0.03154072871422769,270,6
+langfragen_hand_cleaning_time_Etwa.20.Sekunden_t-5 > 1.82,-0.030073302528858866,270,6
+-0.85 < langfragen_hand_cleaning_time_Etwa.10.Sekunden_t-4 <= -0.24,-0.030061732472394753,270,6
+-0.69 < kurzfragen_cov19_tested_febr2020_yn_Yes_t-4 <= -0.36,-0.029744876851118096,270,6
+0.47 < quarantine_mandatory.voluntary.quarantine_t-5 <= 1.28,-0.028944131146678032,270,6
+0.37 < cofeanfa_con_t-0 <= 1.03,-0.02856285760709272,270,6
+-1.11 < cofeanfa_con_t-2 <= -0.62,0.027918080932533416,270,6
+employ_parental.other.leave_t-3 > 1.49,0.027907484075236293,270,6
+-0.25 < mask_other_1_t-6 <= -0.04,-0.02773017126072725,270,6
+0.60 < vacc_second_0_t-6 <= 2.12,-0.027564421734371798,270,6
+-0.55 < mask_home_0_t-4 <= -0.25,0.02701997024406807,270,6
+symptomatic_1_t-5 > 1.36,-0.026434112843697222,270,6
+0.25 < langfragen_hand_cleaning_cope_Ja..vollständig_t-0 <= 1.84,-0.02067739234415551,270,6
+-0.62 < employ_unemployed_t-1 <= -0.31,0.13348713597030487,271,6
+Inzidenz_t-6 > 1.01,0.10989328590590912,271,6
+mask_home_1_t-2 > 1.53,0.10907792235523865,271,6
+Inzidenz_t-0 > 1.01,0.09622298016192737,271,6
+tested_PCR_missing_t-2 > 0.76,0.08559056740701314,271,6
+-0.20 < kurzfragen_cov19_tested_febr2020_result_Ich.hatte.mindestens.einmal.ein.positives.Testergebnis_t-2 <= 0.09,-0.08232715249214902,271,6
+langfragen_restriction_contact_yn_Nein..überhaupt.nicht_t-4 > 1.33,0.0803576894767794,271,6
+tested_PCR_no.PCR.test_t-2 > 1.38,0.08031512890200403,271,6
+tested_PCR_missing_t-1 > 0.76,0.07951136254955443,271,6
+contact_no.contact_t-3 > 1.47,-0.07819577212094274,271,6
+quarantine_mandatory.voluntary.quarantine_t-2 > 1.28,-0.07655630668965134,271,6
+household_PCR_unclear_t-0 > 1.93,0.07623830583641704,271,6
+quarantine_mandatory.voluntary.quarantine_t-4 > 1.28,-0.07581812496905967,271,6
+sero_group_vaccinated.2nd_t-4 > 0.63,0.07579734835636953,271,6
+0.44 < mask_home_1_t-1 <= 1.53,0.07423285954049612,271,6
+quarantine_mandatory.voluntary.quarantine_t-3 > 1.28,-0.07328580697218912,271,6
+sero_group_vaccinated.1st_t-0 > 1.08,0.072116830109476,271,6
+tested_PCR_missing_t-4 > 0.76,0.07170734917480236,271,6
+employ_parental.other.leave_t-6 > 1.49,0.0706411720365218,271,6
+-0.72 < vacc_first_1_t-3 <= 0.35,-0.06923334295335497,271,6
+sero_group_vaccinated.2nd_t-3 > 0.77,0.06360518800960077,271,6
+mask_home_0_t-3 > 1.77,0.06250716847560404,271,6
+langfragen_hand_cleaning_cope_Ja..vollständig_t-3 > 1.84,0.06062950876540645,271,6
+employ_apprenticeship_t-0 > 1.18,0.060286194372195484,271,6
+-1.11 < cofeanfa_con_t-3 <= -0.62,0.06019906637178202,271,6
+langfragen_hand_cleaning_time_Etwa.60.Sekunden_t-0 <= -1.07,-0.05977206609229989,271,6
+0.44 < mask_home_1_t-3 <= 1.53,0.059130832612648676,271,6
+-0.76 < Inzidenz_t-2 <= -0.50,-0.059078805429398425,271,6
+0.53 < household_PCR_unclear_t-6 <= 1.93,0.05781886792266739,271,6
+cofeanfa_t-5 <= -0.81,0.05619808014718341,271,6
+-1.13 < mask_building_0_t-2 <= -0.65,-0.05491527138836701,271,6
+kurzfragen_employment_consequences_Ja..folgende.Änderung.en.._t-1 > -0.30,0.054868718800641446,271,6
+employ_apprenticeship_t-2 > 1.18,0.054642025088606015,271,6
+0.59 < contact_do.not.know.no.information_t-6 <= 1.50,0.054304248321812944,271,6
+mask_home_0_t-5 > 1.77,0.05402540492473076,271,6
+mask_work_1_t-0 > 1.82,0.053623367314492736,271,6
+langfragen_hand_cleaning_time_Etwa.5.Sekunden_t-2 <= -0.83,-0.05320671689049568,271,6
+-0.31 < PCR_positive_1_t-5 <= 0.21,0.05292952264888825,271,6
+kurzfragen_employment_consequences_Keine.Angabe_t-5 > 1.39,0.05265815891624437,271,6
+kurzfragen_cov19_household_tested_febr2020_yn_Keine.Angabe_t-5 > 1.10,0.05260725982435473,271,6
+1.00 < kurzfragen_cov19_household_tested_febr2020_yn_Nein_t-5 <= 1.50,-0.052559991093928546,271,6
+0.47 < quarantine_mandatory.voluntary.quarantine_t-1 <= 1.28,-0.05221905731010123,271,6
+0.55 < x229en_t-5 <= 1.16,-0.05216565917142945,271,6
+mask_shop_0_t-4 > 0.50,-0.05139386984519173,271,6
+x229es1_t-5 <= -0.48,0.051171849979861316,271,6
+mask_public_places_1_t-6 > 1.61,0.05019756660752888,271,6
+sero_group_vaccinated.1st_t-1 > 1.08,0.04890303606413496,271,6
+langfragen_restriction_contact_yn_Nein..überhaupt.nicht_t-5 > 1.33,0.04867146742464041,271,6
+mask_sport_1_t-4 > 1.26,0.04863205071514877,271,6
+contact_no.contact_t-1 > 1.47,-0.04818220777024797,271,6
+0.71 < mask_transport_1_t-0 <= 1.59,0.04817281810575888,271,6
+0.29 < mask_home_0_t-1 <= 1.77,0.048093044707877806,271,6
+-0.60 < serostatus_1_t-3 <= 0.23,-0.04789931560866435,271,6
+0.22 < kurzfragen_healthstatus_t-4 <= 0.56,-0.04781012922767467,271,6
+-0.93 < mask_shop_0_t-0 <= -0.10,0.04754889106144749,271,6
+sero_group_vaccinated.2nd_t-5 > 0.52,0.04751720749486452,271,6
+-0.55 < mask_walk_0_t-6 <= -0.21,0.04746664392696595,271,6
+x229es1_t-3 <= -0.48,-0.047359238170611974,271,6
+contact_missing_t-0 > 1.36,0.047219379707140414,271,6
+quarantine_missing_t-2 > 1.39,0.04660088189519142,271,6
+oc43s1_t-6 > 0.93,0.046566522299402835,271,6
+langfragen_hand_cleaning_time_Etwa.10.Sekunden_t-6 > 0.97,-0.04625762270926863,271,6
+-0.01 < kurzfragen_employment_consequences_Keine.Angabe_t-6 <= 1.39,0.04621428987579334,271,6
+nl63s1_t-5 > 0.45,0.04584642733372122,271,6
+0.07 < hku1n_t-6 <= 0.32,0.04577915220790836,271,6
+contact_do.not.know.no.information_t-5 > 1.46,0.045730942302860185,271,6
+0.44 < mask_building_0_t-6 <= 1.64,0.04570905154341013,271,6
+nl63n_t-5 > 1.00,-0.04561645236568399,271,6
+-0.83 < langfragen_hand_cleaning_time_Etwa.5.Sekunden_t-5 <= 0.06,-0.045533082831192034,271,6
+0.47 < quarantine_no.quarantine_t-3 <= 1.56,-0.04482992098766385,271,6
+-1.14 < symptomatic_0_t-6 <= -0.60,0.044452003007212595,271,6
+sero_group_natural.immunity_t-2 > 0.60,-0.04358355461211377,271,6
+-0.72 < no_vacc_0_t-2 <= 0.34,0.04352101988982244,271,6
+0.07 < household_PCR_someone.tested..result.positive_t-6 <= 0.63,0.04289421610950466,271,6
+tested_PCR_PCR.tested..once.positive_t-6 > 0.48,-0.04285798137703351,271,6
+-1.04 < hku1n_t-3 <= -0.54,0.04261008118566453,271,6
+0.19 < s2_t-1 <= 1.10,0.04225363697429328,271,6
+-0.34 < kurzfragen_cov19_household_tested_febr2020_yn_Nein_t-2 <= 0.40,0.041389252482519276,271,6
+contact_missing_t-3 > 1.33,0.04138532424627859,271,6
+symptomatic_0_t-4 > 1.30,-0.041321699421626626,271,6
+0.25 < mask_other_0_t-0 <= 1.78,0.0408276009856463,271,6
+mask_other_1_t-4 > 1.37,-0.040593628668388206,271,6
+-0.03 < nl63n_t-6 <= 0.30,0.040441675724406344,271,6
+-0.58 < mask_building_1_t-2 <= -0.26,-0.04038848735486008,271,6
+-0.38 < PCR_positive_0_t-5 <= -0.20,0.04001098242831639,271,6
+-0.31 < PCR_positive_1_t-6 <= 0.21,-0.03968974049688787,271,6
+0.28 < langfragen_hand_cleaning_cope_Ja..vollständig_t-5 <= 1.84,0.0391435995517029,271,6
+0.31 < mask_other_0_t-5 <= 1.78,0.03896986801205923,271,6
+household_PCR_unclear_t-5 > 1.93,0.0389690643075767,271,6
+kurzfragen_employment_consequences_Keine.Angabe_t-3 > 1.39,0.038937122073728896,271,6
+0.49 < mask_work_0_t-1 <= 1.58,0.03855329093276202,271,6
+langfragen_household_n_t-4 > 1.21,0.03781744775316583,271,6
+langfragen_hand_cleaning_time_Etwa.5.Sekunden_t-6 > 0.68,0.03750929698703481,271,6
+home_combined_t-0 <= -0.86,0.03748149851310549,271,6
+0.27 < mask_building_1_t-0 <= 1.82,0.036771320235292004,271,6
+0.30 < mask_other_0_t-2 <= 1.78,0.0365846196847895,271,6
+langfragen_restriction_contact_yn_Nein..überhaupt.nicht_t-6 > 1.33,0.036543336554169935,271,6
+0.68 < household_PCR_missing_t-0 <= 1.30,0.0363287745180785,271,6
+household_PCR_not.tested_t-2 > 1.49,-0.036109288257538376,271,6
+hku1n_t-4 > 0.81,-0.03566049842800719,271,6
+household_PCR_unclear_t-2 > 1.93,0.035203961077027675,271,6
+-0.09 < employ_change_homeoffice_0_t-2 <= 0.33,-0.03466089481812578,271,6
+contact_missing_t-4 > 1.28,0.034592673049695065,271,6
+-0.95 < home_combined_t-2 <= -0.30,0.03449871178479144,271,6
+-0.81 < nc_t-5 <= -0.58,-0.033832831515852334,271,6
+0.31 < mask_other_0_t-6 <= 1.78,0.03321318640053806,271,6
+household_PCR_unclear_t-4 > 1.93,-0.033206581359119636,271,6
+-0.39 < nl63s1_t-2 <= -0.28,-0.033177461816897034,271,6
+quarantine_mandatory.voluntary.quarantine_t-0 > 1.28,-0.03233855091990315,271,6
+-1.46 < household_PCR_.someone.tested..result.negative_t-6 <= -1.09,-0.03160945194226274,271,6
+-0.53 < quarantine_missing_t-3 <= 0.09,0.030986061026624396,271,6
+contact_do.not.know.no.information_t-0 > 1.46,0.030881682448456,271,6
+-0.25 < no_vacc_1_t-1 <= 0.12,0.030496179564828065,271,6
+-0.27 < employ_change_termination_0_t-3 <= 0.07,-0.030424155769813176,271,6
+-0.20 < cofeanfa_con_t-4 <= 0.11,0.03029272155251207,271,6
+0.53 < household_PCR_unclear_t-1 <= 1.93,0.02998286842516065,271,6
+sero_group_unclear_t-1 > 1.11,0.029391173074056524,271,6
+tested_PCR_missing_t-3 > 0.76,0.027998731275503532,271,6
+0.69 < langfragen_hand_cleaning_cope_Ja..teilweise_t-3 <= 1.62,0.025936404861722506,271,6
+-0.43 < employ_self.employed_t-1 <= -0.29,-0.023300997292170885,271,6
+-0.35 < kurzfragen_cov19_tested_febr2020_yn_Yes_t-0 <= 0.59,-0.022067670718491247,271,6
+PCR_combined_not.tested_t-3 > 1.39,-0.02159414419187398,271,6
+-0.64 < mask_home_1_t-5 <= -0.21,0.2875256955107124,272,6
+household_PCR_unclear_t-6 > 1.93,0.1369536417031223,272,6
+household_PCR_unclear_t-2 > 1.93,0.11411799199504041,272,6
+household_PCR_unclear_t-0 > 1.93,0.11333950890447073,272,6
+langfragen_restriction_contact_yn_Nein..überhaupt.nicht_t-4 > 1.33,0.10345975113181648,272,6
+Inzidenz_t-6 > 1.01,0.10313714153225549,272,6
+quarantine_mandatory.voluntary.quarantine_t-2 > 1.28,-0.0918428980506481,272,6
+cofeanfa_con_t-1 > 1.03,-0.08893578334376379,272,6
+cofeanfa_t-2 > 0.51,-0.08473688577166555,272,6
+cofeanfa_t-4 > 0.51,-0.08185392790347407,272,6
+langfragen_restriction_contact_yn_Nein..überhaupt.nicht_t-0 > 1.33,0.0802616100279519,272,6
+full_vacc_1_t-1 > 0.82,0.07872469307938557,272,6
+sero_group_vaccinated.1st_t-0 > 1.08,0.07706034572181521,272,6
+quarantine_mandatory.voluntary.quarantine_t-0 > 1.28,-0.07099008633025249,272,6
+0.18 < s2_t-6 <= 0.98,0.06921906090156354,272,6
+quarantine_mandatory.voluntary.quarantine_t-4 > 1.28,-0.06880574112330268,272,6
+quarantine_mandatory.voluntary.quarantine_t-3 > 1.28,-0.06829006245696112,272,6
+langfragen_restriction_contact_yn_Ja..teilweise_t-4 > 1.64,0.06621150800834574,272,6
+no_immun_0_t-1 > 1.07,0.06620388743586975,272,6
+sero_group_vaccinated.2nd_t-3 > 0.77,0.06574117161012612,272,6
+contact_missing_t-0 > 1.36,0.06507384954147916,272,6
+serostatus_1_t-4 > 0.90,0.06505890975774702,272,6
+contact_missing_t-4 > 1.28,0.06453179551340966,272,6
+kurzfragen_employment_consequences_Nein..keine.dieser.Veränderungen_t-2 > 1.55,0.0645071584503871,272,6
+cofeanfa_t-3 > 0.51,-0.06339514888224526,272,6
+employ_change_termination_1_t-2 > 1.70,0.06297590738600006,272,6
+0.66 < household_PCR_missing_t-1 <= 1.30,0.06245373391408517,272,6
+vacc_first_1_t-1 > 1.13,0.06234954077870822,272,6
+0.55 < contact_no.contact_t-2 <= 1.47,-0.061362388018940256,272,6
+home_combined_t-4 > 0.94,-0.061303566724121544,272,6
+0.75 < employ_change_homeoffice_1_t-3 <= 1.60,0.06095752755221746,272,6
+kurzfragen_employment_consequences_Keine.Angabe_t-3 > 1.39,0.060888515703791495,272,6
+quarantine_missing_t-2 > 1.39,0.060372180427222776,272,6
+kurzfragen_employment_consequences_Nein..keine.dieser.Veränderungen_t-1 > 1.55,0.059479262541082566,272,6
+tested_PCR_missing_t-1 > 0.76,0.058734826425476894,272,6
+0.11 < mask_other_1_t-5 <= 0.56,0.05854510834735621,272,6
+tested_PCR_missing_t-0 > 0.76,0.057765410934543605,272,6
+employ_change_short_time_1_t-4 > 1.34,0.05730147348618389,272,6
+home_combined_t-5 > 0.94,-0.05455186479523838,272,6
+0.61 < langfragen_restriction_contact_yn_Nein..überhaupt.nicht_t-5 <= 1.33,0.054186964915212965,272,6
+kurzfragen_cov19_tested_febr2020_result_Ich.hatte.mindestens.einmal.ein.positives.Testergebnis_t-6 > 0.67,0.05318149948199912,272,6
+langfragen_hand_cleaning_cope_Ja..teilweise_t-2 > 1.62,0.05302482046668676,272,6
+-0.56 < rbd_t-6 <= -0.08,-0.05287960074453957,272,6
+symp_count_t-1 > 0.71,-0.052140373034473476,272,6
+nat_immun_1_t-6 > 0.59,0.05192408856102923,272,6
+mask_shop_0_t-0 > 0.50,-0.051870625904126035,272,6
+-0.37 < oc43s1_t-1 <= -0.04,0.05184747588166595,272,6
+kurzfragen_cov19_household_tested_febr2020_yn_Keine.Angabe_t-5 > 1.10,0.0516228131357967,272,6
+contact_contact.with.confirmed.COVID.19.patient_t-2 > 0.73,-0.051503271485159575,272,6
+0.59 < contact_do.not.know.no.information_t-6 <= 1.50,0.051229383416203006,272,6
+employ_self.employed_t-5 > 1.66,0.05104941829855835,272,6
+0.20 < kurzfragen_cov19_tested_febr2020_yn_No_t-0 <= 0.89,0.049850768176356405,272,6
+-0.62 < s2_t-3 <= -0.31,0.049838790537850265,272,6
+-0.65 < mask_building_0_t-2 <= -0.40,-0.049570080820825556,272,6
+cofeanfa_t-6 > 0.51,-0.04929520545458394,272,6
+sero_group_vaccinated.1st_t-1 > 1.08,0.0486495306489894,272,6
+-0.23 < employ_change_homeoffice_1_t-4 <= 0.10,-0.04848131768824495,272,6
+cofeanfa_t-1 > 0.54,-0.04847167694912038,272,6
+-0.63 < euroimmun_result_quantitativ_t-4 <= 0.10,-0.04831990751231724,272,6
+0.65 < PCR_combined_missing_t-3 <= 1.07,-0.048140086665722955,272,6
+vacc_first_1_t-3 > 1.02,0.04783737557462831,272,6
+tested_PCR_PCR.tested..once.positive_t-2 > 0.74,-0.04716388018149359,272,6
+symp_count_t-5 > 0.71,-0.04704512461185694,272,6
+cofeanfa_t-0 > 0.54,-0.04696119637266456,272,6
+-0.53 < mask_home_0_t-6 <= -0.25,0.0467456930443826,272,6
+nat_immun_1_t-4 > 0.59,0.0467046173126645,272,6
+0.23 < Inzidenz_t-0 <= 0.39,0.04618769408044938,272,6
+household_PCR_unclear_t-4 > 1.93,0.04495265397107804,272,6
+kurzfragen_cov19_household_tested_febr2020_yn_Keine.Angabe_t-2 > 1.10,0.04425002637711571,272,6
+PCR_combined_missing_t-1 > 1.07,0.04399518871634662,272,6
+household_PCR_someone.tested..result.positive_t-0 > 0.96,0.043992464006344226,272,6
+0.61 < langfragen_restriction_contact_yn_Nein..überhaupt.nicht_t-2 <= 1.33,0.04361278690624221,272,6
+-0.98 < household_PCR_someone.tested..result.positive_t-6 <= -0.66,-0.043183135830688675,272,6
+sero_group_vaccinated.2nd_t-4 > 0.63,0.04308217311617474,272,6
+employ_unemployed_t-4 > 0.90,0.04306656398148817,272,6
+langfragen_restriction_contact_yn_Ja..vollständig_t-6 > 1.37,0.04302398787518052,272,6
+-0.80 < nc_t-2 <= -0.58,-0.04281621203369478,272,6
+kurzfragen_employment_consequences_Nein..keine.dieser.Veränderungen_t-0 > 1.55,0.0428091704933168,272,6
+tested_PCR_no.PCR.test_t-3 > 1.39,-0.04191963913355661,272,6
+-0.11 < mask_public_places_1_t-0 <= 0.01,0.04189080731648553,272,6
+kurzfragen_cov19_tested_febr2020_result_Ich.hatte.ausschließlich.negative.Testergebnisse_t-1 > 1.16,0.0418135799113974,272,6
+0.41 < nat_immun_0_t-3 <= 1.97,0.04179542925655902,272,6
+0.49 < mask_work_0_t-5 <= 1.58,0.041080719003103075,272,6
+-0.58 < mask_building_1_t-2 <= -0.26,0.040602590170423336,272,6
+employ_apprenticeship_t-0 > 1.18,0.04052851317487371,272,6
+-0.76 < Inzidenz_t-3 <= -0.50,-0.0398969783806458,272,6
+employ_apprenticeship_t-4 > 1.18,0.03986092688478666,272,6
+employ_pupil.retired_t-5 > 1.24,-0.03974289941169645,272,6
+euroimmun_result_qualitativ_positiv_t-4 > 0.92,0.03962701920162912,272,6
+household_PCR_someone.tested..result.positive_t-4 > 0.63,0.03930701789550855,272,6
+employ_pupil.retired_t-1 > 1.24,0.039265064388914944,272,6
+vacc_second_0_t-5 > 2.12,-0.038859059353142204,272,6
+-0.89 < PCR_positive_0_t-4 <= -0.38,-0.03876176801194476,272,6
+euroimmun_result_qualitativ_positiv_t-6 > 0.85,0.03860793859329727,272,6
+kurzfragen_cov19_tested_febr2020_result_Ich.hatte.mindestens.einmal.ein.positives.Testergebnis_t-1 > 0.67,0.03850262088881349,272,6
+vacc_inf_Vaccinated_t-3 > 1.03,0.03785605970512571,272,6
+-0.70 < no_vacc_0_t-1 <= 0.34,-0.0377827965150804,272,6
+0.27 < langfragen_hand_cleaning_cope_Ja..vollständig_t-2 <= 1.84,-0.0377554068776426,272,6
+employ_change_short_time_0_t-2 > 1.68,0.037728481257915926,272,6
+-1.27 < symptomatic_1_t-4 <= -0.61,0.03726518789282211,272,6
+0.10 < employ_change_homeoffice_1_t-2 <= 0.75,0.03675343932726014,272,6
+symp_count_t-2 > 0.71,-0.035284642377950697,272,6
+no_vacc_1_t-3 > 1.98,-0.034856971576806284,272,6
+-0.38 < langfragen_household_n_t-1 <= -0.07,-0.03481893817122028,272,6
+vacc_inf_Infected_t-0 > 0.72,0.0342833284461773,272,6
+-0.22 < mask_walk_1_t-3 <= 0.08,0.0341220868230483,272,6
+-1.02 < home_combined_t-3 <= -0.30,0.03217963329154412,272,6
+-0.32 < mask_sport_1_t-3 <= 0.06,-0.03217354960571885,272,6
+-0.17 < x229es1_t-6 <= -0.00,0.031226236856065136,272,6
+contact_do.not.know.no.information_t-3 > 1.46,0.030984657089728987,272,6
+0.08 < rbd_t-3 <= 1.05,0.03081144202264834,272,6
+s1_t-2 <= -0.73,0.03067606078534981,272,6
+0.41 < nat_immun_0_t-2 <= 1.97,0.03022552873537185,272,6
+0.01 < symptomatic_1_t-6 <= 0.05,0.029926050970707777,272,6
+-0.09 < mask_home_1_t-3 <= -0.02,-0.028512884454613453,272,6
+-0.76 < Inzidenz_t-4 <= -0.50,-0.027932735152288668,272,6
+employ_employed_t-3 > 1.80,-0.026978367003053224,272,6
+-0.80 < mask_walk_1_t-0 <= -0.38,-0.02624080038842479,272,6
+symp_count_t-4 > 0.71,-0.026024131301589957,272,6
+-0.19 < household_PCR_.someone.tested..result.negative_t-3 <= 0.48,-0.024061976148358918,272,6
+kurzfragen_cov19_tested_febr2020_result_Ich.hatte.ausschließlich.negative.Testergebnisse_t-2 > 1.16,-0.021658107838245164,272,6
+0.19 < nat_immun_1_t-5 <= 0.59,0.01420030986497763,272,6
+household_PCR_unclear_t-2 > 1.93,0.12432953442529253,273,6
+household_PCR_unclear_t-4 > 1.93,0.1092820062886619,273,6
+quarantine_mandatory.voluntary.quarantine_t-2 > 1.28,-0.09873308292072853,273,6
+household_PCR_unclear_t-5 > 1.93,0.08912290097210664,273,6
+langfragen_restriction_contact_yn_Nein..überhaupt.nicht_t-6 > 1.33,0.08647951163570934,273,6
+household_PCR_someone.tested..result.positive_t-0 > 0.96,0.08476983140675967,273,6
+employ_apprenticeship_t-1 > 1.18,0.08240867247442918,273,6
+kurzfragen_employment_consequences_Nein..keine.dieser.Veränderungen_t-2 > 1.55,0.0804810983064626,273,6
+mask_building_0_t-5 > 1.64,0.0783308709812834,273,6
+0.57 < vacc_second_0_t-4 <= 2.12,-0.07803646384520879,273,6
+kurzfragen_employment_consequences_Nein..keine.dieser.Veränderungen_t-3 > 1.55,0.07787341598843159,273,6
+mask_walk_0_t-0 > 1.73,0.07708634251253169,273,6
+-1.22 < quarantine_no.quarantine_t-1 <= -0.73,0.07656498917005097,273,6
+quarantine_mandatory.voluntary.quarantine_t-3 > 1.28,-0.07599908934427221,273,6
+mask_building_0_t-0 > 1.56,0.07569905334906764,273,6
+vacc_inf_Vaccinated_t-3 > 1.03,0.07548363977067869,273,6
+Inzidenz_t-6 > 1.01,0.0753733565233835,273,6
+0.47 < quarantine_mandatory.voluntary.quarantine_t-1 <= 1.28,-0.07508017831478539,273,6
+Inzidenz_t-0 > 1.01,0.07454200043027209,273,6
+mask_home_1_t-2 > 1.53,0.07367119352275536,273,6
+sero_group_vaccinated.1st_t-0 > 1.08,0.07288629235536959,273,6
+mask_home_1_t-6 > 1.53,0.07273278369809326,273,6
+mask_public_places_0_t-2 > 1.19,0.07214553611047628,273,6
+hku1s1_t-2 > 0.90,0.07150427395254332,273,6
+employ_apprenticeship_t-0 > 1.18,0.07114473203755699,273,6
+s1_t-4 > 0.91,0.066267796075286,273,6
+quarantine_mandatory.voluntary.quarantine_t-0 > 1.28,-0.06593517841123638,273,6
+langfragen_restriction_contact_yn_Nein..überhaupt.nicht_t-0 > 1.33,0.06564497662725657,273,6
+mask_other_1_t-1 > 1.37,-0.06490894740698014,273,6
+0.08 < rbd_t-2 <= 1.08,0.06443038282330414,273,6
+PCR_combined_not.tested_t-6 > 1.39,-0.06413179661803428,273,6
+0.65 < PCR_combined_missing_t-3 <= 1.07,0.06283886821701044,273,6
+vacc_first_1_t-2 > 1.10,0.06255071740474048,273,6
+-0.62 < employ_unemployed_t-1 <= -0.31,-0.0612757123957347,273,6
+tested_PCR_missing_t-1 > 0.76,0.060288444783529085,273,6
+contact_contact.with.confirmed.COVID.19.patient_t-4 > 0.73,-0.05957332620672715,273,6
+sero_group_unclear_t-1 > 1.11,0.05810984963338061,273,6
+-0.54 < hku1n_t-2 <= -0.21,-0.05766262623712238,273,6
+0.53 < household_PCR_unclear_t-0 <= 1.93,0.05709097921508617,273,6
+kurzfragen_employment_consequences_Keine.Angabe_t-5 > 1.39,0.05580987471215201,273,6
+PCR_combined_not.tested_t-1 > 1.37,-0.05565581088917296,273,6
+0.44 < symptomatic_1_t-6 <= 1.36,-0.05506521409791945,273,6
+0.24 < employ_self.employed_t-6 <= 0.71,0.054953634853284576,273,6
+mask_restaurant_0_t-6 > 0.82,0.05470001933063818,273,6
+0.13 < symptomatic_0_t-5 <= 0.51,-0.054527232245235896,273,6
+nat_immun_0_t-2 > 1.97,0.054499456376238556,273,6
+-0.68 < euroimmun_result_qualitativ_positiv_t-6 <= 0.21,0.05407234999856188,273,6
+mask_restaurant_1_t-2 > 1.43,0.05394354802991233,273,6
+vacc_inf_Infected_t-0 > 0.72,0.053893250205872344,273,6
+langfragen_household_n_t-4 > 1.21,0.0538676911455575,273,6
+mask_home_1_t-3 > 1.53,0.05375270252452751,273,6
+no_immun_0_t-0 > 1.11,0.0535321397239874,273,6
+0.53 < household_PCR_unclear_t-6 <= 1.93,0.05342849177007563,273,6
+0.38 < mask_work_1_t-2 <= 1.82,-0.052852706035122946,273,6
+langfragen_household_n_t-3 > 1.21,0.052483671052020335,273,6
+quarantine_missing_t-2 > 1.39,0.05221024909953731,273,6
+tested_PCR_PCR.tested..once.positive_t-2 > 0.74,0.051768168755879036,273,6
+mask_building_0_t-3 > 1.64,0.0516016474036485,273,6
+0.40 < serostatus_0_t-4 <= 1.98,-0.050920363288214573,273,6
+sero_group_vaccinated.1st_t-5 > 1.08,0.05069638945411001,273,6
+mask_other_0_t-3 > 1.78,0.05054106712558254,273,6
+vacc_inf_Vaccinated_t-5 > 0.89,0.050488306101856104,273,6
+hku1n_t-4 > 0.81,-0.050086021735747936,273,6
+household_PCR_missing_t-0 > 1.30,0.04881167809162583,273,6
+household_PCR_someone.tested..result.positive_t-6 > 0.63,0.048633359324753205,273,6
+0.07 < employ_change_short_time_0_t-0 <= 0.59,-0.048339882541893586,273,6
+-0.77 < s_t-1 <= -0.54,0.04747692318731797,273,6
+0.02 < tested_PCR_PCR.tested.but.always.negative_t-6 <= 0.38,0.046195567216173544,273,6
+mask_building_0_t-6 > 1.64,0.04577431749840746,273,6
+0.21 < tested_PCR_no.PCR.test_t-1 <= 0.92,0.045447582332419564,273,6
+contact_missing_t-0 > 1.36,0.04537986885770574,273,6
+nl63n_t-5 > 1.00,0.04531373106137632,273,6
+no_immun_0_t-4 > 0.94,0.045190673276270195,273,6
+0.46 < kurzfragen_employment_consequences_Nein..keine.dieser.Veränderungen_t-4 <= 1.55,0.044816303669892664,273,6
+-1.04 < no_vacc_0_t-6 <= -0.76,-0.044786118836887795,273,6
+0.13 < s_t-4 <= 1.17,0.0447693225926434,273,6
+0.41 < nat_immun_0_t-5 <= 1.97,0.044753009371025346,273,6
+mask_public_places_1_t-0 > 1.61,0.044706205256064176,273,6
+kurzfragen_cov19_household_tested_febr2020_yn_Ja..jemand.wurde.getestet..das.Ergebnis.war.positiv_t-3 > 0.73,0.04419679436051527,273,6
+mask_other_1_t-6 > 1.37,-0.04390455122162922,273,6
+0.56 < kurzfragen_healthstatus_t-3 <= 1.06,0.04358364314499897,273,6
+employ_employed_t-0 > 1.80,-0.04336332953938704,273,6
+-0.48 < full_vacc_1_t-2 <= -0.14,-0.04330933846164795,273,6
+sero_group_vaccinated.2nd_t-4 > 0.63,0.04276431363151077,273,6
+0.35 < employ_parental.other.leave_t-0 <= 1.49,0.04267075599454259,273,6
+x229es1_t-4 > 0.48,0.04261533301153982,273,6
+x229es1_t-1 > 0.57,0.042376508798829086,273,6
+kurzfragen_employment_consequences_Nein..keine.dieser.Veränderungen_t-0 > 1.55,0.042333423317069824,273,6
+mask_home_1_t-0 > 1.53,0.04211480223734627,273,6
+quarantine_mandatory.voluntary.quarantine_t-4 > 1.28,-0.04202548454443229,273,6
+mask_home_0_t-2 > 1.77,0.041438550804849726,273,6
+mask_public_places_0_t-4 > 1.19,0.041234611512795755,273,6
+mask_other_1_t-4 > 1.37,-0.04114339984804214,273,6
+0.62 < x229en_t-0 <= 1.19,-0.0410944210853481,273,6
+nat_immun_1_t-0 > 0.65,0.04108962970658497,273,6
+nat_immun_1_t-5 > 0.59,0.04096323612208969,273,6
+langfragen_hand_cleaning_cope_Ja..vollständig_t-0 > 1.84,0.040903057146657304,273,6
+PCR_positive_1_t-6 <= -1.11,-0.040831423028150036,273,6
+mask_walk_1_t-0 <= -1.02,-0.039832515289681625,273,6
+no_vacc_1_t-3 > 1.98,-0.03957987135459367,273,6
+nl63n_t-3 > 1.01,0.03916533033077505,273,6
+0.49 < mask_work_0_t-5 <= 1.58,-0.03838173505957343,273,6
+0.44 < mask_home_1_t-4 <= 1.53,0.03778944937109055,273,6
+0.71 < employ_self.employed_t-5 <= 1.66,0.03752040630306731,273,6
+vacc_first_1_t-1 > 1.13,0.03716991043660585,273,6
+-0.51 < vacc_second_1_t-6 <= -0.14,-0.03700129848565731,273,6
+0.69 < langfragen_household_n_t-6 <= 1.26,0.03693458406548606,273,6
+vacc_second_1_t-2 > 0.82,0.03691966394141116,273,6
+-0.39 < employ_change_short_time_0_t-6 <= -0.22,-0.03663132837002638,273,6
+0.33 < serostatus_1_t-2 <= 1.06,0.036149521633552464,273,6
+symptomatic_1_t-5 > 1.36,-0.03545812332902221,273,6
+-0.75 < no_vacc_0_t-5 <= 0.33,-0.035389484356410365,273,6
+-0.17 < symp_count_t-3 <= -0.01,0.034343825284236566,273,6
+0.59 < household_PCR_missing_t-6 <= 1.30,-0.03404244522839952,273,6
+-0.06 < mask_shop_0_t-3 <= -0.01,0.03351910910374453,273,6
+-0.49 < classification_Negative_t-6 <= -0.26,0.032526917579456985,273,6
+0.44 < vacc_first_0_t-1 <= 1.99,-0.030962950882343507,273,6
+0.27 < mask_building_1_t-2 <= 1.82,-0.030341538453919684,273,6
+0.21 < euroimmun_result_quantitativ_t-1 <= 1.23,-0.030218214219331747,273,6
+0.22 < mask_transport_1_t-2 <= 0.71,-0.027794536662148976,273,6
+oc43s1_t-1 > 0.93,-0.024075700925900875,273,6
+0.20 < mask_transport_0_t-5 <= 1.68,-0.02121380354854035,273,6
+cofeanfa_t-1 > 0.54,-0.11787987671391627,274,6
+mask_home_1_t-2 > 1.53,0.10298126245183707,274,6
+Inzidenz_t-6 > 1.01,0.10038864306511774,274,6
+quarantine_mandatory.voluntary.quarantine_t-0 > 1.28,-0.09012026640705743,274,6
+langfragen_restriction_contact_yn_Nein..überhaupt.nicht_t-3 > 1.33,0.08947955838720188,274,6
+quarantine_mandatory.voluntary.quarantine_t-3 > 1.28,-0.08763573346327498,274,6
+household_PCR_someone.tested..result.positive_t-3 > 0.73,0.08645196085479555,274,6
+cofeanfa_t-0 > 0.54,-0.0827429914959952,274,6
+nat_immun_0_t-3 > 1.97,0.08256704897003081,274,6
+quarantine_mandatory.voluntary.quarantine_t-2 > 1.28,-0.07894674758756741,274,6
+quarantine_mandatory.voluntary.quarantine_t-4 > 1.28,-0.07848083551442551,274,6
+cofeanfa_t-2 > 0.51,-0.07827754183519069,274,6
+kurzfragen_employment_consequences_Nein..keine.dieser.Veränderungen_t-2 > 1.55,0.0770886931531373,274,6
+0.53 < household_PCR_unclear_t-6 <= 1.93,0.0760090896849071,274,6
+household_PCR_unclear_t-5 > 1.93,0.07580024363180876,274,6
+0.29 < mask_home_0_t-1 <= 1.77,0.07519371451892294,274,6
+kurzfragen_employment_consequences_Nein..keine.dieser.Veränderungen_t-5 > 1.55,0.07131589811986801,274,6
+langfragen_restriction_contact_yn_Nein..überhaupt.nicht_t-6 > 1.33,0.06913034911681852,274,6
+kurzfragen_cov19_household_tested_febr2020_yn_Keine.Angabe_t-5 > 1.10,0.06907597042842928,274,6
+kurzfragen_employment_consequences_Nein..keine.dieser.Veränderungen_t-6 > 1.55,0.06518165929955148,274,6
+household_PCR_someone.tested..result.positive_t-4 > 0.63,0.06497451013805397,274,6
+langfragen_restriction_contact_yn_Nein..überhaupt.nicht_t-4 > 1.33,0.06486096827653608,274,6
+tested_PCR_missing_t-1 > 0.76,0.06336994779992043,274,6
+vacc_first_1_t-2 > 1.10,0.06148634134716427,274,6
+mask_work_1_t-0 > 1.82,0.061368321395558416,274,6
+vacc_inf_Vaccinated_t-2 > 1.15,0.0592104180313639,274,6
+symp_count_t-2 > 0.71,-0.05877323479489966,274,6
+tested_PCR_missing_t-3 > 0.76,0.05821838728508776,274,6
+household_PCR_unclear_t-2 > 1.93,0.058098918546692364,274,6
+PCR_combined_not.tested_t-2 > 1.37,-0.05796458779232571,274,6
+0.47 < langfragen_hand_cleaning_time_Etwa.60.Sekunden_t-2 <= 1.61,0.05791801949018312,274,6
+employ_parental.other.leave_t-3 > 1.49,0.05762860338033472,274,6
+employ_unemployed_t-3 > 0.90,0.05759829002626092,274,6
+contact_missing_t-1 > 1.35,0.05755666342610728,274,6
+tested_PCR_missing_t-0 > 0.76,0.057197957515869265,274,6
+0.66 < household_PCR_missing_t-1 <= 1.30,0.057143836273987426,274,6
+0.49 < mask_public_places_1_t-3 <= 1.61,0.056926683843021374,274,6
+0.34 < employ_change_short_time_1_t-0 <= 1.34,0.05673831708762223,274,6
+cofeanfa_t-6 > 0.51,-0.056489209880905056,274,6
+cofeanfa_t-3 <= -0.81,0.05624460892628744,274,6
+0.24 < employ_self.employed_t-4 <= 0.71,0.055755550753013465,274,6
+langfragen_restriction_contact_yn_Nein..überhaupt.nicht_t-0 > 1.33,0.0551884198387197,274,6
+0.41 < nat_immun_0_t-1 <= 1.97,0.05487508066745671,274,6
+mask_home_1_t-6 > 1.53,0.052862102402903934,274,6
+tested_PCR_no.PCR.test_t-2 > 1.38,0.051662169732877745,274,6
+sero_group_vaccinated.2nd_t-5 > 0.52,0.05130898312217372,274,6
+0.92 < tested_PCR_no.PCR.test_t-6 <= 1.39,0.05075013095626392,274,6
+mask_building_1_t-5 > 1.82,0.050316972395864,274,6
+langfragen_hand_cleaning_time_Etwa.5.Sekunden_t-6 > 0.68,0.049879615292636584,274,6
+quarantine_missing_t-2 > 1.39,0.049489193121115445,274,6
+tested_PCR_missing_t-2 > 0.76,0.04845252149002814,274,6
+kurzfragen_employment_consequences_Keine.Angabe_t-1 > 1.39,0.047949006556277006,274,6
+employ_unemployed_t-5 > 0.90,0.04789336372525171,274,6
+mask_walk_0_t-5 > 1.73,0.04736361836934863,274,6
+full_vacc_1_t-1 > 0.82,0.047360524079925304,274,6
+vacc_inf_Vaccinated_t-6 > 0.88,0.04730803647634445,274,6
+0.25 < mask_other_0_t-0 <= 1.78,0.046936227022273506,274,6
+0.55 < contact_no.contact_t-4 <= 1.47,-0.04690763863479962,274,6
+-0.26 < employ_change_homeoffice_0_t-4 <= -0.09,0.0468856276708603,274,6
+kurzfragen_employment_consequences_Nein..keine.dieser.Veränderungen_t-3 > 1.55,0.0466957990420078,274,6
+sero_group_vaccinated.1st_t-2 > 1.08,0.046687628143863596,274,6
+0.31 < mask_other_0_t-6 <= 1.78,0.04632891909244763,274,6
+0.44 < mask_home_1_t-1 <= 1.53,0.046230266605509676,274,6
+mask_walk_1_t-1 > 1.61,0.046164335459003204,274,6
+mask_shop_0_t-3 > 0.50,-0.0460744291338322,274,6
+mask_work_0_t-1 > 1.58,0.04570518706734851,274,6
+household_PCR_not.tested_t-4 > 1.51,-0.04521615845312378,274,6
+vacc_inf_Vaccinated_t-5 > 0.89,0.045058526055717855,274,6
+contact_missing_t-6 > 1.11,0.04464091804328159,274,6
+mask_shop_0_t-1 > 0.50,-0.04449260334253435,274,6
+0.08 < rbd_t-2 <= 1.08,0.044383984054553675,274,6
+kurzfragen_cov19_tested_febr2020_result_Ich.hatte.mindestens.einmal.ein.positives.Testergebnis_t-0 > 0.67,0.044372855316913803,274,6
+nat_immun_1_t-6 > 0.59,0.04436757048450916,274,6
+vacc_inf_Vaccinated_t-1 > 1.18,0.04421910644434329,274,6
+0.27 < employ_apprenticeship_t-2 <= 1.18,0.04417242206100307,274,6
+mask_walk_0_t-4 > 1.73,0.04391630348959428,274,6
+household_PCR_someone.tested..result.positive_t-1 > 0.96,0.04382303700312237,274,6
+vacc_inf_Infected_t-0 > 0.72,0.04377467338339088,274,6
+-0.54 < rbd_t-1 <= -0.07,-0.04372727328605239,274,6
+-0.55 < mask_home_0_t-4 <= -0.25,-0.04319428680588633,274,6
+tested_PCR_no.PCR.test_t-3 > 1.39,0.043048918380298805,274,6
+langfragen_restriction_contact_yn_Ja..teilweise_t-0 > 1.64,0.042997284003847586,274,6
+-0.04 < langfragen_household_n_t-5 <= 0.36,0.04286658606940007,274,6
+-0.73 < employ_change_termination_1_t-3 <= -0.36,-0.04263370089983387,274,6
+0.55 < contact_no.contact_t-2 <= 1.47,-0.04221001996735408,274,6
+vacc_second_1_t-4 > 0.64,0.042090324236117714,274,6
+-0.54 < s1_t-4 <= -0.11,-0.04194162008727773,274,6
+-0.89 < PCR_positive_0_t-4 <= -0.38,-0.04194114250835757,274,6
+langfragen_restriction_contact_yn_Ja..teilweise_t-1 > 1.64,0.04179974446875913,274,6
+0.59 < employ_change_short_time_0_t-4 <= 1.68,0.04144929775915566,274,6
+0.31 < mask_other_0_t-5 <= 1.78,0.041381515160741414,274,6
+0.49 < mask_public_places_1_t-4 <= 1.61,0.041261720364942724,274,6
+0.04 < tested_PCR_PCR.tested.but.always.negative_t-3 <= 0.39,0.041001695032143584,274,6
+langfragen_hand_cleaning_time_Etwa.10.Sekunden_t-4 > 0.97,-0.040821742889809665,274,6
+household_PCR_not.tested_t-6 > 1.51,-0.04080452870164276,274,6
+0.24 < nl63s1_t-5 <= 0.45,0.040556501242960945,274,6
+employ_change_short_time_1_t-3 > 1.34,0.04041078761332507,274,6
+0.41 < nat_immun_0_t-4 <= 1.97,0.03996718119760054,274,6
+langfragen_hand_cleaning_time_Etwa.10.Sekunden_t-3 > 0.97,-0.0399529031220123,274,6
+sero_group_vaccinated.2nd_t-2 > 0.81,0.039895876253263865,274,6
+0.19 < home_combined_t-4 <= 0.50,-0.03982470166228506,274,6
+0.27 < employ_apprenticeship_t-3 <= 1.18,0.03963484519184041,274,6
+-0.70 < no_vacc_0_t-0 <= 0.34,-0.039597248823715465,274,6
+-0.37 < nl63n_t-5 <= -0.03,-0.03928346206743217,274,6
+contact_contact.with.confirmed.COVID.19.patient_t-6 > 0.73,-0.03870973336023433,274,6
+-0.38 < oc43s1_t-5 <= -0.04,-0.03802367962084427,274,6
+employ_change_termination_0_t-3 > 1.80,-0.036082945222977135,274,6
+-0.80 < mask_walk_1_t-0 <= -0.38,0.035952358766773954,274,6
+0.71 < employ_self.employed_t-5 <= 1.66,0.03404176187736297,274,6
+0.55 < contact_no.contact_t-6 <= 1.47,-0.033959870991824445,274,6
+mask_other_1_t-4 > 1.37,-0.03331097286868137,274,6
+-0.43 < employ_self.employed_t-1 <= -0.29,0.03314773280379927,274,6
+0.06 < mask_sport_1_t-5 <= 0.47,-0.03266740811567351,274,6
+vacc_second_1_t-3 > 0.77,0.032346311880197195,274,6
+mask_shop_0_t-4 > 0.50,-0.03155438210037037,274,6
+sero_group_unclear_t-5 > 1.11,-0.030842096362859044,274,6
+-0.83 < langfragen_hand_cleaning_time_Etwa.5.Sekunden_t-1 <= 0.06,-0.030005067048374027,274,6
+household_PCR_unclear_t-4 > 1.93,0.029853197717629593,274,6
+-0.37 < nl63n_t-3 <= -0.03,-0.029630528104430474,274,6
+employ_parental.other.leave_t-6 > 1.49,-0.0276428166649877,274,6
+-0.35 < employ_missing_t-0 <= 2.22,-0.02194885331597296,274,6
+-0.62 < employ_unemployed_t-1 <= -0.31,-0.00702607120466069,274,6
+employ_change_termination_1_t-2 > 1.70,0.11130093852787838,275,6
+Inzidenz_t-6 > 1.01,0.08984184240138027,275,6
+hku1n_t-1 > 0.85,-0.08951730954275021,275,6
+quarantine_mandatory.voluntary.quarantine_t-3 > 1.28,-0.08546788760644307,275,6
+cofeanfa_t-2 > 0.51,-0.08246719150630619,275,6
+cofeanfa_t-0 > 0.54,-0.07786725278697841,275,6
+cofeanfa_t-1 > 0.54,-0.0769040424869523,275,6
+cofeanfa_t-5 <= -0.81,0.07535929055524408,275,6
+mask_work_1_t-0 > 1.82,0.07438661669598179,275,6
+contact_do.not.know.no.information_t-4 > 1.46,0.07335295429684638,275,6
+employ_apprenticeship_t-0 > 1.18,0.06982776160787035,275,6
+0.47 < quarantine_mandatory.voluntary.quarantine_t-1 <= 1.28,-0.06922189395679638,275,6
+mask_home_1_t-6 > 1.53,0.06833616798651887,275,6
+kurzfragen_healthstatus_t-4 > 1.06,0.06740601406381887,275,6
+0.48 < no_immun_1_t-4 <= 1.99,0.0672941087620779,275,6
+vacc_first_1_t-2 > 1.10,0.06718717498523213,275,6
+quarantine_mandatory.voluntary.quarantine_t-4 > 1.28,-0.06684944845099415,275,6
+vacc_first_0_t-2 > 1.99,0.066082005738129,275,6
+mask_home_1_t-3 > 1.53,0.065126740790186,275,6
+employ_change_short_time_1_t-1 > 1.34,0.0649287594464553,275,6
+contact_do.not.know.no.information_t-1 > 1.46,0.06446360970587388,275,6
+0.61 < langfragen_restriction_contact_yn_Nein..überhaupt.nicht_t-2 <= 1.33,0.06425612639924935,275,6
+quarantine_mandatory.voluntary.quarantine_t-2 > 1.28,-0.06365422754568643,275,6
+0.30 < mask_other_0_t-2 <= 1.78,0.06265639409354372,275,6
+kurzfragen_employment_consequences_Keine.Angabe_t-1 > 1.39,0.06232482116371158,275,6
+-0.36 < kurzfragen_cov19_tested_febr2020_yn_Yes_t-4 <= 0.59,0.060586226144046386,275,6
+euroimmun_result_qualitativ_positiv_t-5 > 0.86,0.06016866621082123,275,6
+-0.01 < sero_group_vaccinated.2nd_t-6 <= 0.46,-0.0599674286876317,275,6
+-1.01 < symp_count_t-0 <= -0.47,0.0596782190744521,275,6
+sero_group_vaccinated.2nd_t-1 > 0.84,0.05895673550050692,275,6
+quarantine_mandatory.voluntary.quarantine_t-0 > 1.28,-0.0588789762975003,275,6
+0.31 < no_immun_0_t-1 <= 1.07,0.058026861618122344,275,6
+nat_immun_0_t-2 > 1.97,0.05666301109772411,275,6
+no_immun_0_t-6 > 0.83,0.05658122841155931,275,6
+contact_do.not.know.no.information_t-3 > 1.46,0.056395064004733084,275,6
+contact_missing_t-0 > 1.36,0.05618689878836655,275,6
+-0.40 < tested_PCR_missing_t-4 <= 0.06,0.055528958519677284,275,6
+kurzfragen_employment_consequences_Nein..keine.dieser.Veränderungen_t-2 > 1.55,0.055461930882833035,275,6
+langfragen_household_n_t-4 > 1.21,0.05410822581511935,275,6
+hku1n_t-6 > 0.82,-0.05320510415654103,275,6
+mask_building_0_t-0 > 1.56,0.051452941555612856,275,6
+-0.85 < x229en_t-6 <= -0.46,-0.051267048297142154,275,6
+symp_count_t-4 > 0.71,-0.050608584306574354,275,6
+0.44 < mask_home_1_t-4 <= 1.53,0.0505342803850209,275,6
+0.38 < mask_work_1_t-6 <= 1.82,0.050527163120996886,275,6
+mask_other_1_t-2 > 1.37,-0.050285320502948976,275,6
+hku1n_t-0 > 0.82,-0.05026485667331147,275,6
+mask_public_places_0_t-1 > 1.19,0.05022441658024348,275,6
+mask_restaurant_1_t-4 > 1.43,0.04990519418690146,275,6
+nc_t-3 > 0.68,0.04922288608228693,275,6
+employ_employed_t-5 > 1.80,-0.04915551398429306,275,6
+PCR_positive_1_t-0 > 0.75,0.04904990564857034,275,6
+vacc_first_1_t-6 > 0.93,0.048934152448306255,275,6
+employ_apprenticeship_t-5 > 1.18,0.04875653084801127,275,6
+euroimmun_result_qualitativ_positiv_t-6 > 0.85,0.04839391573805249,275,6
+-0.52 < sero_group_vaccinated.2nd_t-5 <= -0.12,-0.04832644100459028,275,6
+langfragen_hand_cleaning_cope_Ja..vollständig_t-1 > 1.84,0.047999501405228545,275,6
+mask_home_1_t-0 > 1.53,0.04770418123548595,275,6
+kurzfragen_cov19_tested_febr2020_result_Ich.hatte.ausschließlich.negative.Testergebnisse_t-2 > 1.16,-0.04769822859477484,275,6
+employ_change_short_time_1_t-3 > 1.34,0.047470985306138025,275,6
+nl63n_t-1 > 1.06,0.04690586689523896,275,6
+0.49 < mask_public_places_1_t-5 <= 1.61,0.04690337160259559,275,6
+home_combined_t-4 > 0.94,-0.04687068623312005,275,6
+kurzfragen_cov19_household_tested_febr2020_yn_Ja..jemand.wurde.getestet..das.Ergebnis.war.positiv_t-0 > 0.95,0.04662270803699906,275,6
+vacc_inf_Vaccinated_t-1 > 1.18,0.04648877724841296,275,6
+0.37 < kurzfragen_employment_consequences_Nein..keine.dieser.Veränderungen_t-1 <= 1.55,0.046408568350030356,275,6
+mask_public_places_1_t-2 > 1.61,0.0461024152015199,275,6
+0.08 < mask_walk_1_t-1 <= 0.73,0.04576302889957743,275,6
+vacc_inf_Vaccinated_t-0 > 1.20,0.045680709706432183,275,6
+x229es1_t-1 > 0.57,0.045286025146425116,275,6
+mask_building_0_t-6 > 1.64,0.04496929901352125,275,6
+contact_missing_t-1 > 1.35,0.04471469205798426,275,6
+serostatus_1_t-4 > 0.90,0.044705237442409854,275,6
+0.66 < langfragen_household_n_t-2 <= 1.21,0.044438547207082485,275,6
+langfragen_hand_cleaning_cope_Ja..teilweise_t-2 > 1.62,0.04428659749545696,275,6
+langfragen_restriction_contact_yn_Nein..überhaupt.nicht_t-4 > 1.33,0.04373388753281732,275,6
+0.09 < household_PCR_missing_t-6 <= 0.59,0.04319582487959879,275,6
+nat_immun_1_t-3 > 0.59,0.04318616043979566,275,6
+mask_restaurant_0_t-0 > 0.82,0.043055949440148594,275,6
+-0.42 < tested_PCR_missing_t-5 <= 0.06,0.0430295933218613,275,6
+-0.62 < cofeanfa_con_t-5 <= -0.22,0.04289933004657774,275,6
+0.39 < mask_restaurant_1_t-3 <= 1.43,0.041827423199837774,275,6
+langfragen_hand_cleaning_perday_t-3 > 1.08,-0.041437637238853256,275,6
+mask_shop_0_t-0 > 0.50,-0.04073631598892525,275,6
+0.13 < symptomatic_0_t-6 <= 0.51,-0.0405231691898043,275,6
+-0.23 < employ_change_homeoffice_1_t-0 <= 0.10,-0.040505210867220046,275,6
+0.47 < langfragen_hand_cleaning_time_Etwa.60.Sekunden_t-3 <= 1.61,0.040054308826796226,275,6
+-0.26 < symptomatic_1_t-0 <= 0.00,0.04000157558198576,275,6
+kurzfragen_cov19_tested_febr2020_yn_No_t-3 > 1.39,-0.03979211896907388,275,6
+vacc_first_1_t-1 > 1.13,0.039597794381677584,275,6
+-0.45 < tested_PCR_PCR.tested.but.always.negative_t-1 <= 0.10,-0.038901806959534116,275,6
+kurzfragen_cov19_household_tested_febr2020_yn_Keine.Angabe_t-1 > 1.10,0.038711063030212794,275,6
+0.02 < tested_PCR_PCR.tested.but.always.negative_t-6 <= 0.38,-0.03825600524095673,275,6
+-0.39 < employ_change_short_time_0_t-6 <= -0.22,-0.03749625251957564,275,6
+0.34 < vacc_inf_Vaccinated_t-4 <= 0.93,0.03708859475241193,275,6
+0.12 < s2_t-0 <= 0.13,0.03701374472924044,275,6
+-0.58 < PCR_positive_1_t-4 <= -0.31,-0.03676642766323749,275,6
+employ_unemployed_t-6 > 0.90,0.036541877661141656,275,6
+-0.78 < sero_group_vaccinated.1st_t-2 <= 0.34,-0.03611291807180965,275,6
+employ_missing_t-5 > 2.13,0.03597398435349328,275,6
+full_vacc_1_t-5 > 0.49,0.03516457356501969,275,6
+0.46 < employ_change_short_time_1_t-5 <= 1.34,0.03478503101343968,275,6
+mask_transport_0_t-2 > 1.68,0.03418182134758864,275,6
+symp_count_t-1 > 0.71,-0.033108527862155596,275,6
+contact_no.contact_t-3 > 1.47,-0.03305510761251443,275,6
+contact_contact.with.confirmed.COVID.19.patient_t-3 > 0.73,-0.033043546558267925,275,6
+0.39 < mask_restaurant_1_t-6 <= 1.43,-0.03250207518737252,275,6
+mask_other_1_t-1 > 1.37,-0.0320521981313405,275,6
+0.27 < kurzfragen_cov19_tested_febr2020_result_Ich.hatte.mindestens.einmal.ein.positives.Testergebnis_t-3 <= 0.32,-0.031286423763774114,275,6
+0.27 < contact_missing_t-3 <= 0.66,-0.031144306704824737,275,6
+employ_apprenticeship_t-6 > 1.18,-0.030162911194051973,275,6
+-0.32 < mask_sport_1_t-6 <= 0.06,-0.030084422738091345,275,6
+langfragen_hand_cleaning_time_Etwa.10.Sekunden_t-3 > 0.97,-0.02982734231944887,275,6
+0.54 < langfragen_restriction_contact_yn_Ja..vollständig_t-2 <= 1.37,0.02940225433225506,275,6
+-0.60 < sero_group_natural.immunity_t-1 <= -0.20,-0.028969676848801005,275,6
+mask_shop_0_t-1 > 0.50,-0.028420876425893495,275,6
+-0.01 < kurzfragen_employment_consequences_Keine.Angabe_t-2 <= 1.39,-0.028273491861896254,275,6
+mask_other_1_t-6 > 1.37,-0.026902112504912194,275,6
+0.59 < employ_change_short_time_0_t-4 <= 1.68,-0.025560324335077697,275,6
+-0.31 < household_PCR_not.tested_t-6 <= 0.47,-0.025482019685381354,275,6
+0.13 < s_t-2 <= 1.25,-0.024418246433239987,275,6
+employ_missing_t-1 > 2.22,-0.018770719942000802,275,6
+Inzidenz_t-1 > 1.01,0.1515395089511557,276,6
+cofeanfa_t-2 > 0.51,-0.10304089697852153,276,6
+Inzidenz_t-6 > 1.01,0.10163587550739596,276,6
+langfragen_restriction_contact_yn_Nein..überhaupt.nicht_t-3 > 1.33,0.10052288412213924,276,6
+mask_home_1_t-6 > 1.53,0.0954994361788882,276,6
+mask_home_0_t-2 > 1.77,0.0897490269067664,276,6
+household_PCR_unclear_t-2 > 1.93,0.08877914373361585,276,6
+langfragen_restriction_contact_yn_Nein..überhaupt.nicht_t-0 > 1.33,0.08855734825069543,276,6
+mask_home_1_t-0 > 1.53,0.08548976406612364,276,6
+Inzidenz_t-0 > 1.01,0.08287100234478723,276,6
+langfragen_household_n_t-5 > 1.25,0.08031137076547436,276,6
+mask_home_0_t-0 > 1.77,0.07851580656449127,276,6
+cofeanfa_t-1 > 0.54,-0.07491781961271449,276,6
+mask_home_1_t-2 > 1.53,0.07130470131640854,276,6
+mask_public_places_1_t-0 > 1.61,0.0709216288775148,276,6
+0.53 < household_PCR_unclear_t-6 <= 1.93,0.07059211790572147,276,6
+vacc_inf_Vaccinated_t-6 > 0.88,0.06958980465769929,276,6
+langfragen_restriction_contact_yn_Nein..überhaupt.nicht_t-4 > 1.33,0.06901645655897037,276,6
+tested_PCR_missing_t-0 > 0.76,0.06762655797520958,276,6
+employ_change_short_time_1_t-2 > 1.34,0.0663137791366555,276,6
+0.25 < mask_other_0_t-0 <= 1.78,0.06597214866129088,276,6
+0.44 < mask_building_0_t-0 <= 1.56,0.06553997278453166,276,6
+0.59 < employ_change_short_time_0_t-0 <= 1.68,-0.06535758184510117,276,6
+nl63s1_t-3 > 0.45,0.06530952809098452,276,6
+mask_work_1_t-6 > 1.82,0.06477367833295641,276,6
+mask_building_0_t-5 > 1.64,0.0628200289165132,276,6
+vacc_first_1_t-0 > 1.23,0.06279366475010892,276,6
+rbd_t-0 > 1.20,0.061239356092256524,276,6
+household_PCR_missing_t-0 > 1.30,0.05966349158707604,276,6
+mask_transport_0_t-2 > 1.68,0.05944404797977522,276,6
+0.53 < household_PCR_unclear_t-0 <= 1.93,0.05855389128254949,276,6
+mask_walk_0_t-0 > 1.73,0.05846098397175334,276,6
+PCR_positive_1_t-1 > 0.75,0.05829431064961177,276,6
+langfragen_household_n_t-3 > 1.21,0.0582937101051437,276,6
+-0.72 < s1_t-3 <= -0.69,-0.05826325135023313,276,6
+nl63s1_t-6 > 0.44,0.057434177766146725,276,6
+0.27 < mask_building_1_t-1 <= 1.82,0.057226092719696614,276,6
+0.61 < langfragen_restriction_contact_yn_Nein..überhaupt.nicht_t-5 <= 1.33,0.057151288302270634,276,6
+kurzfragen_employment_consequences_Nein..keine.dieser.Veränderungen_t-1 > 1.55,0.05695219053377771,276,6
+0.65 < PCR_combined_missing_t-3 <= 1.07,0.05606623997377831,276,6
+kurzfragen_cov19_household_tested_febr2020_yn_Keine.Angabe_t-5 > 1.10,0.05582081125808844,276,6
+serostatus_1_t-4 > 0.90,0.05563870481850305,276,6
+0.51 < kurzfragen_healthstatus_t-0 <= 1.01,-0.055056252386138364,276,6
+-0.45 < euroimmun_result_qualitativ_positiv_t-0 <= 0.21,-0.05486885027184675,276,6
+mask_restaurant_0_t-6 > 0.82,0.054680986979125684,276,6
+cofeanfa_t-0 > 0.54,-0.05409434537848096,276,6
+kurzfragen_employment_consequences_Nein..keine.dieser.Veränderungen_t-0 > 1.55,0.054058205411192085,276,6
+0.02 < PCR_positive_0_t-2 <= 1.94,0.05386661812189182,276,6
+-1.09 < sero_group_vaccinated.1st_t-4 <= -0.78,-0.05343399512919754,276,6
+household_PCR_unclear_t-4 > 1.93,0.053087948056243284,276,6
+oc43s1_t-4 > 0.92,0.05305555807474429,276,6
+0.31 < mask_other_0_t-5 <= 1.78,0.05298091528725667,276,6
+vacc_inf_Vaccinated_t-2 > 1.15,0.052852789624441905,276,6
+mask_home_1_t-3 > 1.53,0.0525903880819229,276,6
+serostatus_1_t-3 > 0.99,0.05189524624114992,276,6
+0.40 < euroimmun_result_qualitativ_negativ_t-4 <= 1.97,0.05099956681919138,276,6
+0.32 < hku1n_t-5 <= 0.82,-0.04938212025350284,276,6
+tested_PCR_no.PCR.test_t-4 > 1.39,0.04933231364801733,276,6
+0.02 < PCR_positive_0_t-1 <= 1.94,0.04894927612415296,276,6
+symp_count_t-1 > 0.71,-0.048786645592704875,276,6
+hku1n_t-4 > 0.81,-0.04871175259688833,276,6
+kurzfragen_healthstatus_t-4 > 1.06,0.04805736176629066,276,6
+-0.50 < Inzidenz_t-2 <= -0.06,-0.047824119252281486,276,6
+-0.58 < langfragen_hand_cleaning_cope_Ja..vollständig_t-4 <= -0.29,-0.04735387189471234,276,6
+-0.01 < langfragen_hand_cleaning_cope_Ja..teilweise_t-3 <= 0.69,0.04722458282097713,276,6
+0.61 < langfragen_restriction_contact_yn_Nein..überhaupt.nicht_t-1 <= 1.33,0.047126015422672425,276,6
+0.31 < hku1s1_t-3 <= 0.89,0.04685753262458874,276,6
+kurzfragen_employment_consequences_Nein..keine.dieser.Veränderungen_t-3 > 1.55,0.04673860268565883,276,6
+hku1n_t-0 > 0.82,-0.04652789430899129,276,6
+mask_other_0_t-3 > 1.78,0.046111066022649846,276,6
+-0.81 < cofeanfa_t-5 <= -0.37,0.045339185037039466,276,6
+sero_group_vaccinated.2nd_t-4 > 0.63,0.045254360168289265,276,6
+langfragen_hand_cleaning_perday_t-3 > 1.08,-0.045241515258729846,276,6
+mask_shop_0_t-3 > 0.50,-0.045222115077056674,276,6
+vacc_inf_Vaccinated_t-3 > 1.03,0.04470509900472573,276,6
+0.18 < mask_transport_0_t-0 <= 1.68,-0.044412388807960425,276,6
+0.02 < kurzfragen_employment_consequences_Nein..keine.dieser.Veränderungen_t-4 <= 0.46,-0.04421054031389184,276,6
+symp_count_t-4 > 0.71,-0.04409895255767927,276,6
+nat_immun_1_t-5 > 0.59,0.043615255590635546,276,6
+kurzfragen_cov19_household_tested_febr2020_yn_Keine.Angabe_t-2 > 1.10,0.04322310208748184,276,6
+classification_Negative_t-0 <= -1.22,-0.043221700979681144,276,6
+langfragen_hand_cleaning_time_Etwa.10.Sekunden_t-2 > 0.97,-0.04306569467521236,276,6
+mask_other_1_t-5 > 1.37,-0.04301780109269201,276,6
+0.48 < no_immun_1_t-5 <= 1.99,0.042436260186791,276,6
+household_PCR_not.tested_t-2 > 1.49,-0.042420725754333546,276,6
+-0.24 < employ_pupil.retired_t-4 <= 0.13,0.0421460030578435,276,6
+langfragen_restriction_contact_yn_Ja..vollständig_t-4 > 1.37,-0.0419499949706138,276,6
+employ_change_short_time_1_t-3 > 1.34,0.04181230581214216,276,6
+x229es1_t-2 > 0.51,0.04173168511694662,276,6
+mask_shop_0_t-2 > 0.50,-0.041641111141137804,276,6
+0.31 < euroimmun_result_qualitativ_positiv_t-2 <= 1.07,0.041562739817865006,276,6
+-1.57 < employ_employed_t-6 <= -0.40,0.041052398142703596,276,6
+-0.26 < mask_building_1_t-2 <= -0.15,-0.04102955782528452,276,6
+0.40 < euroimmun_result_qualitativ_negativ_t-6 <= 1.97,-0.04009855714454765,276,6
+symp_count_t-3 > 0.71,-0.039980890693614324,276,6
+oc43s1_t-3 > 0.93,0.03960207452912153,276,6
+0.48 < sero_group_no.immunity_t-3 <= 1.99,-0.0395496006037494,276,6
+-0.50 < Inzidenz_t-5 <= -0.06,-0.03936479900659708,276,6
+nl63s1_t-0 > 0.46,0.03927092944068429,276,6
+nat_immun_1_t-2 > 0.59,0.039224665304741176,276,6
+-0.13 < full_vacc_0_t-6 <= 0.61,-0.038835574790268626,276,6
+0.57 < kurzfragen_healthstatus_t-5 <= 1.08,0.03871395086283631,276,6
+-0.70 < no_vacc_0_t-0 <= 0.34,-0.03865727744565115,276,6
+hku1s1_t-2 > 0.90,0.03849822330398147,276,6
+1.00 < kurzfragen_cov19_household_tested_febr2020_yn_Nein_t-5 <= 1.50,-0.03822514304810832,276,6
+mask_home_0_t-1 > 1.77,0.03789283529046438,276,6
+langfragen_restriction_contact_yn_Ja..vollständig_t-1 > 1.37,0.03779371668805975,276,6
+nl63s1_t-1 > 0.46,0.03732418559765953,276,6
+0.10 < quarantine_mandatory.voluntary.quarantine_t-0 <= 0.47,-0.03724766212918067,276,6
+kurzfragen_cov19_household_tested_febr2020_yn_Ja..jemand.wurde.getestet..das.Ergebnis.war.negativ_t-6 > 1.15,-0.037164594001260744,276,6
+kurzfragen_cov19_household_tested_febr2020_yn_Nein_t-1 > 1.48,-0.03680477849898136,276,6
+mask_shop_0_t-6 > 0.50,0.036163476308446574,276,6
+no_immun_0_t-0 > 1.11,0.03613079624672977,276,6
+-0.34 < kurzfragen_cov19_household_tested_febr2020_yn_Ja..jemand.wurde.getestet..das.Ergebnis.war.positiv_t-3 <= -0.02,-0.0357956864474357,276,6
+-0.78 < employ_parental.other.leave_t-5 <= -0.22,-0.03566256183081772,276,6
+home_combined_t-2 <= -0.95,0.034415937068587026,276,6
+-0.51 < full_vacc_1_t-3 <= -0.14,-0.03426799568183455,276,6
+-0.30 < langfragen_hand_cleaning_perday_t-2 <= 0.01,-0.03311983866523926,276,6
+kurzfragen_cov19_tested_febr2020_yn_No_t-2 > 1.37,-0.032069358413682206,276,6
+0.53 < household_PCR_unclear_t-1 <= 1.93,0.02939405088995292,276,6
+-0.01 < kurzfragen_employment_consequences_Keine.Angabe_t-5 <= 1.39,-0.028947347500335122,276,6
+-0.62 < employ_unemployed_t-6 <= -0.31,-0.019024106928524912,276,6
+-0.62 < employ_unemployed_t-1 <= -0.31,-0.12731630603738542,277,6
+household_PCR_missing_t-0 > 1.30,0.10285583624776734,277,6
+cofeanfa_t-2 > 0.51,-0.09849505444747687,277,6
+cofeanfa_t-1 > 0.54,-0.09504488803805064,277,6
+langfragen_hand_cleaning_time_Etwa.5.Sekunden_t-6 > 0.68,0.08727691412417606,277,6
+quarantine_mandatory.voluntary.quarantine_t-4 > 1.28,-0.08667346545653559,277,6
+employ_self.employed_t-3 > 1.66,0.07640087082867028,277,6
+langfragen_household_n_t-5 > 1.25,0.07543174253991006,277,6
+Inzidenz_t-6 > 1.01,0.07387061876324892,277,6
+0.41 < nat_immun_0_t-5 <= 1.97,0.0727714137135367,277,6
+quarantine_mandatory.voluntary.quarantine_t-2 > 1.28,-0.07140662987472769,277,6
+mask_public_places_1_t-1 > 1.61,0.06993605753891768,277,6
+0.30 < mask_walk_0_t-3 <= 1.73,0.0665022912698202,277,6
+-0.50 < Inzidenz_t-3 <= -0.06,-0.06586413687638323,277,6
+mask_public_places_1_t-2 > 1.61,0.06558596303921062,277,6
+0.53 < household_PCR_unclear_t-6 <= 1.93,0.06447394179507876,277,6
+-0.53 < contact_do.not.know.no.information_t-2 <= -0.48,0.06410806466086455,277,6
+nat_immun_1_t-4 > 0.59,0.06302691434058762,277,6
+quarantine_mandatory.voluntary.quarantine_t-0 > 1.28,-0.06295424187599177,277,6
+hku1n_t-6 > 0.82,-0.06200299889556599,277,6
+employ_apprenticeship_t-1 > 1.18,0.06132882096085575,277,6
+tested_PCR_no.PCR.test_t-2 > 1.38,0.0607821726792574,277,6
+tested_PCR_no.PCR.test_t-4 > 1.39,0.060115862767810016,277,6
+symp_count_t-3 > 0.71,-0.05861612056787698,277,6
+employ_self.employed_t-5 > 1.66,0.058585335236490475,277,6
+sero_group_vaccinated.2nd_t-6 > 0.46,0.058397288212910826,277,6
+oc43s1_t-4 > 0.92,0.05828213076296941,277,6
+household_PCR_unclear_t-4 > 1.93,0.05823916071143776,277,6
+-0.50 < Inzidenz_t-5 <= -0.06,-0.05822964295511785,277,6
+hku1n_t-1 > 0.85,-0.05804972731627844,277,6
+0.44 < mask_home_1_t-1 <= 1.53,0.057969871378995924,277,6
+rbd_t-4 > 1.00,0.05790940230187542,277,6
+mask_restaurant_1_t-2 > 1.43,0.05753073897569674,277,6
+employ_apprenticeship_t-0 > 1.18,0.05752220974685846,277,6
+0.44 < mask_home_1_t-0 <= 1.53,0.05655457419615455,277,6
+kurzfragen_healthstatus_t-4 > 1.06,0.056400705850339516,277,6
+mask_walk_0_t-0 > 1.73,0.05629909650359965,277,6
+langfragen_household_n_t-1 > 1.21,0.05608069871120912,277,6
+employ_pupil.retired_t-1 > 1.24,0.055497784295558114,277,6
+sero_group_vaccinated.2nd_t-4 > 0.63,0.05519429856129851,277,6
+-0.45 < classification_Positive_t-1 <= 0.20,-0.054481963998834676,277,6
+vacc_first_1_t-2 > 1.10,0.0543444214610872,277,6
+0.47 < quarantine_mandatory.voluntary.quarantine_t-5 <= 1.28,-0.05426219801009997,277,6
+quarantine_mandatory.voluntary.quarantine_t-3 > 1.28,-0.05354482580256799,277,6
+0.66 < household_PCR_missing_t-1 <= 1.30,0.05349374407392656,277,6
+employ_unemployed_t-4 > 0.90,0.05316772612250042,277,6
+kurzfragen_healthstatus_t-2 > 1.06,0.05289610273622053,277,6
+employ_change_short_time_0_t-2 > 1.68,-0.05228132442226093,277,6
+sero_group_vaccinated.2nd_t-3 > 0.77,0.05204858321540788,277,6
+sero_group_no.immunity_t-1 > 1.99,0.051673002539081435,277,6
+PCR_positive_1_t-1 > 0.75,0.05164884255250521,277,6
+cofeanfa_t-0 > 0.54,-0.0516417089179165,277,6
+employ_change_short_time_1_t-2 > 1.34,0.051364842716284255,277,6
+-0.85 < tested_PCR_PCR.tested..once.positive_t-4 <= -0.58,0.05111743700325295,277,6
+0.25 < mask_other_0_t-0 <= 1.78,0.05086827448970184,277,6
+-0.13 < PCR_positive_0_t-3 <= 0.03,0.05046838954983358,277,6
+hku1s1_t-2 > 0.90,0.050448564394569455,277,6
+langfragen_hand_cleaning_time_Etwa.60.Sekunden_t-2 > 1.61,0.05023585383024714,277,6
+hku1n_t-4 > 0.81,-0.050203502461751405,277,6
+nl63s1_t-1 > 0.46,0.050106142208997125,277,6
+s1_t-6 > 0.73,0.049956345983046394,277,6
+no_immun_0_t-0 > 1.11,0.049901140542788575,277,6
+euroimmun_result_qualitativ_negativ_t-3 > 1.97,-0.04986070589032946,277,6
+0.31 < mask_other_0_t-5 <= 1.78,0.04974425149113713,277,6
+contact_do.not.know.no.information_t-0 > 1.46,0.04944155432677239,277,6
+contact_missing_t-4 > 1.28,0.04916876800708336,277,6
+0.53 < household_PCR_unclear_t-5 <= 1.93,0.04899082873225141,277,6
+household_PCR_not.tested_t-0 > 1.44,-0.048858201622069615,277,6
+contact_no.contact_t-3 > 1.47,-0.048016840000843115,277,6
+mask_public_places_0_t-1 > 1.19,0.04734938898264342,277,6
+household_PCR_not.tested_t-4 > 1.51,-0.04722401442393771,277,6
+-0.59 < classification_Negative_t-0 <= -0.26,-0.04711760667912007,277,6
+vacc_second_1_t-3 > 0.77,0.04687395969630178,277,6
+rbd_t-0 > 1.20,0.046703981597230375,277,6
+0.40 < euroimmun_result_qualitativ_negativ_t-4 <= 1.97,-0.046200740350971714,277,6
+household_PCR_someone.tested..result.positive_t-1 > 0.96,0.04574060682414274,277,6
+-0.81 < cofeanfa_t-4 <= -0.37,0.04568583927222105,277,6
+-0.54 < hku1n_t-2 <= -0.21,0.044603504263469256,277,6
+langfragen_household_n_t-2 > 1.21,0.04449749423683688,277,6
+nl63n_t-2 <= -0.69,-0.04445629831385544,277,6
+-1.13 < mask_building_0_t-2 <= -0.65,-0.04424433599026819,277,6
+vacc_second_0_t-5 > 2.12,0.044094598710416696,277,6
+employ_apprenticeship_t-2 > 1.18,0.04292188853589689,277,6
+contact_contact.with.confirmed.COVID.19.patient_t-4 > 0.73,-0.04270669326812692,277,6
+contact_missing_t-0 > 1.36,0.040620150500606196,277,6
+0.06 < mask_sport_1_t-2 <= 0.47,0.040150310146721935,277,6
+contact_no.contact_t-1 > 1.47,-0.039555167877894794,277,6
+-0.53 < quarantine_missing_t-4 <= 0.09,-0.038789082798948146,277,6
+-0.45 < kurzfragen_employment_consequences_Keine.Angabe_t-6 <= -0.24,-0.0387588218223797,277,6
+vacc_first_1_t-5 > 0.93,0.03875304369157744,277,6
+symp_count_t-4 > 0.71,-0.03875292051532441,277,6
+0.33 < serostatus_1_t-2 <= 1.06,0.03859987472443236,277,6
+-0.35 < kurzfragen_cov19_household_tested_febr2020_yn_Keine.Angabe_t-6 <= 1.25,0.03762794968013742,277,6
+contact_contact.with.confirmed.COVID.19.patient_t-3 > 0.73,-0.037555399840075714,277,6
+sero_group_natural.immunity_t-3 > 0.60,-0.03738665861786576,277,6
+no_vacc_1_t-1 > 1.98,0.03724019679958381,277,6
+-1.73 < employ_pupil.retired_t-0 <= -0.65,-0.03711015387003047,277,6
+oc43n_t-6 > 1.22,-0.036681829533523454,277,6
+mask_other_1_t-4 > 1.37,-0.03650374602434609,277,6
+employ_change_short_time_0_t-0 > 1.68,-0.03642365536957357,277,6
+contact_no.contact_t-4 > 1.47,-0.03594466243292426,277,6
+tested_PCR_PCR.tested..once.positive_t-6 > 0.48,-0.03566719373870696,277,6
+quarantine_missing_t-2 > 1.39,0.03518889709100622,277,6
+0.13 < oc43n_t-3 <= 0.51,-0.034783209845515806,277,6
+vacc_first_1_t-0 > 1.23,0.03463271230908795,277,6
+symp_count_t-1 > 0.71,-0.03450640083049065,277,6
+mask_shop_0_t-5 > 0.50,-0.03419066238542302,277,6
+kurzfragen_cov19_tested_febr2020_yn_Yes_t-3 > 1.26,-0.03357077960998689,277,6
+kurzfragen_healthstatus_t-3 > 1.06,0.03302387606674279,277,6
+-0.48 < kurzfragen_cov19_tested_febr2020_result_Ich.hatte.mindestens.einmal.ein.positives.Testergebnis_t-0 <= -0.20,-0.03243313811665819,277,6
+vacc_first_1_t-4 > 0.96,0.03174066424146656,277,6
+-1.07 < langfragen_hand_cleaning_time_Etwa.60.Sekunden_t-0 <= -0.64,-0.03170328606439582,277,6
+0.31 < no_immun_0_t-5 <= 0.91,-0.031602384903503,277,6
+-0.70 < no_vacc_0_t-1 <= 0.34,0.031230536311152055,277,6
+0.47 < mask_sport_1_t-5 <= 1.26,0.02916823356668323,277,6
+PCR_combined_not.tested_t-0 > 1.37,-0.028982695994956273,277,6
+0.05 < vacc_inf_Infected_t-2 <= 0.12,-0.028355382699972013,277,6
+kurzfragen_cov19_tested_febr2020_yn_Yes_t-0 > 1.26,0.027163917610319502,277,6
+employ_parental.other.leave_t-3 > 1.49,0.026659697111212584,277,6
+mask_transport_0_t-1 > 1.68,0.025019266182763508,277,6
+mask_home_0_t-0 <= -1.00,-0.02491964637168686,277,6
+-0.31 < kurzfragen_cov19_tested_febr2020_result_Ich.hatte.ausschließlich.negative.Testergebnisse_t-6 <= 0.52,-0.024404471032423873,277,6
+Inzidenz_t-1 > 1.01,0.1350020250645467,278,6
+-0.62 < employ_unemployed_t-1 <= -0.31,-0.11375459146566198,278,6
+mask_home_1_t-6 > 1.53,0.10443377888348253,278,6
+mask_home_1_t-2 > 1.53,0.0978961392979146,278,6
+Inzidenz_t-6 > 1.01,0.09029669403513446,278,6
+mask_public_places_1_t-3 > 1.61,0.0889475561134927,278,6
+kurzfragen_cov19_household_tested_febr2020_yn_Keine.Angabe_t-2 > 1.10,0.08555682817880111,278,6
+cofeanfa_t-0 > 0.54,-0.08364783618038343,278,6
+langfragen_restriction_contact_yn_Nein..überhaupt.nicht_t-0 > 1.33,0.08080658143835347,278,6
+mask_other_0_t-2 > 1.78,0.07879611942997344,278,6
+quarantine_mandatory.voluntary.quarantine_t-3 > 1.28,-0.07769979198378765,278,6
+kurzfragen_employment_consequences_Nein..keine.dieser.Veränderungen_t-2 > 1.55,0.07597132232604965,278,6
+cofeanfa_t-1 > 0.54,-0.07569856383332267,278,6
+-0.34 < langfragen_restriction_contact_yn_Ja..vollständig_t-6 <= 0.09,0.07447635198303584,278,6
+langfragen_restriction_contact_yn_Nein..überhaupt.nicht_t-6 > 1.33,0.07444626439210675,278,6
+mask_work_1_t-0 > 1.82,0.07180487879473159,278,6
+cofeanfa_t-2 > 0.51,-0.06968973705858919,278,6
+0.27 < contact_missing_t-3 <= 0.66,0.06907306372213609,278,6
+contact_missing_t-1 > 1.35,0.06882605590955586,278,6
+cofeanfa_con_t-0 > 1.03,-0.06812040927120701,278,6
+mask_building_0_t-6 > 1.64,0.06776932638960588,278,6
+s1_t-1 > 1.01,0.06736601522230755,278,6
+employ_change_termination_1_t-2 > 1.70,0.0663489916366349,278,6
+home_combined_t-2 <= -0.95,0.06622898114466144,278,6
+hku1n_t-4 > 0.81,-0.06603348117878467,278,6
+contact_do.not.know.no.information_t-3 > 1.46,0.06543071948199043,278,6
+-0.58 < serostatus_0_t-2 <= -0.25,0.06386425451744132,278,6
+employ_parental.other.leave_t-3 > 1.49,0.06351723534722738,278,6
+-0.43 < classification_Positive_t-0 <= 0.20,0.06344076558722571,278,6
+0.57 < kurzfragen_healthstatus_t-5 <= 1.08,0.06284607577034826,278,6
+kurzfragen_employment_consequences_Keine.Angabe_t-3 > 1.39,0.06263704808323423,278,6
+quarantine_mandatory.voluntary.quarantine_t-4 > 1.28,-0.062004084637478286,278,6
+mask_public_places_0_t-0 > 1.16,0.06158989872317281,278,6
+mask_building_0_t-0 > 1.56,0.06156483018773652,278,6
+sero_group_vaccinated.2nd_t-4 > 0.63,0.06089147249052743,278,6
+quarantine_mandatory.voluntary.quarantine_t-2 > 1.28,-0.06067894314315931,278,6
+0.24 < langfragen_restriction_contact_yn_Nein..überhaupt.nicht_t-2 <= 0.61,0.05990493595372627,278,6
+household_PCR_.someone.tested..result.negative_t-4 <= -1.46,0.0596978216323636,278,6
+kurzfragen_cov19_household_tested_febr2020_yn_Keine.Angabe_t-5 > 1.10,0.0587106741472146,278,6
+kurzfragen_healthstatus_t-2 > 1.06,0.05864368553249615,278,6
+mask_public_places_1_t-0 > 1.61,0.058015394834200935,278,6
+mask_other_1_t-1 > 1.37,-0.05776175164010917,278,6
+0.08 < mask_walk_1_t-1 <= 0.73,0.05667116286429214,278,6
+0.61 < langfragen_restriction_contact_yn_Nein..überhaupt.nicht_t-1 <= 1.33,0.05656018107632883,278,6
+cofeanfa_t-6 > 0.51,-0.056159036854569105,278,6
+mask_public_places_0_t-1 > 1.19,0.05597999769441328,278,6
+kurzfragen_cov19_household_tested_febr2020_yn_Ja..jemand.wurde.getestet..das.Ergebnis.war.negativ_t-1 > 1.15,-0.05581710869936215,278,6
+mask_work_1_t-3 > 1.82,0.05549552569766239,278,6
+mask_home_0_t-5 > 1.77,0.055491146330698765,278,6
+langfragen_hand_cleaning_time_Etwa.20.Sekunden_t-5 > 1.82,0.05515877052169261,278,6
+mask_home_0_t-2 > 1.77,0.054519724189112176,278,6
+quarantine_no.quarantine_t-1 <= -1.22,0.053829292564702994,278,6
+contact_contact.with.confirmed.COVID.19.patient_t-5 > 0.73,-0.052983350117121,278,6
+-0.13 < symptomatic_0_t-3 <= 0.06,0.052540549324297275,278,6
+mask_transport_0_t-1 > 1.68,0.05208023484000366,278,6
+symp_count_t-1 > 0.71,-0.052010207845997136,278,6
+-0.15 < vacc_inf_Infected_t-2 <= 0.03,0.05183739910136915,278,6
+0.61 < langfragen_restriction_contact_yn_Nein..überhaupt.nicht_t-5 <= 1.33,0.05174594947874447,278,6
+tested_PCR_missing_t-0 > 0.76,0.05108806068915203,278,6
+quarantine_mandatory.voluntary.quarantine_t-0 > 1.28,-0.051049554056536384,278,6
+-0.66 < PCR_combined_not.tested_t-1 <= -0.47,0.05073268823884616,278,6
+0.46 < vacc_first_0_t-6 <= 1.99,0.05063862950365029,278,6
+mask_restaurant_1_t-2 > 1.43,0.05062221896234715,278,6
+vacc_inf_Infected_t-0 > 0.72,0.05028016511747739,278,6
+-0.58 < tested_PCR_PCR.tested..once.positive_t-3 <= -0.32,-0.0502683747944159,278,6
+quarantine_no.quarantine_t-3 > 1.56,-0.04952796095111136,278,6
+0.38 < mask_work_1_t-1 <= 1.82,-0.04918679570944961,278,6
+-1.00 < mask_sport_0_t-5 <= -0.56,-0.04828588012020294,278,6
+-0.86 < classification_Positive_t-1 <= -0.45,-0.048096427474449054,278,6
+employ_change_homeoffice_0_t-3 > 1.61,-0.0479071145593827,278,6
+langfragen_restriction_contact_yn_Ja..teilweise_t-0 > 1.64,0.04789856487235105,278,6
+kurzfragen_healthstatus_t-6 > 1.08,0.04786571545662268,278,6
+kurzfragen_cov19_tested_febr2020_yn_Yes_t-6 > 1.26,-0.04744859529733361,278,6
+mask_restaurant_1_t-0 > 1.43,0.04733187730795023,278,6
+langfragen_restriction_contact_yn_Ja..vollständig_t-0 > 1.37,0.047284833091837924,278,6
+-1.02 < vacc_inf_Infected_t-3 <= -0.80,0.04726376266452208,278,6
+0.44 < mask_home_1_t-1 <= 1.53,0.04641341510286257,278,6
+rbd_t-1 > 1.15,0.04628466391650427,278,6
+s2_t-2 > 1.07,0.04611476295939444,278,6
+-0.83 < langfragen_hand_cleaning_time_Etwa.5.Sekunden_t-2 <= 0.06,-0.04606533201210431,278,6
+home_combined_t-0 <= -0.86,0.04602678324115998,278,6
+employ_change_homeoffice_0_t-1 > 1.61,-0.045908104321426925,278,6
+-0.83 < langfragen_hand_cleaning_time_Etwa.5.Sekunden_t-5 <= 0.06,-0.04560561026439574,278,6
+full_vacc_1_t-3 > 0.73,0.04537648986401238,278,6
+oc43s1_t-5 > 0.93,-0.04490611649450192,278,6
+euroimmun_result_qualitativ_positiv_t-4 > 0.92,0.044874398193727266,278,6
+contact_missing_t-0 > 1.36,0.044724718537262675,278,6
+-0.55 < mask_home_0_t-4 <= -0.25,-0.04472074602898557,278,6
+mask_restaurant_0_t-3 > 0.82,0.044602871299525504,278,6
+0.47 < langfragen_hand_cleaning_time_Etwa.60.Sekunden_t-1 <= 1.61,0.04434873773482809,278,6
+employ_change_termination_0_t-2 > 1.80,-0.04309085566474425,278,6
+-0.87 < household_PCR_unclear_t-5 <= -0.17,-0.042760235228642,278,6
+-0.87 < household_PCR_unclear_t-0 <= -0.17,-0.04235223649377642,278,6
+employ_apprenticeship_t-5 > 1.18,0.04126250355568937,278,6
+-0.04 < employ_change_short_time_1_t-1 <= 0.41,0.04112311194577093,278,6
+hku1s1_t-4 > 0.89,0.04104532757338821,278,6
+contact_do.not.know.no.information_t-1 > 1.46,0.04104015395650898,278,6
+langfragen_household_n_t-3 > 1.21,0.040866636636895305,278,6
+kurzfragen_cov19_household_tested_febr2020_yn_Ja..jemand.wurde.getestet..das.Ergebnis.war.positiv_t-0 > 0.95,-0.04080844860301666,278,6
+rbd_t-3 > 1.05,0.04078683267512425,278,6
+-0.01 < kurzfragen_employment_consequences_Keine.Angabe_t-5 <= 1.39,-0.04063052910447121,278,6
+-0.60 < serostatus_1_t-4 <= 0.23,-0.03984056794045219,278,6
+-0.72 < vacc_first_1_t-3 <= 0.35,-0.03943867746387202,278,6
+langfragen_household_n_t-4 > 1.21,0.03936119402294841,278,6
+kurzfragen_cov19_household_tested_febr2020_yn_Ja..jemand.wurde.getestet..das.Ergebnis.war.negativ_t-4 > 1.15,-0.03861308922554424,278,6
+-0.83 < langfragen_hand_cleaning_time_Etwa.5.Sekunden_t-3 <= 0.06,-0.0386033623579189,278,6
+s2_t-6 > 0.98,0.038401133632431486,278,6
+langfragen_hand_cleaning_time_Etwa.10.Sekunden_t-3 > 0.97,-0.038240626844839386,278,6
+-0.51 < vacc_second_1_t-4 <= -0.14,-0.036783695608033365,278,6
+s1_t-6 > 0.73,0.03663774695114306,278,6
+-0.16 < symptomatic_0_t-0 <= -0.13,-0.036243346382341085,278,6
+employ_change_short_time_1_t-0 > 1.34,0.035564204601385076,278,6
+0.44 < langfragen_restriction_contact_yn_Ja..teilweise_t-1 <= 1.64,-0.03481245088972237,278,6
+-0.59 < hku1s1_t-1 <= -0.45,0.03458999586801133,278,6
+-0.67 < kurzfragen_cov19_household_tested_febr2020_yn_Ja..jemand.wurde.getestet..das.Ergebnis.war.negativ_t-3 <= -0.20,-0.03332050191048573,278,6
+-0.77 < kurzfragen_cov19_tested_febr2020_result_Ich.hatte.mindestens.einmal.ein.positives.Testergebnis_t-4 <= -0.48,-0.032967922093460326,278,6
+home_combined_t-5 > 0.94,-0.03046097594575263,278,6
+-0.60 < sero_group_natural.immunity_t-6 <= -0.20,-0.030370885266847107,278,6
+-0.66 < household_PCR_.someone.tested..result.negative_t-6 <= -0.19,0.029568804168536095,278,6
+0.39 < Inzidenz_t-0 <= 0.69,0.029506334836571557,278,6
+0.44 < mask_building_0_t-3 <= 1.64,0.02797072605463014,278,6
+-0.58 < mask_sport_0_t-0 <= -0.28,-0.013255378454357866,278,6
