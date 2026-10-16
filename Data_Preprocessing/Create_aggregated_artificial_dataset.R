@@ -57,3 +57,36 @@ df_muspad_aggr_art_ts <- cbind(df_ts_all_inc_imp[,c(1:2)], muspad_aggr_art_ts["s
 
 setwd("S:\\PROJACTIVE\\MUSPAD-LABORERGEBNISSE\\LOKI_ML\\Datasets")
 write.csv2(df_muspad_aggr_art_ts, "Artificial_data_MuSPAD_time_aware.csv")
+
+#------------------------------------------------------------------------------
+
+# Examples for supplement
+
+df_agnostic_short <- df_muspad_aggr_art %>% 
+  select(Inzidenz, time_day, s, mask_work_0, 
+         mask_work_1, employ_self.employed, employ_unemployed, 
+         employ_pupil.retired)
+
+
+# Generate LaTeX code and save to file
+xtable(df_agnostic_short[1:5,]#, 
+                     #digits = 0,  
+                     #align = "c|cc|cc|cc"
+                     )
+
+
+
+df_agnostic_short_ts <- df_muspad_aggr_art_ts %>% 
+  select(Inzidenz, s, mask_work_0, 
+         mask_work_1, employ_self.employed, employ_unemployed, 
+         employ_pupil.retired)
+
+
+# Generate LaTeX code and save to file
+xtable(df_agnostic_short_ts[6:11,]#, 
+       #digits = 0,  
+       #align = "c|cc|cc|cc"
+)
+
+
+
