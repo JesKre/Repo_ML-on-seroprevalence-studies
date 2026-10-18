@@ -3,7 +3,7 @@
 # var_predictions_diff_splits_diff_seeds.R. No private paths or scaled CSVs.
 args <- commandArgs(FALSE)
 root <- dirname(normalizePath(sub('^--file=', '', grep('^--file=', args, value=TRUE)[1])))
-infile <- Sys.getenv('VAR_DATA_FILE', file.path(root, '..', 'Artificial_datasets', 'Artificial_data_MuSPAD_time_agnostic.RData'))
+infile <- Sys.getenv('VAR_DATA_FILE', file.path(root, '..', 'Artificial_datasets', 'Artificial_data_MuSPAD_time_aware.RData'))
 outdir <- Sys.getenv('VAR_REFIT_DIR', root)
 dir.create(outdir, recursive=TRUE, showWarnings=FALSE)
 e <- new.env(); load(infile, envir=e)
