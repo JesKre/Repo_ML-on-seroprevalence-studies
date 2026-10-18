@@ -69,5 +69,5 @@ Only the LSTM results are reproduced by this script; the corresponding results f
 
 For details of the evaluation methods, required inputs, random seeds, and generated outputs, see:
 
-[`Metrics/README_lstm_seedavg_2026-10-03.md`](Metrics/README_lstm_seedavg_2026-10-03.md)
+[`Metrics/README_lstm_seedavg_2026-10-03.md`](Metrics/README.md)
 
