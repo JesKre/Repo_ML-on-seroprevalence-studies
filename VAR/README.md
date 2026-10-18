@@ -21,7 +21,7 @@ The saved RData inputs are necessary for recovering the paper's numerical result
 
 ## Refit using artificial data
 
-Put `Artificial_data_MuSPAD.RData` in `Artificial_datasets/` at the repository root. It must contain `df_ts_inc`, with 408 ordered rows, numeric `Inzidenz`, `time_day` and predictor columns. Use the time-series dataset, rather than the 279-row time-agnostic MLP dataset.
+Put `Artificial_data_MuSPAD_time_aware.RData` in `Artificial_datasets/` at the repository root. It must contain `df_ts_inc`, with 408 ordered rows, numeric `Inzidenz`, `time_day` and predictor columns. Use the time-series dataset, rather than the 279-row time-agnostic MLP dataset.
 
 Install `bigtime` once in R using `install.packages("bigtime")`. Then run:
 
@@ -32,11 +32,11 @@ Rscript VAR/VAR_generate_tables.R --from-refit
 Remove-Item Env:VAR_PRED_DIR
 ```
 
-The first command fits both models for three lag orders, five origins and ten seeds (300 fits). It creates the 31 prediction/metric-input RData files in `VAR/`, so the saved paper inputs in the shared folder are retained. The second command calculates tables from these artificial-data fits, using seed 1 as in the paper-table workflow. These are demonstration results, not the paper results.
+The first command fits both models for three lag orders, five origins and ten seeds (300 fits). 
 
-The refitting script derives scaling directly from each training subset; it does not require private pre-scaled CSVs. It follows the final fitting calls in `var_predictions_diff_splits_diff_seeds.R`: MuSPAD uses L1, cross-validation and `cvcut=0.8`; baseline uses the original incidence-only call with package defaults. Training scoring retains the original six-day shift between fitted values and observations. The preliminary validation grid, plots and individual saved model workspaces are omitted. This is a portable demonstration, not a reconstruction of unavailable original preprocessing inputs.
+The refitting script derives scaling directly from each training subset; it does not require private pre-scaled CSVs. It follows the final fitting calls in `var_predictions_diff_splits_diff_seeds.R`: MuSPAD uses L1, cross-validation and `cvcut=0.8`; baseline uses the original incidence-only call with package defaults. Training scoring retains the original six-day shift between fitted values and observations.
 
-For another compatible input, set `VAR_DATA_FILE` to its RData path. `VAR_REFIT_DIR` can change the refitting output folder. `VAR_PRED_DIR` changes the table generator's input folder. Software versions can affect refitting; the demonstration has been parsed and its input checked, but the 300 fits have not been run during packaging.
+For another compatible input, set `VAR_DATA_FILE` to its RData path. `VAR_REFIT_DIR` can change the refitting output folder. `VAR_PRED_DIR` changes the table generator's input folder. 
 
 ## What each script does
 
