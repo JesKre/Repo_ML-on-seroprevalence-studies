@@ -53,8 +53,6 @@ The script also contains internal verification checks for the consistency of the
 
 To reproduce the analysis, run `lstm_seedavg_batch_2026-10-03.R` after configuring its input and output paths.
 
-**Note:** The script may still require updates to its original local file paths and historical CSV verification dependencies before it can run directly from a fresh repository clone.
-
 ## Outputs
 
 The script generates the following CSV files:
