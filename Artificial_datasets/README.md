@@ -1,6 +1,6 @@
 # Artificial datasets
 
-Synthetic versions of the two MuSPAD modeling datasets, generated with [`synthpop`](https://cran.r-project.org/package=synthpop) for external reproduction and method development without access to the restricted individual-level MuSPAD data. The `Inzidenz` time series, the dates, and `time_day` are the real observed values; only the 121 feature columns (questionnaire and serological measurements) contain synthetic values.
+Synthetic versions of the two MuSPAD modeling datasets, generated with [`synthpop`](https://cran.r-project.org/package=synthpop) for external reproduction and method development without access to the restricted individual-level MuSPAD data. The `Inzidenz` time series, the dates, and `time_day` are the real observed values, the rest are synthetic.
 
 ## Files
 
@@ -9,7 +9,7 @@ Synthetic versions of the two MuSPAD modeling datasets, generated with [`synthpo
 | `Artificial_data_MuSPAD_time_agnostic.csv` / `.RData` | 279 | One row per MuSPAD survey day, `2020-07-01` to `2021-08-17` (`time_day` 182–594, i.e. days since 2020-01-01). `Inzidenz` is the RKI 7-day incidence at **t + 7 days** (prediction target one week ahead). |
 | `Artificial_data_MuSPAD_time_aware.csv` / `.RData` | 408 | Complete daily calendar,one row per day, no gaps. `Inzidenz` is the RKI 7-day incidence on the **same day** (`feature_date` = `incidence_date`). |
 
-Each dataset is available twice: as a `.RData` file (R object `df_ts_inc`, the modeling format) and as a `.csv` export that adds the auxiliary columns described below. The two versions contain the same data; the CSV export rounds numeric values to 7 significant digits.
+Each dataset is available twice: as a `.RData` file (R object `df_ts_inc`, the modeling format) and as a `.csv` export that adds the auxiliary columns described below. The two versions contain the same data.
 
 ## Auxiliary columns (CSV exports)
 
@@ -31,4 +31,4 @@ The datasets are created by [`../Data_Preprocessing/Create_aggregated_artificial
 
 1. load the original modeling dataset (time-agnostic: `df_ts_inc`, row `time_day = 168` dropped; time-aware: `df_ts_all_inc`),
 2. impute missing feature values with `missForest` (this is what fills the feature values of the non-survey days marked by `features_imputed = 1`),
-3. synthesize the 121 feature columns with `synthpop` (seed 2024) while keeping the real `Inzidenz` and `time_day`.
+3. synthesize feature columns with `synthpop` (seed 2024) while keeping the real `Inzidenz` and `time_day`.
