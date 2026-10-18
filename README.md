@@ -79,7 +79,7 @@ For LSTM evaluation, follow [the metrics guide](LSTM/Metrics/README.md) and conf
 
 ### VAR tables from saved predictions
 
-The repository now includes [VAR_generate_tables.R](VAR/VAR_generate_tables.R), [VAR_refit_artificial.R](VAR/VAR_refit_artificial.R), and the training-metric input [VAR_train_terms.RData](Compare_models/Graphics/Predicted_values/fullData/VAR_train_terms.RData).
+The repository includes [VAR_generate_tables.R](VAR/VAR_generate_tables.R), [VAR_refit_artificial.R](VAR/VAR_refit_artificial.R), and the training-metric input [VAR_train_terms.RData](Compare_models/Graphics/Predicted_values/fullData/VAR_train_terms.RData).
 
 The table generator uses base R and expects **31 RData files together in one input directory**: the 30 seeded prediction files (two models × three lag orders × five origins), plus `VAR_train_terms.RData`. The predictions are stored under each origin's `VAR_with_seeds/` subfolder; the training terms are in `fullData/`. Setting `VAR_PRED_DIR` to `fullData/` alone therefore does not supply all inputs.
 
@@ -196,7 +196,7 @@ The comparison scripts now use repository-relative paths and the current predict
 
 These scripts need upstream explanation/coefficient outputs and manually coded spreadsheets that are not all committed, plus shared-drive path changes. For a self-contained sensitivity analysis using supplied attribution CSVs, see [Clustering_sensitivity_MLP_LSTM](Clustering_sensitivity_MLP_LSTM/README.md).
 
-### Additional nested folders
+### Additional folders
 
 - [LSTM/Python_Scripts_plus_Data_prep/](LSTM/Python_Scripts_plus_Data_prep/) contains R preparation/post-processing, two Python training scripts, and a cluster-based LIME/SHAP script. Their roles are described in the [LSTM guide](LSTM/README.md).
 - [MLP/DP_Analysis/](MLP/DP_Analysis/) contains the original DP-SGD implementation and the non-private Adam/RMSprop comparison, including explanation analyses. Use the [separate DP reproduction guide](MLP/Table_reproduction_DP/MLP_with_DP/README.md) for table regeneration.
