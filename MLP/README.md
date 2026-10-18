@@ -1,7 +1,7 @@
 # MLP scripts and reproduction of manuscript tables
 
 This folder contains the original MLP analyses and the additional scripts
-for the revised ten-seed performance results. Scripts and generated table
+for the ten-seed performance results. Scripts and generated table
 CSVs are directly in `MLP/`. The shared saved predictions are in
 [`Compare_models/Graphics/Predicted_values/`](../Compare_models/Graphics/Predicted_values/).
 The [DP reproduction workflow](Table_reproduction_DP/MLP_with_DP/README.md)
@@ -19,9 +19,6 @@ remains in its separate folder.
 | [repro_mlp_k2_trainfull_rmse.R](repro_mlp_k2_trainfull_rmse.R) | Ten-seed rerun of the selected four-layer, 30-epoch models; saves full-training-block predictions | Supplies the training predictions used for the performance and stability summaries |
 | [MLP_generate_tables.R](MLP_generate_tables.R) | Loads the two seed prediction objects and calculates metrics, seed variability, bootstrap CIs and OLS calibration | Generates the MLP rows of Tables 1, S6, S7 and S8; `--from-runs` first creates the prediction objects from fresh fitting outputs |
 
-The original four scripts retain their code and local project paths. The two
-fitting extensions share their data problem, architecture and two-stage design,
-but follow the later ten-seed grid protocol. 
 
 ## Workflow 1: regenerate the reported table rows
 
@@ -53,13 +50,6 @@ No saved result CSVs or bootstrap files are required. The script writes:
 | `MLP_tableS4.csv` | Training mean/SD and test point estimates with between-seed metric SDs |
 | `MLP_tableS5.csv` | Calibration intercept/slope and 95% CIs; joint test of intercept=0 and slope=1 |
 
-All outputs contain only the MLP and time-only baseline rows, at full precision.
-Training metrics are summarized across seeds. Test point estimates use the
-average of ten prediction vectors; the S4 test SDs come from seed-specific
-metrics, so the reported point need not equal their mean. Test CIs use 10,000
-moving-block resamples, block length seven observations, seed 42; IID bounds
-are also exported for comparison. MASE uses training-series persistence MAE;
-sMAPE uses the 0-2 scale. Prediction-interval coverage is not generated.
 
 ## Workflow 2: refit from modeling data
 
