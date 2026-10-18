@@ -1,7 +1,7 @@
-# Reproduce Tables 7 and S8
+# Reproduce Tables 7 and S11
 
 This folder extends the existing DP analysis in to the ten-seed Adam
-study reported in the Table 7 and supplementary Table S8.
+study reported in the Table 7 and supplementary Table S11.
 
 ## Connection to the original scripts
 
@@ -44,7 +44,7 @@ and `results/tableS8.csv` and prints the tables.
 
 For each seed/setting, take sqrt of each fold MSE, then calculate the mean and
 sample SD over ten folds. Table 7 reports the mean and sample SD of the ten
-seed-specific mean RMSEs. Table S8 adds the mean of the ten within-seed fold
+seed-specific mean RMSEs. Table S11 adds the mean of the ten within-seed fold
 SDs. Round final statistics to one decimal; all SDs use n-1. Do not take sqrt
 of the mean MSE.
 
@@ -69,7 +69,7 @@ Rscript scripts/04\_make\_tables.R --from-shards
 if ($LASTEXITCODE -ne 0) { throw 'Table generation failed' }
 ```
 
-Workers save their progress and resume completed runs. After all ten seeds finish, run 04\_make\_tables.R --from-shards to combine the results and generate Tables 7 and S8. Use a separate folder copy for retraining to preserve the supplied results.
+Workers save their progress and resume completed runs. After all ten seeds finish, run 04\_make\_tables.R --from-shards to combine the results and generate Tables 7 and S11. Use a separate folder copy for retraining to preserve the supplied results.
 
 The new scripts retain the original Adam validation procedure and add explicit random seeds and a zero-noise baseline. The baseline retains gradient clipping and subsampling.
 

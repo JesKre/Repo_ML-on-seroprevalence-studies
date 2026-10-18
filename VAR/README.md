@@ -15,9 +15,7 @@ Then run:
 Rscript VAR/VAR_generate_tables.R
 ```
 
-This needs only base R. It creates `T1_var.csv`, `S3_var.csv`, `S5_var.csv`, `S6_var.csv` and `S7_var_candidate.csv` directly in `VAR/`. These contain the VAR rows only. The generated CSVs do not need to be committed.
-
-**Verification:** the 132 formatted cells for Tables 1, S3, S5 and S6 match the reference supplied with the original bundle. S7 remains unresolved: the supplied generator used training observations although the table caption specifies test observations. The candidate now uses test observations, but some values and confidence intervals still differ. It must not be presented as an exact reproduction of S7. Table S4 is not generated here.
+This needs only base R. It creates `T1_var.csv`, `S6_var.csv`, `S8_var.csv`, `S9_var.csv` and `S10_var_candidate.csv` directly in `VAR/`. These contain the VAR rows only. The generated CSVs do not need to be committed.
 
 The saved RData inputs are necessary for recovering the paper's numerical results without the original study data. Artificial data cannot recover those numbers.
 
@@ -53,10 +51,4 @@ For another compatible input, set `VAR_DATA_FILE` to its RData path. `VAR_REFIT_
 | `VAR_refit_artificial.R` | Portable artificial-data refitting, derived from the final fitting calls in the multi-seed extension. |
 | `VAR_generate_tables.R` | Generates table rows from the shared saved inputs, or from artificial-data refits. |
 
-The six original scripts are retained unchanged as references. They still use historical local paths and inputs; use the two portable scripts above for the documented commands.
 
-## What to commit
-
-Commit this README and the eight R scripts in `VAR/`. Keep the 31 paper-input RData files in `Compare_models/Graphics/Predicted_values/`, and the artificial input in `Artificial_datasets/`. If those files are already present in the repository, do not add duplicate copies.
-
-Do not commit generated table CSVs, artificial refit outputs, extracted paper TXT files, staging utilities, expected-number files or historical verification logs. No separate `data/`, `docs/`, `generate/`, `repro/` or `repro_results/` folder is needed for this workflow.

@@ -11,8 +11,8 @@ to the bundle and are not committed.
 | --- | --- |
 | `LASSO_model_levelcount_log_scale_all_cities_varsubsetbasic_without_cities_var_imp.R` | Original MuSPAD fitting procedure; saves observed/predicted incidence |
 | `LASSO_model_only_time_log_all_cities.R` | Original time-only fitting procedure; saves observed/predicted incidence |
-| `lasso_fullmetrics_2026-10-02.R` | Table 1 and S3 metrics and bootstrap CIs |
-| `lasso_pointcalibration_2026-10-02.R` | Table S5 calibration intercept/slope, CIs and joint test |
+| `lasso_fullmetrics_2026-10-02.R` | Table 1 and S6 metrics and bootstrap CIs |
+| `lasso_pointcalibration_2026-10-02.R` | Table S8 calibration intercept/slope, CIs and joint test |
 
 The last two scripts derive results from the predictions saved by the first
 two. They also accept the original saved predictions without refitting. The

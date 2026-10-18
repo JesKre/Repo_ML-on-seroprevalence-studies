@@ -13,11 +13,11 @@ remains in its separate folder.
 | --- | --- | --- |
 | [Keras_MuSPAD_Expl_cluster_incidence.R](Keras_MuSPAD_Expl_cluster_incidence.R) | MuSPAD MLP: imputation, scaling, preliminary training/validation, final fitting and cluster-specific explanations | fitting/explainability analysis |
 | [Keras_only_time.R](Keras_only_time.R) | time-only MLP baseline with preliminary and final fitting | Original baseline |
-| [Keras_MuSPAD_compare_DP_10foldcv_Expl.R](Keras_MuSPAD_compare_DP_10foldcv_Expl.R) | Non-private RMSprop/Adam comparison over ten folds, including SHAP/LIME explanations | Comparator for the DP work; does not implement DP-SGD |
-| [DP_SGD_MuSPAD_diffOpt_diffSigma_xfold_Expl.R](DP_SGD_MuSPAD_diffOpt_diffSigma_xfold_Expl.R) | Original gradient-clipping/noise implementation, optimizer comparisons and explanation analysis | Reference for the separate Tables 7/S8 reproduction |
+| [DP_Analysis/Keras_MuSPAD_compare_DP_10foldcv_Expl.R](Keras_MuSPAD_compare_DP_10foldcv_Expl.R) | Non-private RMSprop/Adam comparison over ten folds, including SHAP/LIME explanations | Comparator for the DP work; does not implement DP-SGD |
+| [DP_Analysis/DP_SGD_MuSPAD_diffOpt_diffSigma_xfold_Expl.R](DP_SGD_MuSPAD_diffOpt_diffSigma_xfold_Expl.R) | Original gradient-clipping/noise implementation, optimizer comparisons and explanation analysis | Reference for the separate Tables 7/S8 reproduction |
 | [repro_mlp_k2.R](repro_mlp_k2.R) | Ten-seed Keras-2 grid: three input treatments, one to four hidden layers and 30/45/60 epochs; saves test predictions and observed series | Produces test predictions for the selected MuSPAD and baseline configuration |
 | [repro_mlp_k2_trainfull_rmse.R](repro_mlp_k2_trainfull_rmse.R) | Ten-seed rerun of the selected four-layer, 30-epoch models; saves full-training-block predictions | Supplies the training predictions used for the performance and stability summaries |
-| [MLP_generate_tables.R](MLP_generate_tables.R) | Loads the two seed prediction objects and calculates metrics, seed variability, bootstrap CIs and OLS calibration | Generates the MLP rows of Tables 1, S3, S4 and S5; `--from-runs` first creates the prediction objects from fresh fitting outputs |
+| [MLP_generate_tables.R](MLP_generate_tables.R) | Loads the two seed prediction objects and calculates metrics, seed variability, bootstrap CIs and OLS calibration | Generates the MLP rows of Tables 1, S6, S7 and S8; `--from-runs` first creates the prediction objects from fresh fitting outputs |
 
 The original four scripts retain their code and local project paths. The two
 fitting extensions share their data problem, architecture and two-stage design,
@@ -97,7 +97,7 @@ the fitting-output location.
 
 ## Differential-privacy tables
 
-Tables 7 and S8 use the dedicated workflow in
+Tables 7 and S11 use the dedicated workflow in
 [Table_reproduction_DP/MLP_with_DP/](Table_reproduction_DP/MLP_with_DP/).
 Follow its [README](Table_reproduction_DP/MLP_with_DP/README.md) for inputs,
 environment and commands. It adapts the original DP script's Adam validation
