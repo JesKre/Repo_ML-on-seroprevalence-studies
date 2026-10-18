@@ -16,7 +16,7 @@ The linked READMEs describe module-specific inputs, environments, methods, comma
 | LASSO | [LASSO reproducibility](LASSO/README.md) | MuSPAD and time-only fitting scripts; metrics, bootstrap confidence intervals, and calibration from saved predictions. |
 | MLP | [MLP scripts and table reproduction](MLP/README.md) | Original fitting and explanations, ten-seed Keras-2 refits, and performance/calibration table generation. |
 | MLP with differential privacy | [DP table reproduction](MLP/Table_reproduction_DP/MLP_with_DP/README.md) | Table generation from supplied per-fold results, cached training input, seeded DP workers, and zero-noise control. |
-| VAR | [VAR models and table reproduction](VAR/README.md) | MuSPAD and incidence-only models, lag orders, rolling origins, and intended table/refit workflows.|
+| VAR | [VAR models and table reproduction](VAR/README.md) | MuSPAD and incidence-only models, saved-prediction table generation, and artificial-data refitting across lag orders and rolling origins. |
 | LSTM | [LSTM models](LSTM/README.md) | R preparation, Python training, saved prediction layout, and evaluation overview. |
 | LSTM evaluation | [Metrics and reproducibility](LSTM/Metrics/README.md) | Seed averaging, bootstrap intervals, calibration, leave-one-origin-out analysis, and prediction-interval evaluation. |
 | LSTM provenance | [Historical reproduction record](LSTM/LSTM_reproduction_README.md) | Model generations, original shared-drive layout, evaluation protocol, and historical caveats. Some referenced artifacts are outside this checkout. |
@@ -75,7 +75,26 @@ Rscript explainability_cluster_sensitivity.R
 Rscript lstm_lime_category_sensitivity_from_raw.R
 ```
 
-For LSTM evaluation, follow [the metrics guide](LSTM/Metrics/README.md) after resolving the historical paths and verification inputs described below. VAR table regeneration also requires repairs and additional inputs.
+For LSTM evaluation, follow [the metrics guide](LSTM/Metrics/README.md) and configure the historical paths and CSV verification inputs it describes.
+
+### VAR tables from saved predictions
+
+The repository now includes [VAR_generate_tables.R](VAR/VAR_generate_tables.R), [VAR_refit_artificial.R](VAR/VAR_refit_artificial.R), and the training-metric input [VAR_train_terms.RData](Compare_models/Graphics/Predicted_values/fullData/VAR_train_terms.RData).
+
+The table generator uses base R and expects **31 RData files together in one input directory**: the 30 seeded prediction files (two models × three lag orders × five origins), plus `VAR_train_terms.RData`. The predictions are stored under each origin's `VAR_with_seeds/` subfolder; the training terms are in `fullData/`. Setting `VAR_PRED_DIR` to `fullData/` alone therefore does not supply all inputs.
+
+From the repository root in a POSIX shell, copy these inputs into a temporary directory and point the generator there:
+
+```sh
+var_inputs=$(mktemp -d)
+cp Compare_models/Graphics/Predicted_values/*/VAR_with_seeds/*.RData "$var_inputs/"
+cp Compare_models/Graphics/Predicted_values/fullData/VAR_train_terms.RData "$var_inputs/"
+VAR_PRED_DIR="$var_inputs" Rscript VAR/VAR_generate_tables.R
+```
+
+The script writes `T1_var.csv`, `S6_var.csv`, `S8_var.csv`, `S9_var.csv`, and `S10_var_candidate.csv` into `VAR/`. These contain VAR rows only. `S10_var_candidate.csv` remains an unverified candidate that does not fully match the paper. The temporary input directory can be deleted after the run; the repository's supplied inputs remain in their original folders.
+
+In PowerShell, create a separate input directory, copy the same 31 files into it, set `$env:VAR_PRED_DIR` to its absolute path, and run `Rscript VAR/VAR_generate_tables.R`.
 
 ### Refit models or rebuild the original analysis
 
@@ -85,9 +104,33 @@ Use each model's guide for dependencies and input configuration. These workflows
 - **MLP refits:** legacy R `keras` and a compatible Keras-2 Python environment; the documented setup uses TensorFlow/Keras 2.15.1 and `MLP_PYTHON`.
 - **LSTM training:** R preparation followed by Python TensorFlow/Keras, `keras_tuner`, NumPy, and pandas; explanation scripts also use LIME/SHAP. Check the scripts' compatibility requirements before installing.
 - **DP retraining:** its own R/Python environment selected through `DP10SEED_PYTHON`; follow the dedicated guide for legacy Keras configuration.
-- **VAR fitting:** R with `bigtime` and the required prepared time-series inputs.
+- **VAR fitting:** R with `bigtime`; the portable artificial-data workflow is shown below.
 
-Several original scripts retain absolute Windows `S:` paths, assume existing output folders, or depend on earlier interactive steps. Configure these before execution. Keep new fitting outputs separate from the supplied manuscript predictions.
+For a VAR demonstration using the supplied 408-row artificial time series, run from the repository root in a POSIX shell:
+
+```sh
+# Explicitly select the time-aware input: the script's default points to the 279-row file.
+VAR_DATA_FILE="$PWD/Artificial_datasets/Artificial_data_MuSPAD_time_aware.RData" \
+  Rscript VAR/VAR_refit_artificial.R --check-input
+VAR_DATA_FILE="$PWD/Artificial_datasets/Artificial_data_MuSPAD_time_aware.RData" \
+  Rscript VAR/VAR_refit_artificial.R
+VAR_PRED_DIR="$PWD/VAR" Rscript VAR/VAR_generate_tables.R --from-refit
+```
+
+`--check-input` validates the data without fitting. The refit runs 300 fits (two models × three lag orders × five origins × ten seeds) and writes its 31 prediction/training-input RData files into `VAR/` by default. The final command generates tables from these new files. These artificial-data results demonstrate the method; they do not recover the manuscript's numerical results. Use `VAR_REFIT_DIR` to change the refit output location and set `VAR_PRED_DIR` to that same directory for table generation.
+
+Repository paths now follow the folder structure of this checkout. **Run R scripts from the repository root**; each script captures that directory before any later `setwd()` calls. Python scripts locate the repository from their own file location. Create the output folders expected by the original analysis scripts when needed; earlier interactive dependencies still apply. Keep new fitting outputs separate from the supplied manuscript predictions.
+
+External inputs can be configured without editing the scripts:
+
+| Variable | Purpose / default |
+| --- | --- |
+| `MUSPAD_DATA_DIR` | Prepared modeling data and LSTM CSV/scaling inputs; defaults to `Datasets/` in the repository. |
+| `MUSPAD_CLEAN_DATA` | Required path to the restricted cleaned participant RData file for `01_Data_Aggregation.R`. |
+| `MUSPAD_VERIFICATION_DIR` | Historical LSTM verification CSVs and metrics outputs; defaults to `Compare_models/Metric_tables/LSTM_w2/`. The CSVs must be supplied for the full guarded evaluation. |
+| `DP10SEED_PYTHON` | Compatible Python executable for DP workers; must be explicitly configured. |
+
+For example, in a POSIX shell, set `export MUSPAD_DATA_DIR="/path/to/prepared-data"`; in PowerShell, use `$env:MUSPAD_DATA_DIR = '/path/to/prepared-data'`. Existing module-specific environment variables continue to apply.
 
 The workflow is:
 
@@ -137,9 +180,9 @@ These scripts require original inputs and path adaptation. The selected-variable
 | [Metrics/Metrics_all_models_diff_seeds.R](Compare_models/Metrics/Metrics_all_models_diff_seeds.R) | Cross-model RMSE summaries from saved predictions. |
 | [Metrics/Metrics_timeseries_models_diff_splits_diff_seeds.R](Compare_models/Metrics/Metrics_timeseries_models_diff_splits_diff_seeds.R) | Time-series model comparisons across splits and seeds. |
 
-Prediction folders are [fullData](Compare_models/Graphics/Predicted_values/fullData/), [65percentData](Compare_models/Graphics/Predicted_values/65percentData/), [675percentData](Compare_models/Graphics/Predicted_values/675percentData/) (67.5%), [threefourthData](Compare_models/Graphics/Predicted_values/threefourthData/) (75%), and [80percentData](Compare_models/Graphics/Predicted_values/80percentData/). All contain LSTM and non-seeded VAR predictions; each has a `VAR_with_seeds/` subfolder for seeded VAR predictions. `fullData/` additionally contains LASSO and MLP predictions.
+Prediction folders are [fullData](Compare_models/Graphics/Predicted_values/fullData/), [65percentData](Compare_models/Graphics/Predicted_values/65percentData/), [675percentData](Compare_models/Graphics/Predicted_values/675percentData/) (67.5%), [threefourthData](Compare_models/Graphics/Predicted_values/threefourthData/) (75%), and [80percentData](Compare_models/Graphics/Predicted_values/80percentData/). All contain LSTM and non-seeded VAR predictions; each has a `VAR_with_seeds/` subfolder for seeded VAR predictions. `fullData/` additionally contains LASSO and MLP predictions and `VAR_train_terms.RData`, which supplies the training observations, fitted values, and preceding observations used by the VAR table generator.
 
-The comparison scripts retain shared-drive paths and historical layouts such as `Diff_seeds/`. Use the model-specific evaluation guides for the revised table calculations.
+The comparison scripts now use repository-relative paths and the current prediction folders. Use the model-specific evaluation guides for the revised table calculations.
 
 ### Variable_Importance/
 

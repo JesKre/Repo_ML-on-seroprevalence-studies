@@ -1,4 +1,8 @@
-
+# Run from the repository root; keep that base when later sections change directory.
+REPO_ROOT <- normalizePath(getwd(), winslash = "/", mustWork = TRUE)
+if (!dir.exists(file.path(REPO_ROOT, "VAR")) || !file.exists(file.path(REPO_ROOT, "README.md")))
+  stop("Run this script from the repository root (the directory containing README.md and VAR/).")
+DATA_DIR <- Sys.getenv("MUSPAD_DATA_DIR", file.path(REPO_ROOT, "Datasets"))
 
 #------------------------------------------------------------------------------
 # Fit ANN model to predict incidence 7 days afterwards on MuSPAD data
@@ -13,7 +17,7 @@ library(iml)
 
 
 
-setwd("S:\\PROJACTIVE\\MUSPAD-LABORERGEBNISSE\\LOKI_ML\\Datasets")
+setwd(DATA_DIR)
 
 file <- tail(list.files(pattern = "binary_classnumber_var_subset_missing_zero"), n=1)
 file
@@ -54,7 +58,7 @@ testdat <- missForest(testdat)$ximp
 testdat_y <- df_ts_inc[(dim(df_ts_inc)[1]/10*9+1):(dim(df_ts_inc)[1]),1]
 
 #------------------------------------------------------------------------------
-# 2.) Split training/validation dataset 
+# 2.) Split training/validation dataset
 #     randomly into training (9/10) and validation (1/10)
 
 # number of folds
@@ -81,7 +85,7 @@ traindat_y <- train_val_dat_y[-which(folds == 10, arr.ind = TRUE)]
 valdat_1 <- train_val_dat[which(folds == 10, arr.ind = TRUE),]
 
 # Use the scaling parameters from the training data to scale the validation data
-valdat <- scale(valdat_1, center = attr(traindat_scale, "scaled:center"), 
+valdat <- scale(valdat_1, center = attr(traindat_scale, "scaled:center"),
                       scale = attr(traindat_scale, "scaled:scale"))
 
 
@@ -107,14 +111,14 @@ CustomCheckpoint <- R6::R6Class("CustomCheckpoint",
                                 public = list(
                                   filepath = NULL,
                                   epochs_to_save = NULL,
-                                  
+
                                   initialize = function(filepath, epochs_to_save) {
                                     self$filepath <- filepath
                                     self$epochs_to_save <- epochs_to_save
                                     #self$optimizer_name <- optimizer_name
                                     #self$fold <- k
                                   },
-                                  
+
                                   on_epoch_end = function(epoch, logs = NULL) {
                                     if ((epoch + 1) %in% self$epochs_to_save) {
                                       save_path <- sprintf(self$filepath, epoch + 1)
@@ -137,7 +141,7 @@ model <- keras_model_sequential() %>%
   layer_dense(units = 1)
 
 # Load the saved weights
-load_model_weights_hdf5(model, filepath = "S:/PROJACTIVE/MUSPAD-LABORERGEBNISSE/LOKI_ML/muspad-ml-loki-sp2.1/MLP/MLP_varimp_comp_other_methods/validation_model_final.h5")
+load_model_weights_hdf5(model, filepath = file.path(REPO_ROOT, "MLP/MLP_varimp_comp_other_methods/validation_model_final.h5"))
 
 # Compile Model
 model %>% compile(
@@ -150,7 +154,7 @@ model %>% compile(
 
 # Use the callback in model training
 #epochs_to_save <- c(1, 15, 30)
-#setwd("S:/PROJACTIVE/MUSPAD-LABORERGEBNISSE/LOKI_ML/muspad-ml-loki-sp2.1/MLP/MLP_varimp_comp_other_methods")
+#setwd(file.path(REPO_ROOT, "MLP/MLP_varimp_comp_other_methods"))
 #filepath <- sprintf("validation_model_weights_epoch_%%d.h5")
 #checkpoint_callback <- CustomCheckpoint$new(filepath = filepath, epochs_to_save = epochs_to_save)
 
@@ -160,10 +164,10 @@ history <- model %>% fit(as.matrix(traindat), as.matrix(traindat_y), epochs = nu
                          validation_data = list(valdat, valdat_y),
                          batch_size = (dim(traindat)[1])/10,
                          # batch_size = (1),
-                         # callbacks = callback_early_stopping(monitor = "val_loss", 
-                         #                                     min_delta = 0.01, 
-                         #                                     mode = "min", 
-                         #                                     patience = 5, 
+                         # callbacks = callback_early_stopping(monitor = "val_loss",
+                         #                                     min_delta = 0.01,
+                         #                                     mode = "min",
+                         #                                     patience = 5,
                          #                                     restore_best_weights = TRUE),
                          verbose = 0,
                          #callbacks = list(checkpoint_callback)
@@ -174,7 +178,7 @@ history <- model %>% fit(as.matrix(traindat), as.matrix(traindat_y), epochs = nu
 (val_mse <- (model %>% evaluate(valdat, valdat_y))[1])
 
 # Save final model
-# setwd("S:\\PROJACTIVE\\MUSPAD-LABORERGEBNISSE\\LOKI_ML\\ANN_MLP\\Newest_results\\MLP_varimp_comp_other_methods")
+# setwd(file.path(REPO_ROOT, "MLP/MLP_varimp_comp_other_methods"))
 # save_model_weights_hdf5(model, "validation_model_final.h5")
 
 
@@ -192,7 +196,7 @@ train_val_dat_scale <- scale(train_val_dat)
 not_all_na <- function(x) any(!is.na(x))
 not_all_nan <- function(x) any(!is.nan(x))
 
-train_val_dat_s <- as.data.frame(train_val_dat_scale) %>% 
+train_val_dat_s <- as.data.frame(train_val_dat_scale) %>%
   select(where(not_all_na)) %>%
   select(where(not_all_nan))
 
@@ -201,10 +205,10 @@ train_val_dat_s <- as.matrix(train_val_dat_s)
 # Test data
 
 # Use the scaling parameters from the training data to scale the test data
-testdat_scale <- scale(testdat, center = attr(train_val_dat_scale, "scaled:center"), 
+testdat_scale <- scale(testdat, center = attr(train_val_dat_scale, "scaled:center"),
                        scale = attr(train_val_dat_scale, "scaled:scale"))
 
-testdat_s <- as.data.frame(testdat_scale) %>% 
+testdat_s <- as.data.frame(testdat_scale) %>%
   select(colnames(train_val_dat_s))
 
 testdat_s <- as.matrix(testdat_s)
@@ -215,7 +219,7 @@ tensorflow::tf$random$set_seed(10)
 
 model <-  keras_model_sequential()
 
-model %>% 
+model %>%
   layer_dense(units = 10, input_shape = dim(train_val_dat_s)[2], activation = "relu") %>%
   layer_dense(units = 10, activation = "relu") %>%
   layer_dense(units = 10, activation = "relu") %>%
@@ -223,7 +227,7 @@ model %>%
   layer_dense(units = 1)
 
 # Load the saved weights
-load_model_weights_hdf5(model, filepath = "S:/PROJACTIVE/MUSPAD-LABORERGEBNISSE/LOKI_ML/muspad-ml-loki-sp2.1/MLP/MLP_varimp_comp_other_methods/test_model_final.h5")
+load_model_weights_hdf5(model, filepath = file.path(REPO_ROOT, "MLP/MLP_varimp_comp_other_methods/test_model_final.h5"))
 
 model %>% compile(
   optimizer = 'rmsprop',
@@ -232,7 +236,7 @@ model %>% compile(
 )
 
 #epochs_to_save <- c(1, 15, 30)
-#setwd("S:/PROJACTIVE/MUSPAD-LABORERGEBNISSE/LOKI_ML/muspad-ml-loki-sp2.1/MLP/MLP_without_DP/Models_diffOpt")
+#setwd(file.path(REPO_ROOT, "MLP/MLP_without_DP/Models_diffOpt"))
 #filepath <- sprintf("test_model_weights_epoch_%%d.h5")
 #checkpoint_callback <- CustomCheckpoint$new(filepath = filepath, epochs_to_save = epochs_to_save)
 
@@ -240,10 +244,10 @@ model %>% compile(
 history <- model %>% fit(train_val_dat_s, train_val_dat_y, epochs = 30,
                          batch_size = round((dim(traindat)[1])/10, 0),
                          # batch_size = (1),
-                         #                         callbacks = callback_early_stopping(monitor = "val_loss", 
-                         #                                                             min_delta = 0.01, 
-                         #                                                             mode = "min", 
-                         #                                                             patience = 5, 
+                         #                         callbacks = callback_early_stopping(monitor = "val_loss",
+                         #                                                             min_delta = 0.01,
+                         #                                                             mode = "min",
+                         #                                                             patience = 5,
                          #                                                             restore_best_weights = TRUE),
                          # callbacks = list(checkpoint_callback),
                          verbose = 1)
@@ -251,7 +255,7 @@ history <- model %>% fit(train_val_dat_s, train_val_dat_y, epochs = 30,
 
 
 # Save final model
-# setwd("S:\\PROJACTIVE\\MUSPAD-LABORERGEBNISSE\\LOKI_ML\\ANN_MLP\\Newest_results\\MLP_varimp_comp_other_methods")
+# setwd(file.path(REPO_ROOT, "MLP/MLP_varimp_comp_other_methods"))
 # save_model_weights_hdf5(model, "test_model_final.h5")
 
 
@@ -263,7 +267,7 @@ history <- model %>% fit(train_val_dat_s, train_val_dat_y, epochs = 30,
 
 pred_val <- model %>% predict(train_val_dat_s)
 
-res_training <- data.frame(Predicted = pred_val, Real = train_val_dat_y, 
+res_training <- data.frame(Predicted = pred_val, Real = train_val_dat_y,
                            time = as.Date("2020-01-01") + train_val_dat[,1])
 
 
@@ -274,7 +278,7 @@ res_training <- data.frame(Predicted = pred_val, Real = train_val_dat_y,
 
 pred_val <- model %>% predict(testdat_s)
 
-(res_test <- data.frame(Predicted = pred_val, Real = testdat_y, 
+(res_test <- data.frame(Predicted = pred_val, Real = testdat_y,
                         time = as.Date("2020-01-01") + testdat[,1]))
 
 plot(history)
@@ -282,7 +286,7 @@ plot(history)
 mse_MLP_MuSPAD <- data.frame(train_mse = eval_train[[2]], test_mse = eval_test[[2]])
 
 # Save results
-setwd("S:/PROJACTIVE/MUSPAD-LABORERGEBNISSE/LOKI_ML/muspad-ml-loki-sp2.1/MLP/MLP_varimp_comp_other_methods")
+setwd(file.path(REPO_ROOT, "MLP/MLP_varimp_comp_other_methods"))
 write.csv2(mse_MLP_MuSPAD, "mse_MLP_MuSPAD.csv", row.names = FALSE)
 
 #------------------------------------------------------------------------------
@@ -298,19 +302,19 @@ r_p_graph_test <- res_test %>%
 
 
 
-#setwd("S:/PROJACTIVE/MUSPAD-LABORERGEBNISSE/LOKI_ML/muspad-ml-loki-sp2.1/MLP/MLP_varimp_comp_other_methods")
+#setwd(file.path(REPO_ROOT, "MLP/MLP_varimp_comp_other_methods"))
 #write.csv2(r_p_graph, paste0("results_MLP_MuSPAD_varsubsetbasic_no_cities_",Sys.Date(),".csv"))
 
-#setwd("S:/PROJACTIVE/MUSPAD-LABORERGEBNISSE/LOKI_ML/muspad-ml-loki-sp2.1/MLP/MLP_varimp_comp_other_methods")
+#setwd(file.path(REPO_ROOT, "MLP/MLP_varimp_comp_other_methods"))
 #file <- tail(list.files(pattern = "results_MLP_MuSPAD_varsubsetbasic_no_cities_"), n=1)
 #r_p_graph <- read.csv2(file = file)[,-1]
 
 graph_MLP_7day_M <- rbind(r_p_graph_train, r_p_graph_test)
 
-setwd("S:/PROJACTIVE/MUSPAD-LABORERGEBNISSE/LOKI_ML/muspad-ml-loki-sp2.1/Compare_models/Graphics/Predicted_values")
+setwd(file.path(REPO_ROOT, "Compare_models/Graphics/Predicted_values/fullData"))
 save(graph_MLP_7day_M, file = "MLP_7day_MuSPAD.RData")
 
-ggplot(graph_MLP_7day_M, aes(y=Incidence, x=time)) + 
+ggplot(graph_MLP_7day_M, aes(y=Incidence, x=time)) +
   geom_line(aes(color=real_vs_pred)) +
   geom_point(aes(color=real_vs_pred, shape = set)) +
   theme_bw() +
@@ -320,11 +324,11 @@ ggplot(graph_MLP_7day_M, aes(y=Incidence, x=time)) +
   guides(color=guide_legend(title="MLP"))
 
 
-setwd("S:/PROJACTIVE/MUSPAD-LABORERGEBNISSE/LOKI_ML/muspad-ml-loki-sp2.1/MLP/MLP_varimp_comp_other_methods")
+setwd(file.path(REPO_ROOT, "MLP/MLP_varimp_comp_other_methods"))
 
 png(file=paste0("ggplot_MLP_MuSPAD_varsubsetbasic_no_cities_",Sys.Date(),".png"), width=28, height=24, unit="cm", res=800)
 
-ggplot(graph_MLP_7day_M, aes(y=Incidence, x=time)) + 
+ggplot(graph_MLP_7day_M, aes(y=Incidence, x=time)) +
   geom_line(aes(color=real_vs_pred)) +
   geom_point(aes(color=real_vs_pred, shape = set)) +
   theme_bw(base_size = 18) +
@@ -332,16 +336,16 @@ ggplot(graph_MLP_7day_M, aes(y=Incidence, x=time)) +
   scale_color_discrete(labels=c('Predicted', 'Real')) +
   theme(legend.position = "bottom") +
   guides(color=guide_legend(title="MLP")) +
-  theme(legend.title=element_text(size=22), 
+  theme(legend.title=element_text(size=22),
         legend.text=element_text(size=18))
 
 dev.off()
 
-setwd("S:/PROJACTIVE/MUSPAD-LABORERGEBNISSE/LOKI_ML/muspad-ml-loki-sp2.1/Compare_models/Graphics/Single_graphics")
+setwd(file.path(REPO_ROOT, "Compare_models/Graphics/Single_graphics"))
 
 png(file=paste0("ggplot_MLP_MuSPAD_varsubsetbasic_no_cities_",Sys.Date(),".png"), width=28, height=24, unit="cm", res=800)
 
-ggplot(graph_MLP_7day_M, aes(y=Incidence, x=time)) + 
+ggplot(graph_MLP_7day_M, aes(y=Incidence, x=time)) +
   geom_line(aes(color=real_vs_pred)) +
   geom_point(aes(color=real_vs_pred, shape = set)) +
   theme_bw(base_size = 18) +
@@ -349,7 +353,7 @@ ggplot(graph_MLP_7day_M, aes(y=Incidence, x=time)) +
   scale_color_discrete(labels=c('Predicted', 'Real')) +
   theme(legend.position = "bottom") +
   guides(color=guide_legend(title="MLP")) +
-  theme(legend.title=element_text(size=22), 
+  theme(legend.title=element_text(size=22),
         legend.text=element_text(size=18))
 
 dev.off()
@@ -392,8 +396,8 @@ km$cluster
 # Optional: view summary
 table(km$cluster)
 
-#  1   2   3   4 
-# 15 141  57  65 
+#  1   2   3   4
+# 15 141  57  65
 
 df_imp_y[which(km$cluster == 1)]
 
@@ -465,7 +469,7 @@ plot(df_ts_inc$Inzidenz, df_ts_inc$mask_restaurant_1)
 # (people are aware of rising incidences)
 
 # Less people wearing masks in restaurants
-# 1.) at low incidences (before beginning of mask wearing, no masks available / 
+# 1.) at low incidences (before beginning of mask wearing, no masks available /
 #                        no need anymore, people are immune, incidences are low)
 
 # 2.) at high incidences (restaurants are closed)
@@ -484,7 +488,7 @@ df_ts_inc %>%
 # Most people were wearing masks at restaurants at the first wave with middle incidences
 # when the incidences reduced again
 
-# The model does not predict if the incidence reduces, 
+# The model does not predict if the incidence reduces,
 # it only predicts what is the actual incidence
 
 
@@ -523,32 +527,32 @@ compute_shapley_cluster <- function(model, data, cluster_vector, cluster_id, sam
 
   # Scale the features
   features <- data.frame(scale(df_imp_feat))
-  
+
   # Filter rows belonging to the specified cluster
   feat_clus <- data.frame(features[which(cluster_vector == cluster_id), ])
-  
+
   # Create iml Predictor object once
   predictor <- Predictor$new(model, data = features, batch.size = 1)
-  
+
   # Compute Shapley values for each observation in the cluster
   shapley_list <- lapply(1:nrow(feat_clus), function(g) {
     Shapley$new(predictor, x.interest = feat_clus[g, ], sample.size = sample_size)$results[, -4]
   })
-  
+
   # Aggregate results: mean absolute Shapley values per feature
   shapley_agg <- do.call(rbind, shapley_list) %>%
     group_by(feature) %>%
     summarise(across(everything(), ~ mean(., na.rm = TRUE), .names = "{.col}_mean")) %>%
     arrange(desc(abs(phi_mean)))
-  
+
   return(shapley_agg)
 }
 
 # Run for low incidence cluster (cluster 2)
 shapley_low <- compute_shapley_cluster(model, df_ts_inc, km$cluster, cluster_id = 2)
 
-feat_mean_low <- data.frame(feature = colnames(df_imp_feat), 
-                             mean_overall = apply(df_imp_feat, 2, mean), 
+feat_mean_low <- data.frame(feature = colnames(df_imp_feat),
+                             mean_overall = apply(df_imp_feat, 2, mean),
                              mean_cluster = apply(df_imp_feat[which(km$cluster == 2),], 2, mean))
 
 shapley_low <- shapley_low %>% left_join(feat_mean_low)
@@ -556,17 +560,17 @@ shapley_low <- shapley_low %>% left_join(feat_mean_low)
 # Run for high incidence cluster (cluster 1)
 shapley_high <- compute_shapley_cluster(model, df_ts_inc, km$cluster, cluster_id = 1)
 
-feat_mean_high <- data.frame(feature = colnames(df_imp_feat), 
-                             mean_overall = apply(df_imp_feat, 2, mean), 
+feat_mean_high <- data.frame(feature = colnames(df_imp_feat),
+                             mean_overall = apply(df_imp_feat, 2, mean),
                              mean_cluster = apply(df_imp_feat[which(km$cluster == 1),], 2, mean))
 
 shapley_high <- shapley_high %>% left_join(feat_mean_high)
 
 
-setwd("S:\\PROJACTIVE\\MUSPAD-LABORERGEBNISSE\\LOKI_ML\\ANN_MLP\\Newest_results\\MLP_varimp_comp_other_methods")
+setwd(file.path(REPO_ROOT, "MLP/MLP_varimp_comp_other_methods"))
 write.csv2(shapley_low, paste0("Var_Imp_shapley_low_inc.csv"))
 
-setwd("S:\\PROJACTIVE\\MUSPAD-LABORERGEBNISSE\\LOKI_ML\\ANN_MLP\\Newest_results\\MLP_varimp_comp_other_methods")
+setwd(file.path(REPO_ROOT, "MLP/MLP_varimp_comp_other_methods"))
 write.csv2(shapley_high, paste0("Var_Imp_shapley_high_inc.csv"))
 
 
@@ -576,13 +580,13 @@ write.csv2(shapley_high, paste0("Var_Imp_shapley_high_inc.csv"))
 # -----------------
 
 compute_lime_cluster <- function(model, data, cluster_vector, cluster_id, sample_size = 80) {
-  
+
   # Scale the features
   features <- data.frame(scale(df_imp_feat))
-  
+
   # Filter rows belonging to the specified cluster
   feat_clus <- data.frame(features[which(cluster_vector == cluster_id), ])
-  
+
   # Create iml Predictor object once
   predictor <- Predictor$new(model, data = features, batch.size = 1)
 
@@ -596,7 +600,7 @@ compute_lime_cluster <- function(model, data, cluster_vector, cluster_id, sample
     group_by(feature) %>%
     summarise(across(everything(), ~ mean(., na.rm = TRUE), .names = "{.col}_mean")) %>%
     arrange(desc(abs(effect_mean)))
-  
+
   return(lime_agg)
 }
 
@@ -616,10 +620,10 @@ lime_high <- compute_lime_cluster(model, df_ts_inc, km$cluster, cluster_id = 1)
 lime_high <- lime_high %>% select(-x.original_mean) %>% left_join(feat_mean_high)
 
 
-setwd("S:\\PROJACTIVE\\MUSPAD-LABORERGEBNISSE\\LOKI_ML\\ANN_MLP\\Newest_results\\MLP_varimp_comp_other_methods")
+setwd(file.path(REPO_ROOT, "MLP/MLP_varimp_comp_other_methods"))
 write.csv2(lime_low, paste0("Var_Imp_lime_low_inc.csv"))
 
-setwd("S:\\PROJACTIVE\\MUSPAD-LABORERGEBNISSE\\LOKI_ML\\ANN_MLP\\Newest_results\\MLP_varimp_comp_other_methods")
+setwd(file.path(REPO_ROOT, "MLP/MLP_varimp_comp_other_methods"))
 write.csv2(lime_high, paste0("Var_Imp_lime_high_inc.csv"))
 
 

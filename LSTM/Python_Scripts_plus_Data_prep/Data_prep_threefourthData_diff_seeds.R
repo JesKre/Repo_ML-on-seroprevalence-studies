@@ -1,10 +1,13 @@
-
-
+# Run from the repository root; keep that base when later sections change directory.
+REPO_ROOT <- normalizePath(getwd(), winslash = "/", mustWork = TRUE)
+if (!dir.exists(file.path(REPO_ROOT, "VAR")) || !file.exists(file.path(REPO_ROOT, "README.md")))
+  stop("Run this script from the repository root (the directory containing README.md and VAR/).")
+DATA_DIR <- Sys.getenv("MUSPAD_DATA_DIR", file.path(REPO_ROOT, "Datasets"))
 
 # 3/4 Data
 
 #------------------------------------------------------------------------------
-# Preprocessing: 
+# Preprocessing:
 # - split into train, val, test
 # - normalization
 # - imputation
@@ -15,14 +18,14 @@ library(tidyverse)
 
 # Dataset
 
-setwd("S:\\PROJACTIVE\\MUSPAD-LABORERGEBNISSE\\LOKI_ML\\Datasets")
+setwd(DATA_DIR)
 file <- tail(list.files(pattern = "Time_series_data_all_levelcount_plus_current_incidence_var_subset_basic_all_dates_missing_zero_"), n=1)
 load(file)
 # df_ts_all_inc
 
-# Predict 7 days ahead 
+# Predict 7 days ahead
 
-# Predict 7 days ahead 
+# Predict 7 days ahead
 
 test_indices <- (dim(df_ts_all_inc)[1]*3/4+1):(dim(df_ts_all_inc)[1]*3/4+7)
 
@@ -61,7 +64,7 @@ traindat_v <- traindat_v[,(which_na == 0)]
 scale_center_train_v <- attr(traindat_scale_v, "scaled:center")
 scale_scale_train_v <- attr(traindat_scale_v, "scaled:scale")
 
-valdat_scale <- scale(traindat_1[val_indices,], 
+valdat_scale <- scale(traindat_1[val_indices,],
                       center = scale_center_train_v,
                       scale = scale_scale_train_v)
 
@@ -77,8 +80,8 @@ testdat_1 <- missForest(df_ts_all_inc[test_indices,-2])$ximp
 
 
 # Use the scaling parameters from the training data to scale the test data
-testdat_scale <- scale(testdat_1, 
-                       center = scale_center_train, 
+testdat_scale <- scale(testdat_1,
+                       center = scale_center_train,
                        scale = scale_scale_train)
 
 testdat <- as.data.frame(testdat_scale)
@@ -88,13 +91,13 @@ which_na <- apply(testdat, 2, function(x) length(which(is.na(x))))
 testdat <- testdat[,(which_na == 0)]
 
 
-setwd("S:\\PROJACTIVE\\MUSPAD-LABORERGEBNISSE\\LOKI_ML\\Datasets")
+setwd(DATA_DIR)
 write.csv(traindat, "MuSPAD_traindat_LSTM_threefourthData.csv")
 write.csv(testdat, "MuSPAD_testdat_LSTM_threefourthData.csv")
 write.csv(traindat_v, "MuSPAD_traindat_v_LSTM_threefourthData.csv")
 write.csv(valdat, "MuSPAD_valdat_LSTM_threefourthData.csv")
 
-result_path <- "S:\\PROJACTIVE\\MUSPAD-LABORERGEBNISSE\\LOKI_ML\\Datasets\\"
+result_path <- paste0(DATA_DIR, "/")
 file <- paste0(result_path, "scaling_parameters_threefourthData_",Sys.Date(),".RData")
 
 save(scale_center_train, scale_scale_train, scale_center_train_v, scale_scale_train_v,
@@ -109,11 +112,11 @@ save(scale_center_train, scale_scale_train, scale_center_train_v, scale_scale_tr
 
 
 #------------------------------------------------------------------------------
-# "Postprocessing": 
+# "Postprocessing":
 # backtransforming real and pred values for metric calculation and graphics
 
 
-setwd("S:\\PROJACTIVE\\MUSPAD-LABORERGEBNISSE\\LOKI_ML\\Datasets\\LSTM_data_subsets")
+setwd(file.path(DATA_DIR, "LSTM_data_subsets"))
 traindat <- read.csv("MuSPAD_traindat_LSTM_threefourthData.csv")[,-1]
 testdat <- read.csv("MuSPAD_testdat_LSTM_threefourthData.csv")[,-1]
 traindat_v <- read.csv("MuSPAD_traindat_v_LSTM_threefourthData.csv")[,-1]
@@ -124,13 +127,13 @@ library(missForest)
 library(tidyverse)
 library(Metrics)
 
-setwd("S:\\PROJACTIVE\\MUSPAD-LABORERGEBNISSE\\LOKI_ML\\Datasets")
+setwd(DATA_DIR)
 (file <- tail(list.files(pattern = "scaling_parameters_threefourthData_[1-9]"), n=1))
 
 load(file = file)
 
 
-setwd("S:\\PROJACTIVE\\MUSPAD-LABORERGEBNISSE\\LOKI_ML\\Datasets")
+setwd(DATA_DIR)
 file <- tail(list.files(pattern = "Time_series_data_all_levelcount_plus_current_incidence_var_subset_basic_all_dates_missing_zero_"), n=1)
 load(file)
 # df_ts_all_inc
@@ -138,7 +141,7 @@ load(file)
 prediction <- 7
 
 make_Graph <- function(model){
-  setwd("S:/PROJACTIVE/MUSPAD-LABORERGEBNISSE/LOKI_ML/muspad-ml-loki-sp2.1/LSTM/Python_results/Python_Original/Different_seeds/keras_tuner/results_h7_threefourthData")
+  setwd(file.path(REPO_ROOT, "LSTM/Python_results/Python_Original/Different_seeds/keras_tuner/results_h7_threefourthData"))
 
 if(model == "MuSPAD"){
   f <- ""
@@ -147,70 +150,70 @@ if(model == "MuSPAD"){
 }
 
   seeds <- c(seq(1, 10, 1))
- 
+
   results <- list()
-   
+
   for (i in seeds) {
-     
+
    real_vs_pred_train <- read.csv(paste0("train_predictions",f,"_tplus7_seed",i,".csv"))
-    
+
     scale_center_inc <- scale_center_train[which(names(scale_center_train) == "Inzidenz")]
-    
+
     scale_scale_inc <- scale_scale_train[which(names(scale_scale_train) == "Inzidenz")]
-    
+
     #str(real_vs_pred_train)
-    
+
     library(magrittr)
-    
-    real_vs_pred_train$predicted %<>% 
-      str_remove_all("\\[") %<>% 
-      str_remove_all("\\]") %<>% 
+
+    real_vs_pred_train$predicted %<>%
+      str_remove_all("\\[") %<>%
+      str_remove_all("\\]") %<>%
       as.numeric()
-    
+
     #str(real_vs_pred_train)
-    
-    
+
+
     back_scaling <- function(x) x * scale_scale_inc + scale_center_inc
-    
+
     real_vs_pred_train <- data.frame(sapply(real_vs_pred_train, back_scaling))
-    
+
     t_train <- df_ts_all_inc[1:(test_indices[1]-1),2]
-    
-    real_vs_pred_train$time <- 
+
+    real_vs_pred_train$time <-
       as.Date("2020-01-01") +
       t_train[(prediction+1):(length(t_train))]
-    
+
     r_p_graph_train <- real_vs_pred_train %>%
       pivot_longer(cols = real:predicted, names_to = "real_vs_pred", values_to = "Incidence") %>%
       mutate(set = "Training",
              seed = i)
-    
+
     real_vs_pred_test <- read.csv(paste0("test_predictions",f,"_tplus7_seed",i,".csv"))
-    
-    real_vs_pred_test$predicted %<>% 
-      str_remove_all("\\[") %<>% 
-      str_remove_all("\\]") %<>% 
+
+    real_vs_pred_test$predicted %<>%
+      str_remove_all("\\[") %<>%
+      str_remove_all("\\]") %<>%
       as.numeric()
-    
+
     #str(real_vs_pred_test)
-    
+
     real_vs_pred_test <- data.frame(sapply(real_vs_pred_test, back_scaling))
-    
+
     t_test <- df_ts_all_inc[test_indices,2]
-    
-    real_vs_pred_test$time <- 
+
+    real_vs_pred_test$time <-
       as.Date("2020-01-01") +
       t_test
-    
+
     r_p_graph_test <- real_vs_pred_test %>%
       pivot_longer(cols = real:predicted, names_to = "real_vs_pred", values_to = "Incidence") %>%
       mutate(set = "Test",
              seed = i)
-    
+
     r_p_graph <- rbind(r_p_graph_train, r_p_graph_test)
-    
+
     results[[i]] <- r_p_graph
- 
+
   }
 
   results <- do.call(rbind, results)
@@ -232,15 +235,15 @@ if(model == "MuSPAD"){
   h <- "_onlyIncidence"
 }
 
-setwd("S:/PROJACTIVE/MUSPAD-LABORERGEBNISSE/LOKI_ML/muspad-ml-loki-sp2.1/Compare_models/Graphics/Predicted_values/Three_fourth_data/Diff_seeds")
+setwd(file.path(REPO_ROOT, "Compare_models/Graphics/Predicted_values/threefourthData"))
 save(graph_LSTM_7day_M, file = "LSTM_7day_MuSPAD_seeds.RData")
 
-# 
-# setwd("S:/PROJACTIVE/MUSPAD-LABORERGEBNISSE/LOKI_ML/muspad-ml-loki-sp2.1/LSTM/Python_results")
-# 
+#
+# setwd(file.path(REPO_ROOT, "LSTM/Python_results"))
+#
 # png(file=paste0("ggplot_forecast_lstm",h,"_threefourthData_", Sys.Date(),".png"), width=28, height=24, unit="cm", res=800)
-# 
-# ggplot(graph_LSTM_7day_M, aes(y=Incidence, x=time)) + 
+#
+# ggplot(graph_LSTM_7day_M, aes(y=Incidence, x=time)) +
 #   geom_line(aes(color=real_vs_pred)) +
 #   geom_point(aes(color=real_vs_pred, shape = set)) +
 #   theme_bw() +
@@ -248,7 +251,7 @@ save(graph_LSTM_7day_M, file = "LSTM_7day_MuSPAD_seeds.RData")
 #   scale_color_discrete(labels=c('Predicted', 'Real')) +
 #   theme(legend.position = "bottom") +
 #   guides(color=guide_legend(title="LSTM"))
-# 
+#
 # dev.off()
 
 #------------------------------------------------------------------------------
@@ -263,15 +266,15 @@ if(model == "MuSPAD"){
   h <- "_onlyIncidence"
 }
 
-setwd("S:/PROJACTIVE/MUSPAD-LABORERGEBNISSE/LOKI_ML/muspad-ml-loki-sp2.1/Compare_models/Graphics/Predicted_values/Three_fourth_data/Diff_seeds")
+setwd(file.path(REPO_ROOT, "Compare_models/Graphics/Predicted_values/threefourthData"))
 save(graph_LSTM_7day_BL, file = "LSTM_7day_baseline_seeds.RData")
 
-# 
-# setwd("S:/PROJACTIVE/MUSPAD-LABORERGEBNISSE/LOKI_ML/muspad-ml-loki-sp2.1/LSTM/Python_results")
-# 
+#
+# setwd(file.path(REPO_ROOT, "LSTM/Python_results"))
+#
 # png(file=paste0("ggplot_forecast_lstm",h,"_threefourthData_", Sys.Date(),".png"), width=28, height=24, unit="cm", res=800)
-# 
-# ggplot(graph_LSTM_7day_BL, aes(y=Incidence, x=time)) + 
+#
+# ggplot(graph_LSTM_7day_BL, aes(y=Incidence, x=time)) +
 #   geom_line(aes(color=real_vs_pred)) +
 #   geom_point(aes(color=real_vs_pred, shape = set)) +
 #   theme_bw() +
@@ -279,7 +282,7 @@ save(graph_LSTM_7day_BL, file = "LSTM_7day_baseline_seeds.RData")
 #   scale_color_discrete(labels=c('Predicted', 'Real')) +
 #   theme(legend.position = "bottom") +
 #   guides(color=guide_legend(title="LSTM"))
-# 
+#
 # dev.off()
-# 
+#
 

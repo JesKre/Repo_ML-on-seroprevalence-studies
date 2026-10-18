@@ -1,9 +1,13 @@
-
+# Run from the repository root; keep that base when later sections change directory.
+REPO_ROOT <- normalizePath(getwd(), winslash = "/", mustWork = TRUE)
+if (!dir.exists(file.path(REPO_ROOT, "VAR")) || !file.exists(file.path(REPO_ROOT, "README.md")))
+  stop("Run this script from the repository root (the directory containing README.md and VAR/).")
+DATA_DIR <- Sys.getenv("MUSPAD_DATA_DIR", file.path(REPO_ROOT, "Datasets"))
 
 # -----------------------------------------------------------
 #  Feature removal helper (used for BOTH datasets)
 # -----------------------------------------------------------
-load("S:/PROJACTIVE/MUSPAD-LABORERGEBNISSE/LOKI_ML/Datasets/20percent_missings.RData")
+load(file.path(DATA_DIR, "20percent_missings.RData"))
 
 features_to_remove_1 <- c(
   "kurzfragen_cov19_tested_febr2020_result_Ich.weiß.das.Ergebnis.meines.Tests.nicht",
@@ -21,7 +25,7 @@ features_to_remove_1 <- c(
 all_features_to_remove <- unique(c(vars_with_high_na_days, features_to_remove_1))
 
 filter_features <- function(df) {
-  df[, !sapply(names(df), function(col) 
+  df[, !sapply(names(df), function(col)
     any(str_detect(col, paste(all_features_to_remove, collapse = "|"))))]
 }
 
@@ -33,7 +37,7 @@ filter_features <- function(df) {
 
 library(tidyverse)
 
-setwd("S:\\PROJACTIVE\\MUSPAD-LABORERGEBNISSE\\LOKI_ML\\Datasets")
+setwd(DATA_DIR)
 
 (file <- tail(list.files(pattern="Time_series_data_all_cities_levelcount_varsubset_basic_binary"),
              1))
@@ -98,14 +102,14 @@ df_ts_inc_1 <- df_ts %>%
   # full_join(result_table)
 
 
-df_ts_inc <- cbind(df_ts_inc_1[,1:2], 
+df_ts_inc <- cbind(df_ts_inc_1[,1:2],
                    df_ts_inc_1[,3:length(df_ts_inc_1)] %>%
-                     mutate_all(~ifelse(is.nan(.), NA, .)) %>% 
+                     mutate_all(~ifelse(is.nan(.), NA, .)) %>%
                      select(where(~ any(!is.na(.))))
 ) %>%
   # set 2020 as intercept
   mutate(time_day = difftime(time_day, as.Date("2020-01-01"))) %>%
-  
+
   # first and last rows contain implausible dates
   slice(-(1:2), -((n() - 1):n()))
 
@@ -126,14 +130,14 @@ save(df_ts_inc,
 
 library(tidyverse)
 
-setwd("S:\\PROJACTIVE\\MUSPAD-LABORERGEBNISSE\\LOKI_ML\\Datasets")
+setwd(DATA_DIR)
 (file <- tail(list.files(pattern = "Time_series_data_all_cities_levelcount_varsubset_basic_binary"), n = 1))
 df_ts <- read.csv2(file)[,-1]
 
-# some dates seem to be wrong (no sampling at that times), delete them 
+# some dates seem to be wrong (no sampling at that times), delete them
 df_ts <- df_ts[-c(1,2,3,283,284),]
 
-df_ts$time_day <- as.Date(df_ts$time_day) 
+df_ts$time_day <- as.Date(df_ts$time_day)
 
 #------------------------------------------------------------------------------
 # add NA-rows for missing dates by adding a vector containing all dates
@@ -179,13 +183,13 @@ df_ts_all <- df_ts_all %>%
 # Magdeburg = 15003
 # Chemnitz = 14511
 # Greifswald = 13075
-# Hannover = 03241 
+# Hannover = 03241
 
 ID_LK <-  data.frame(standort = c("reutlingen","osnabrueck","freiburg",
                                   "aachen","magdeburg","chemnitz","greifswald","hannover"),
                      Landkreis_id = c(08415,03404,08311,05334,15003,14511,13075,03241))
 
-setwd("S:\\PROJACTIVE\\MUSPAD-LABORERGEBNISSE\\LOKI_ML\\Datasets")
+setwd(DATA_DIR)
 Co_Inc <- read.csv("COVID-19-Faelle_7-Tage-Inzidenz_Landkreise.csv")
 str(Co_Inc)
 
@@ -210,7 +214,7 @@ str(df_ts_all$time_day)
 
 # Put incidences to MuSPAD data of one week before (-> predict one week later)
 df_ts_all_inc_1 <- df_ts_all %>%
-  mutate(time_day = as.Date(time_day)) %>% 
+  mutate(time_day = as.Date(time_day)) %>%
   left_join(Co_Inc_all_wide, by = c("time_day" = "Fit_to_date")) %>%
   mutate(Inzidenz = case_when(
     standort == "aachen" ~ aachen,
@@ -235,14 +239,14 @@ df_ts_all_inc_1 <- df_ts_all %>%
 
 not_all_na <- function(x) any(!is.na(x))
 
-df_ts_all_inc <- cbind(df_ts_all_inc_1[,1:2], 
+df_ts_all_inc <- cbind(df_ts_all_inc_1[,1:2],
                        df_ts_all_inc_1[,3:length(df_ts_all_inc_1)] %>%
-                         mutate_all(~ifelse(is.nan(.), NA, .)) %>% 
+                         mutate_all(~ifelse(is.nan(.), NA, .)) %>%
                          select(where(not_all_na))
 ) %>%
   # set 2020 as intercept
   mutate(time_day = difftime(time_day, as.Date("2020-01-01"))) %>%
-  
+
   # first and last rows contain implausible dates
   slice(-(1:2), -((n() - 2):n()))
 
@@ -252,6 +256,6 @@ df_ts_all_inc <- cbind(df_ts_all_inc_1[,1:2],
 df_ts_all_inc <- filter_features(df_ts_all_inc)
 
 
-setwd("S:\\PROJACTIVE\\MUSPAD-LABORERGEBNISSE\\LOKI_ML\\Datasets")
+setwd(DATA_DIR)
 save(df_ts_all_inc, file = paste0("Time_series_data_all_levelcount_plus_current_incidence_var_subset_basic_all_dates_",Sys.Date(),".RData"))
 

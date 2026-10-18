@@ -1,3 +1,9 @@
+from pathlib import Path
+import os
+
+REPO_ROOT = Path(__file__).resolve().parents[2]
+DATA_DIR = Path(os.environ.get("MUSPAD_DATA_DIR", REPO_ROOT / "Datasets")).resolve()
+
 
 ###works with tensorflow==2.13.0 (and lower)
 from typing import List
@@ -16,10 +22,10 @@ import shap
 
 import shutil
 
-# Hard-coded source paths (unchanged from original)
-# train_csv_path = 'S:\\PROJACTIVE\\MUSPAD-LABORERGEBNISSE\\LOKI_ML\\Datasets\\MuSPAD_traindat_LSTM.csv'
-# test_csv_path  = 'S:\\PROJACTIVE\\MUSPAD-LABORERGEBNISSE\\LOKI_ML\\Datasets\\MuSPAD_testdat_LSTM.csv'
-save_dir_hard  = 'S:\\PROJACTIVE\\MUSPAD-LABORERGEBNISSE\\LOKI_ML\\muspad-ml-loki-sp2.1\\LSTM\\Python_results\\Python_Original\\'
+# Portable paths relative to this checkout (override with MUSPAD_DATA_DIR).
+# train_csv_path = str(DATA_DIR / "MuSPAD_traindat_LSTM.csv")
+# test_csv_path  = str(DATA_DIR / "MuSPAD_testdat_LSTM.csv")
+save_dir_hard  = (str(REPO_ROOT / "LSTM/Python_results/Python_Original") + "/")
 
 # Function to run one horizon
 def train_and_predict(prediction, dataset_variant="full"):
@@ -30,16 +36,16 @@ def train_and_predict(prediction, dataset_variant="full"):
 
     # Pick correct dataset depending on horizon and variant
     if dataset_variant == "full" and prediction == 7:
-        train_csv_path = 'S:\\PROJACTIVE\\MUSPAD-LABORERGEBNISSE\\LOKI_ML\\Datasets\\LSTM_data_subsets\\MuSPAD_traindat_LSTM.csv'
-        test_csv_path  = 'S:\\PROJACTIVE\\MUSPAD-LABORERGEBNISSE\\LOKI_ML\\Datasets\\LSTM_data_subsets\\MuSPAD_testdat_LSTM.csv'
+        train_csv_path = str(DATA_DIR / "LSTM_data_subsets/MuSPAD_traindat_LSTM.csv")
+        test_csv_path  = str(DATA_DIR / "LSTM_data_subsets/MuSPAD_testdat_LSTM.csv")
 
     elif dataset_variant == "full" and prediction == 14:
-        train_csv_path = 'S:\\PROJACTIVE\\MUSPAD-LABORERGEBNISSE\\LOKI_ML\\Datasets\\LSTM_data_subsets\\MuSPAD_traindat_LSTM_14.csv'
-        test_csv_path  = 'S:\\PROJACTIVE\\MUSPAD-LABORERGEBNISSE\\LOKI_ML\\Datasets\\LSTM_data_subsets\\MuSPAD_testdat_LSTM_14.csv'
+        train_csv_path = str(DATA_DIR / "LSTM_data_subsets/MuSPAD_traindat_LSTM_14.csv")
+        test_csv_path  = str(DATA_DIR / "LSTM_data_subsets/MuSPAD_testdat_LSTM_14.csv")
 
     elif dataset_variant == "threefourthData" and prediction == 7:
-        train_csv_path = 'S:\\PROJACTIVE\\MUSPAD-LABORERGEBNISSE\\LOKI_ML\\Datasets\\LSTM_data_subsets\\MuSPAD_traindat_LSTM_threefourthData.csv'
-        test_csv_path  = 'S:\\PROJACTIVE\\MUSPAD-LABORERGEBNISSE\\LOKI_ML\\Datasets\\LSTM_data_subsets\\MuSPAD_testdat_LSTM_threefourthData.csv'
+        train_csv_path = str(DATA_DIR / "LSTM_data_subsets/MuSPAD_traindat_LSTM_threefourthData.csv")
+        test_csv_path  = str(DATA_DIR / "LSTM_data_subsets/MuSPAD_testdat_LSTM_threefourthData.csv")
 
     else:
         raise ValueError(f"No dataset defined for prediction={prediction}, variant={dataset_variant}")
@@ -182,7 +188,7 @@ def explain_model(model, train_x, train_y, test_x, data_columns, prediction, dat
     """
 
     # Load all data once
-    all_dat = pd.read_csv('S:\\PROJACTIVE\\MUSPAD-LABORERGEBNISSE\\LOKI_ML\\Datasets\\LSTM_data_subsets\\MuSPAD_alldat_LSTM.csv')
+    all_dat = pd.read_csv(str(DATA_DIR / "LSTM_data_subsets/MuSPAD_alldat_LSTM.csv"))
     all_dat = all_dat.drop(all_dat.columns[[0]], axis=1)
 
     # Define results folders based on horizon + variant
@@ -254,7 +260,7 @@ def explain_model(model, train_x, train_y, test_x, data_columns, prediction, dat
             print(f"\n--- {cluster_type.upper()} cluster ---")
 
             # Load single cluster data
-            csv_path = f"S:\\PROJACTIVE\\MUSPAD-LABORERGEBNISSE\\LOKI_ML\\Datasets\\LSTM_data_subsets\\cluster_{cluster_type}_{cluster_num}.csv"
+            csv_path = str(DATA_DIR / f"LSTM_data_subsets/cluster_{cluster_type}_{cluster_num}.csv")
             cluster_data = pd.read_csv(csv_path, sep=";")
 
             # Create test data array

@@ -1,3 +1,9 @@
+# Run from the repository root; keep that base when later sections change directory.
+REPO_ROOT <- normalizePath(getwd(), winslash = "/", mustWork = TRUE)
+if (!dir.exists(file.path(REPO_ROOT, "VAR")) || !file.exists(file.path(REPO_ROOT, "README.md")))
+  stop("Run this script from the repository root (the directory containing README.md and VAR/).")
+DATA_DIR <- Sys.getenv("MUSPAD_DATA_DIR", file.path(REPO_ROOT, "Datasets"))
+
 # New sigma=0 control for the existing reference DP loop; not a run of the old standalone non-private script.
 # ============================================================================
 # Epsilon = Inf baseline, 10-seed version (Adam only) -- one process per seed
@@ -34,7 +40,9 @@ if (PKG_ROOT == "") {
   PKG_ROOT <- normalizePath(file.path(dirname(script_file), ".."), mustWork = TRUE)
 }
 PY_EXE <- Sys.getenv("DP10SEED_PYTHON",
-                     unset = "C:/Users/abz26/Documents/.virtualenvs/r-tf312/Scripts/python.exe")
+                     unset = "")
+
+if (!nzchar(PY_EXE)) stop("Set DP10SEED_PYTHON to a compatible Python executable; see the DP README.")
 
 Sys.setenv(TF_USE_LEGACY_KERAS = "True")
 reticulate::use_python(PY_EXE, required = TRUE)
@@ -73,13 +81,13 @@ log_prog(sprintf("START epsinf10seed seed=%d, already-done cells: %d / 10",
 
 # ----------------------------------------------------------------------------
 # Data (identical to the other shards; local RDS cache so restarts survive the
-# S: network drive being disconnected)
+# external data directory being disconnected)
 # ----------------------------------------------------------------------------
 if (file.exists(DATA_CACHE)) {
   df_ts_inc <- readRDS(DATA_CACHE)
   log_prog("data: LOCAL CACHE, dim df_ts_inc:", dim(df_ts_inc))
 } else {
-  setwd(Sys.getenv("DP10SEED_DATA_DIR", unset = "S:\\PROJACTIVE\\MUSPAD-LABORERGEBNISSE\\LOKI_ML\\Datasets"))
+  setwd(Sys.getenv("DP10SEED_DATA_DIR", unset = DATA_DIR))
   file <- tail(list.files(pattern = "binary_classnumber_var_subset_missing_zero"), n = 1)
   cat("data file:", file, "\n")
   load(file)

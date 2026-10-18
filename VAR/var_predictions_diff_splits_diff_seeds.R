@@ -1,3 +1,9 @@
+# Run from the repository root; keep that base when later sections change directory.
+REPO_ROOT <- normalizePath(getwd(), winslash = "/", mustWork = TRUE)
+if (!dir.exists(file.path(REPO_ROOT, "VAR")) || !file.exists(file.path(REPO_ROOT, "README.md")))
+  stop("Run this script from the repository root (the directory containing README.md and VAR/).")
+DATA_DIR <- Sys.getenv("MUSPAD_DATA_DIR", file.path(REPO_ROOT, "Datasets"))
+
 # ==============================================================================
 # VAR (bigtime) 7-day predictions on the percent-split LSTM datasets
 # ------------------------------------------------------------------------------
@@ -61,11 +67,11 @@ library(tidyverse)
 # ------------------------------------------------------------------------------
 # Setup
 
-base     <- "S:/PROJACTIVE/MUSPAD-LABORERGEBNISSE/LOKI_ML"
-sub      <- file.path(base, "Datasets", "LSTM_data_subsets")
-var_dir  <- file.path(base, "muspad-ml-loki-sp2.1", "VAR")
-cmp_dir  <- file.path(base, "muspad-ml-loki-sp2.1", "Compare_models", "Graphics")
-pv_dir   <- file.path(cmp_dir, "Predicted_values", "Diff_seeds")
+base     <- REPO_ROOT
+sub      <- file.path(DATA_DIR, "LSTM_data_subsets")
+var_dir  <- file.path(REPO_ROOT, "VAR")
+cmp_dir  <- file.path(REPO_ROOT, "Compare_models", "Graphics")
+pv_dir   <- file.path(cmp_dir, "Predicted_values")
 sg_dir   <- file.path(cmp_dir, "Single_graphics")
 
 seeds    <- 1:10
@@ -100,14 +106,13 @@ try_write <- function(expr, what) {
 }
 
 # raw series - only needed for the time_day column
-raw_file <- file.path(
-  base, "Datasets",
+raw_file <- file.path(DATA_DIR,
   "Time_series_data_all_levelcount_plus_current_incidence_var_subset_basic_all_dates_missing_zero_2025-03-05.RData")
 # NOTE: load(raw_file) is deferred to the input gate further below
 
 variants <- list(
   list(tag = "",                csv_sfx = "",
-       scale_file = file.path(base, "Datasets", "scaling_parameters_2025-07-23.RData")),
+       scale_file = file.path(DATA_DIR, "scaling_parameters_2025-07-23.RData")),
   list(tag = "65percentData",   csv_sfx = "_65percentData",
        scale_file = file.path(sub, "scaling_parameters_65percentData_2026-09-16.RData")),
   list(tag = "675percentData",  csv_sfx = "_675percentData",
@@ -214,7 +219,11 @@ write_long_and_plot <- function(fit_list, real_train, real_test,
   # same structure and object-name convention as the LSTM Diff_seeds RData
   e_out <- new.env()
   assign(obj_name, long, envir = e_out)
-  try_write(save(list = obj_name, file = file.path(pv_dir, paste0(rdata_name, ".RData")),
+  origin <- sub("^.*_(65percentData|675percentData|threefourthData|80percentData)_.*$", "\\1", rdata_name)
+  if (identical(origin, rdata_name)) origin <- "fullData"
+  prediction_dir <- file.path(pv_dir, origin, "VAR_with_seeds")
+  dir.create(prediction_dir, recursive = TRUE, showWarnings = FALSE)
+  try_write(save(list = obj_name, file = file.path(prediction_dir, paste0(rdata_name, ".RData")),
                  envir = e_out),
             "Diff_seeds RData")
 

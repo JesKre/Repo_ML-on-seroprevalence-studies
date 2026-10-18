@@ -1,4 +1,8 @@
-
+# Run from the repository root; keep that base when later sections change directory.
+REPO_ROOT <- normalizePath(getwd(), winslash = "/", mustWork = TRUE)
+if (!dir.exists(file.path(REPO_ROOT, "VAR")) || !file.exists(file.path(REPO_ROOT, "README.md")))
+  stop("Run this script from the repository root (the directory containing README.md and VAR/).")
+DATA_DIR <- Sys.getenv("MUSPAD_DATA_DIR", file.path(REPO_ROOT, "Datasets"))
 
 # Generate artificial Dataset
 
@@ -7,7 +11,7 @@
 
 # 1) Time-agnostic
 
-setwd("S:\\PROJACTIVE\\MUSPAD-LABORERGEBNISSE\\LOKI_ML\\Datasets")
+setwd(DATA_DIR)
 
 file <- tail(list.files(pattern = "binary_classnumber_var_subset_missing_zero"), n=1)
 file
@@ -22,7 +26,7 @@ library(missForest)
 
 df_ts_inc_imp <- missForest(df_ts_inc)$ximp
 
-# setwd("S:\\PROJACTIVE\\MUSPAD-LABORERGEBNISSE\\LOKI_ML\\Datasets")
+# setwd(DATA_DIR)
 # file <- tail(list.files(pattern = "Time_series_data_all_levelcount_plus_current_incidence_var_subset_basic_all_dates_missForest"), n=1)
 # load(file)
 # df_ts_all_inc_imp
@@ -35,14 +39,14 @@ muspad_aggr_art <- syn(df_ts_inc_imp[,-c(1:2)], seed = 2024)
 
 df_muspad_aggr_art <- cbind(df_ts_inc_imp[,c(1:2)], muspad_aggr_art["syn"][["syn"]])
 
-setwd("S:\\PROJACTIVE\\MUSPAD-LABORERGEBNISSE\\LOKI_ML\\Datasets")
+setwd(DATA_DIR)
 write.csv2(df_muspad_aggr_art, "Artificial_data_MuSPAD_time_agnostic.csv")
 
 #------------------------------------------------------------------------------
 
 # 2) Time-aware
 
-setwd("S:\\PROJACTIVE\\MUSPAD-LABORERGEBNISSE\\LOKI_ML\\Datasets")
+setwd(DATA_DIR)
 file <- tail(list.files(pattern = "Time_series_data_all_levelcount_plus_current_incidence_var_subset_basic_all_dates_missing_zero_"), n=1)
 load(file)
 # df_ts_all_inc
@@ -55,36 +59,36 @@ muspad_aggr_art_ts <- syn(df_ts_all_inc_imp[,-c(1:2)], seed = 2024)
 
 df_muspad_aggr_art_ts <- cbind(df_ts_all_inc_imp[,c(1:2)], muspad_aggr_art_ts["syn"][["syn"]])
 
-setwd("S:\\PROJACTIVE\\MUSPAD-LABORERGEBNISSE\\LOKI_ML\\Datasets")
+setwd(DATA_DIR)
 write.csv2(df_muspad_aggr_art_ts, "Artificial_data_MuSPAD_time_aware.csv")
 
 #------------------------------------------------------------------------------
 
 # Examples for supplement
 
-df_agnostic_short <- df_muspad_aggr_art %>% 
-  select(Inzidenz, time_day, s, mask_work_0, 
-         mask_work_1, employ_self.employed, employ_unemployed, 
+df_agnostic_short <- df_muspad_aggr_art %>%
+  select(Inzidenz, time_day, s, mask_work_0,
+         mask_work_1, employ_self.employed, employ_unemployed,
          employ_pupil.retired)
 
 
 # Generate LaTeX code and save to file
-xtable(df_agnostic_short[1:5,]#, 
-                     #digits = 0,  
+xtable(df_agnostic_short[1:5,]#,
+                     #digits = 0,
                      #align = "c|cc|cc|cc"
                      )
 
 
 
-df_agnostic_short_ts <- df_muspad_aggr_art_ts %>% 
-  select(Inzidenz, s, mask_work_0, 
-         mask_work_1, employ_self.employed, employ_unemployed, 
+df_agnostic_short_ts <- df_muspad_aggr_art_ts %>%
+  select(Inzidenz, s, mask_work_0,
+         mask_work_1, employ_self.employed, employ_unemployed,
          employ_pupil.retired)
 
 
 # Generate LaTeX code and save to file
-xtable(df_agnostic_short_ts[6:11,]#, 
-       #digits = 0,  
+xtable(df_agnostic_short_ts[6:11,]#,
+       #digits = 0,
        #align = "c|cc|cc|cc"
 )
 

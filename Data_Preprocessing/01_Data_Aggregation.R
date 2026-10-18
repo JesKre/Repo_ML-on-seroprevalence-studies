@@ -1,8 +1,18 @@
+# Run from the repository root; keep that base when later sections change directory.
+REPO_ROOT <- normalizePath(getwd(), winslash = "/", mustWork = TRUE)
+if (!dir.exists(file.path(REPO_ROOT, "VAR")) || !file.exists(file.path(REPO_ROOT, "README.md")))
+  stop("Run this script from the repository root (the directory containing README.md and VAR/).")
+DATA_DIR <- Sys.getenv("MUSPAD_DATA_DIR", file.path(REPO_ROOT, "Datasets"))
+
+clean_data <- Sys.getenv("MUSPAD_CLEAN_DATA")
+if (!nzchar(clean_data) || !file.exists(clean_data))
+  stop("Set MUSPAD_CLEAN_DATA to the cleaned participant RData file before running.")
+
 #------------------------------------------------------------------------------
 #------------------- ML in MuSPAD: Time-Series Summary Creation ----------------
 #------------------------------------------------------------------------------
 
-# This is a more concise version of the first main part of 
+# This is a more concise version of the first main part of
 # "ML_LSTM_time_series_data_formating_varsubset_basic_3_binary_classnumber.R"
 
 library(tidyverse)
@@ -12,9 +22,9 @@ library(reshape2)
 # 0) Load Data & Select Variables
 #------------------------------------------------------------------------------
 
-load("S:/PROJACTIVE/MUSPAD-LABORERGEBNISSE/export_review/cleaned_files/20221220_merge_results_clean.RData")
+load(clean_data)
 
-setwd("S:/PROJACTIVE/MUSPAD-LABORERGEBNISSE/LOKI_ML/Datasets")
+setwd(DATA_DIR)
 var <- read.csv2("Variable_selection_basic.csv")
 
 df <- df_merge_clean[, c("check_in_time", var$ID_merge), drop = FALSE]
@@ -162,7 +172,7 @@ valid_days <- sort(unique(df$time_day[!is.na(df$time_day)]))
 #   colnames(dat_num)[ncol(dat_num)] <- v
 # }
 
-num_var <- which(sapply(colnames(df), function(x) 
+num_var <- which(sapply(colnames(df), function(x)
   class(df[[x]])) == "numeric")
 
 # exclude 0,1 binary variables
@@ -192,7 +202,7 @@ dat_Bv <- data.frame(time_day = valid_days)
 for(v in Bin_var_all){
   # Preserve level order: 0 then 1 for numeric, "No" then "Yes" for character
   levs <- sort(unique(na.omit(df[[v]])), decreasing = FALSE)
-  
+
   x <- df %>%
     filter(!is.na(.data[[v]]), time_day %in% valid_days) %>%
     mutate(!!v := factor(.data[[v]], levels = levs)) %>%
@@ -204,12 +214,12 @@ for(v in Bin_var_all){
       values_fill = 0
     ) %>%
     rename_with(~paste(v, ., sep="_"), -time_day)
-  
+
   # Ensure columns are ordered according to levels
   colnames_order <- paste0(v, "_", levs)
   colnames_order <- colnames_order[colnames_order %in% colnames(x)]
   x <- x[, c("time_day", colnames_order)]
-  
+
   # Merge preserving only the original rows
   dat_Bv <- merge(dat_Bv, x, by="time_day", all.x=TRUE)
 }
@@ -222,7 +232,7 @@ dat_Cat <- data.frame(time_day = valid_days)
 for(v in Cat_var_3){
   # preserve the order of levels as they appear in the original data
   levs <- sort(unique(na.omit(df[[v]])), decreasing = FALSE)
-  
+
   # aggregate counts per day and per level
   x <- df %>%
     filter(!is.na(.data[[v]]), time_day %in% valid_days) %>%
@@ -235,12 +245,12 @@ for(v in Cat_var_3){
       values_fill = 0
     ) %>%
     rename_with(~paste(v, ., sep="_"), -time_day)
-  
+
   # ensure columns appear in the correct order according to levels
   colnames_order <- paste0(v, "_", levs)
   colnames_order <- colnames_order[colnames_order %in% colnames(x)]
   x <- x[, c("time_day", colnames_order)]
-  
+
   # merge with dat_Cat preserving only the original rows
   dat_Cat <- merge(dat_Cat, x, by="time_day", all.x=TRUE)
 }
@@ -270,8 +280,8 @@ df$present <- NULL
 # In-Between) Investigate participants numbers per time point
 #------------------------------------------------------------------------------
 
-participant_num <- table(df$time_day)[-c(1:3, 
-                                        length(table(df$time_day))-1, 
+participant_num <- table(df$time_day)[-c(1:3,
+                                        length(table(df$time_day))-1,
                                         length(table(df$time_day)))]
 
 max(participant_num)
@@ -288,7 +298,7 @@ sd(participant_num)
 participant_dataset <- data.frame(participant_num)
 colnames(participant_dataset) <- c("Day", "Participant number")
 
-setwd("S:\\PROJACTIVE\\MUSPAD-LABORERGEBNISSE\\LOKI_ML\\muspad-ml-loki-sp2.1\\Data_preprocessing")
+setwd(file.path(REPO_ROOT, "Data_Preprocessing"))
 write.csv2(participant_dataset, "Participants_per_day.csv", row.names=FALSE)
 
 # LaTeX Multi-Column Layout Generator
@@ -306,7 +316,7 @@ block_list <- list()
 for (i in 1:n_blocks) {
   start_row <- (i - 1) * rows_per_block + 1
   end_row <- min(i * rows_per_block, n_rows)
-  
+
   if (start_row <= n_rows) {
     block_list[[i]] <- participant_dataset[start_row:end_row, ]
   }
@@ -316,7 +326,7 @@ for (i in 1:n_blocks) {
 for (i in 1:n_blocks) {
   if (nrow(block_list[[i]]) < rows_per_block) {
     na_rows <- rows_per_block - nrow(block_list[[i]])
-    block_list[[i]] <- rbind(block_list[[i]], 
+    block_list[[i]] <- rbind(block_list[[i]],
                              matrix(NA, nrow = na_rows, ncol = n_cols))
   }
 }
@@ -325,8 +335,8 @@ for (i in 1:n_blocks) {
 combined_table <- cbind(block_list[[1]], block_list[[2]], block_list[[3]])
 
 # Generate LaTeX code and save to file
-xtable_obj <- xtable(combined_table, 
-                     digits = 0,  
+xtable_obj <- xtable(combined_table,
+                     digits = 0,
                      align = "c|cc|cc|cc")
 
 print(xtable_obj,

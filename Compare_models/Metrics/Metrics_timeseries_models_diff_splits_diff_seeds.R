@@ -1,3 +1,8 @@
+# Run from the repository root; keep that base when later sections change directory.
+REPO_ROOT <- normalizePath(getwd(), winslash = "/", mustWork = TRUE)
+if (!dir.exists(file.path(REPO_ROOT, "VAR")) || !file.exists(file.path(REPO_ROOT, "README.md")))
+  stop("Run this script from the repository root (the directory containing README.md and VAR/).")
+DATA_DIR <- Sys.getenv("MUSPAD_DATA_DIR", file.path(REPO_ROOT, "Datasets"))
 
 library(dplyr)
 library(tidyverse)
@@ -8,11 +13,11 @@ library(purrr)
 
 #---------------------------------------------------------------------------------------------------------
 
-# 1.) Compute metrics for models without random seeds 
+# 1.) Compute metrics for models without random seeds
 #     (because these do not have random elements and results stay the same)
 
 
-folder <- "S:/PROJACTIVE/MUSPAD-LABORERGEBNISSE/LOKI_ML/muspad-ml-loki-sp2.1/Compare_models/Graphics/Predicted_values"
+folder <- file.path(REPO_ROOT, "Compare_models/Graphics/Predicted_values/fullData")
 
 # list all .RData files
 files <- list.files(folder, pattern = glob2rx("VAR*.RData$") , full.names = TRUE)
@@ -24,13 +29,13 @@ for (f in files) {
   # create a temporary environment to avoid overwriting
   env <- new.env()
   load(f, envir = env)
-  
+
   # extract objects
   objs <- as.list(env)
-  
+
   # give them unique names based on file name
   names(objs) <- tools::file_path_sans_ext(basename(f))
-  
+
   # add to results
   real_vs_pred <- c(real_vs_pred, objs)
 }
@@ -87,7 +92,7 @@ metrics_df_seedless <- metrics_df %>%
 metrics <- c("mape", "smape", "rmsle", "rmse")
 
 metric_tables_seedless <- lapply(metrics, function(metric) {
-  
+
   metrics_df_seedless %>%
     select(Model, set, all_of(metric)) %>%
     pivot_wider(
@@ -108,10 +113,10 @@ names(metric_tables_seedless) <- toupper(metrics)
 
 #---------------------------------------------------------------------------------------------------------
 
-# 2.) Compute metrics for models with random seeds 
+# 2.) Compute metrics for models with random seeds
 
 
-folder <- "S:/PROJACTIVE/MUSPAD-LABORERGEBNISSE/LOKI_ML/muspad-ml-loki-sp2.1/Compare_models/Graphics/Predicted_values/Three_fourth_data/Diff_seeds"
+folder <- file.path(REPO_ROOT, "Compare_models/Graphics/Predicted_values/threefourthData")
 
 # list all .RData files
 files <- list.files(folder, pattern = "\\.RData$", full.names = TRUE)
@@ -123,13 +128,13 @@ for (f in files) {
   # create a temporary environment to avoid overwriting
   env <- new.env()
   load(f, envir = env)
-  
+
   # extract objects
   objs <- as.list(env)
-  
+
   # give them unique names based on file name
   names(objs) <- tools::file_path_sans_ext(basename(f))
-  
+
   # add to results
   real_vs_pred <- c(real_vs_pred, objs)
 }
@@ -181,7 +186,7 @@ metrics_df_per_seed <- metrics_df %>%
     Model = str_remove_all(Model, "_MuSPAD|_baseline|_onlyIncidence|_seeds"),
     # add suffix to set if needed
     set   = if_else(suffix != "", paste0(set, "_", suffix), set),
-    
+
     mape = round(mape, 2),
     smape = round(smape, 2),
     rmsle = round(rmsle, 2),
@@ -224,12 +229,12 @@ metrics_df_mean_sd <- metrics_df %>%
     Model = str_remove_all(Model, "_MuSPAD|_baseline|_onlyIncidence|_seeds"),
     # add suffix to set if needed
     set   = if_else(suffix != "", paste0(set, "_", suffix), set),
-    
+
     mape_mean = round(mape_mean, 2),
     smape_mean = round(smape_mean, 2),
     rmsle_mean = round(rmsle_mean, 2),
     rmse_mean = round(rmse_mean, 2),
-    
+
     mape_sd = round(mape_sd, 2),
     smape_sd = round(smape_sd, 2),
     rmsle_sd = round(rmsle_sd, 2),
@@ -244,10 +249,10 @@ metrics_df_mean_sd <- metrics_df %>%
 metrics <- c("mape", "smape", "rmsle", "rmse")
 
 metric_tables_mean_sd <- lapply(metrics, function(metric) {
-  
+
   mean_col <- paste0(metric, "_mean")
   sd_col   <- paste0(metric, "_sd")
-  
+
   metrics_df_mean_sd %>%
     mutate(
       value = sprintf(
@@ -288,10 +293,10 @@ combined_tables <- Map(
 
 # Save all tables
 
-setwd("S:/PROJACTIVE/MUSPAD-LABORERGEBNISSE/LOKI_ML/muspad-ml-loki-sp2.1/Compare_models/Metric_tables")
+setwd(file.path(REPO_ROOT, "Compare_models/Metric_tables"))
 
 for (metric in metrics) {
-  
+
   write.csv(
     combined_tables[[toupper(metric)]],
     paste0(toupper(metric), "_Table_three_fourth_Data_7dayPred_seeds.csv"),
