@@ -4,8 +4,6 @@ Code accompanying the manuscript [**“Predicting COVID-19 incidence from seropr
 
 This repository compares four model families—LASSO regression, multilayer perceptrons (MLP), sparse vector autoregression (VAR), and long short-term memory networks (LSTM)—for predicting COVID-19 incidence using aggregated German Multilocal SeroPrevalence (MuSPAD) study data. It includes time-only or incidence-only baselines, coefficient-based and SHAP/LIME explanations, differential-privacy analyses, and scripts for regenerating evaluation tables.
 
-**Start here:** use the documentation map below to find an analysis. For table regeneration, begin with the saved results; model retraining and reconstruction from participant-level data are separate workflows.
-
 ## Documentation map
 
 The linked READMEs describe module-specific inputs, environments, methods, commands, and outputs.
@@ -31,11 +29,9 @@ MuSPAD collected questionnaire and serological data in two survey rounds during 
 | Time-agnostic | 279 survey days; predictors at t paired with incidence at t + 7; chronological training/test split | LASSO and MLP; time-only baselines |
 | Time-aware | 408 consecutive days; seven-day forecasting evaluated at five origins: 65%, 67.5%, 75%, 80%, and full training period | VAR and LSTM; incidence-only baselines |
 
-The original scripts also contain additional horizon and robustness analyses. Follow the relevant module guide for the exact scope.
-
 Individual-level MuSPAD data are restricted and are not distributed here. The existing project documentation directs access requests to [SeroHub](https://serohub.net/); access is subject to approval. Rebuilding the original datasets additionally requires the cleaned participant object (`df_merge_clean`), the selected-variable input, and the RKI county-level incidence file referenced by the preprocessing scripts.
 
-The [artificial datasets](Artificial_datasets/README.md) support method development without participant-level access. Their feature values are synthetic, while incidence, dates, and time indices retain observed values. They do **not** reproduce the manuscript's fitted results or preserve the original feature time dependencies. RData files contain the modeling object `df_ts_inc`; CSV exports use semicolons and decimal commas and include auxiliary date/imputation fields.
+The [artificial datasets](Artificial_datasets/README.md) support method development without participant-level access. Their feature values are synthetic, while incidence, dates, and time indices retain observed values. They do **not** reproduce the manuscript's fitted results or preserve the original feature time dependencies and are intended for reproducing the methodology. RData files contain the modeling object `df_ts_inc`; CSV exports use semicolons and decimal commas and include auxiliary date/imputation fields.
 
 ## Choose a reproduction workflow
 
@@ -92,7 +88,7 @@ cp Compare_models/Graphics/Predicted_values/fullData/VAR_train_terms.RData "$var
 VAR_PRED_DIR="$var_inputs" Rscript VAR/VAR_generate_tables.R
 ```
 
-The script writes `T1_var.csv`, `S6_var.csv`, `S8_var.csv`, `S9_var.csv`, and `S10_var_candidate.csv` into `VAR/`. These contain VAR rows only. `S10_var_candidate.csv` remains an unverified candidate that does not fully match the paper. The temporary input directory can be deleted after the run; the repository's supplied inputs remain in their original folders.
+The script writes `T1_var.csv`, `S6_var.csv`, `S8_var.csv`, `S9_var.csv`, and `S10_var_candidate.csv` into `VAR/`. These contain VAR rows only. 
 
 In PowerShell, create a separate input directory, copy the same 31 files into it, set `$env:VAR_PRED_DIR` to its absolute path, and run `Rscript VAR/VAR_generate_tables.R`.
 
@@ -119,7 +115,7 @@ VAR_PRED_DIR="$PWD/VAR" Rscript VAR/VAR_generate_tables.R --from-refit
 
 `--check-input` validates the data without fitting. The refit runs 300 fits (two models × three lag orders × five origins × ten seeds) and writes its 31 prediction/training-input RData files into `VAR/` by default. The final command generates tables from these new files. These artificial-data results demonstrate the method; they do not recover the manuscript's numerical results. Use `VAR_REFIT_DIR` to change the refit output location and set `VAR_PRED_DIR` to that same directory for table generation.
 
-Repository paths now follow the folder structure of this checkout. **Run R scripts from the repository root**; each script captures that directory before any later `setwd()` calls. Python scripts locate the repository from their own file location. Create the output folders expected by the original analysis scripts when needed; earlier interactive dependencies still apply. Keep new fitting outputs separate from the supplied manuscript predictions.
+Repository paths follow the folder structure of this checkout. **Run R scripts from the repository root**; each script captures that directory before any later `setwd()` calls. Python scripts locate the repository from their own file location. Create the output folders expected by the original analysis scripts when needed; earlier interactive dependencies still apply. Keep new fitting outputs separate from the supplied manuscript predictions.
 
 External inputs can be configured without editing the scripts:
 
@@ -158,11 +154,10 @@ Merged SHAP/LIME CSVs     -> clustering-sensitivity summaries
 | [Create_aggregated_artificial_dataset.R](Data_Preprocessing/Create_aggregated_artificial_dataset.R) | Uses `missForest` and `synthpop` to create synthetic-feature versions of the modeling datasets. See the [artificial-data guide](Artificial_datasets/README.md) for the packaged files. |
 | [Participants_per_day.csv](Data_Preprocessing/Participants_per_day.csv) | Supplementary daily participant-count output. |
 
-These scripts require original inputs and path adaptation. The selected-variable input is called `Variable_selection_basic.csv` in the scripts; reconcile it with the codebook supplied in `Variable_selection/`.
 
 ### Datasets/ and Variable_selection/
 
-[Datasets](Datasets/) contains the weekly-incidence time-series modeling input, [Time_series_data_incidence_1W_binary_classnumber_var_subset_missing_zero_2025-02-14.RData](Datasets/Time_series_data_incidence_1W_binary_classnumber_var_subset_missing_zero_2025-02-14.RData). It is separate from the explicitly labeled [artificial datasets](Artificial_datasets/). The folder does not contain every external or intermediate dataset named by the analysis scripts.
+[Datasets](Datasets/) contains the weekly-incidence time-series modeling input, [Time_series_data_incidence_1W_binary_classnumber_var_subset_missing_zero_2025-02-14.RData](Datasets/Time_series_data_incidence_1W_binary_classnumber_var_subset_missing_zero_2025-02-14.RData). It is separate from the explicitly labeled [artificial datasets](Artificial_datasets/). 
 
 [Variable_selection](Variable_selection/) provides:
 
@@ -171,7 +166,7 @@ These scripts require original inputs and path adaptation. The selected-variable
 
 ### Compare_models/
 
-[Compare_models](Compare_models/) holds shared prediction inputs, cross-model graphics, and older comparison scripts.
+[Compare_models](Compare_models/) holds shared prediction inputs and cross-model graphics.
 
 | Subfolder or script | Purpose |
 | --- | --- |
@@ -182,7 +177,6 @@ These scripts require original inputs and path adaptation. The selected-variable
 
 Prediction folders are [fullData](Compare_models/Graphics/Predicted_values/fullData/), [65percentData](Compare_models/Graphics/Predicted_values/65percentData/), [675percentData](Compare_models/Graphics/Predicted_values/675percentData/) (67.5%), [threefourthData](Compare_models/Graphics/Predicted_values/threefourthData/) (75%), and [80percentData](Compare_models/Graphics/Predicted_values/80percentData/). All contain LSTM and non-seeded VAR predictions; each has a `VAR_with_seeds/` subfolder for seeded VAR predictions. `fullData/` additionally contains LASSO and MLP predictions and `VAR_train_terms.RData`, which supplies the training observations, fitted values, and preceding observations used by the VAR table generator.
 
-The comparison scripts now use repository-relative paths and the current prediction folders. Use the model-specific evaluation guides for the revised table calculations.
 
 ### Variable_Importance/
 
@@ -201,8 +195,6 @@ These scripts need upstream explanation/coefficient outputs and manually coded s
 - [LSTM/Python_Scripts_plus_Data_prep/](LSTM/Python_Scripts_plus_Data_prep/) contains R preparation/post-processing, two Python training scripts, and a cluster-based LIME/SHAP script. Their roles are described in the [LSTM guide](LSTM/README.md).
 - [MLP/DP_Analysis/](MLP/DP_Analysis/) contains the original DP-SGD implementation and the non-private Adam/RMSprop comparison, including explanation analyses. Use the [separate DP reproduction guide](MLP/Table_reproduction_DP/MLP_with_DP/README.md) for table regeneration.
 - [MLP/Table_reproduction_DP/](MLP/Table_reproduction_DP/) contains the `MLP_with_DP/` package: `scripts/` holds caching, training workers, and table generation; `data/` holds the supplied cache; `results/` holds the two per-fold master CSVs.
-
-The root also contains [LSTM.zip](LSTM.zip), an archive alongside the unpacked module. Start with the [LSTM directory and its guide](LSTM/README.md) when navigating the code.
 
 
 ## Citation
