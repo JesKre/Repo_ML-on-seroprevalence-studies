@@ -2,13 +2,10 @@
 
 This folder contains the ten-seed Adam differential-privacy analysis and the saved per-fold results used to regenerate its tables. Table generation uses base R and does not require model retraining or TensorFlow.
 
-**Run the examples below from the repository root**, the directory containing the top-level `README.md`, `MLP/`, and `VAR/`. The training and cache scripts require this working directory.
-
 ## Connection to the original analysis
 
 The reference implementation is [DP_SGD_MuSPAD_diffOpt_diffSigma_xfold_Expl.R](../../DP_Analysis/DP_SGD_MuSPAD_diffOpt_diffSigma_xfold_Expl.R).
 
-The workers adapt its **Adam validation phase**. They do not run the complete reference script, which also includes RMSprop, SHAP/LIME, model saving, and a separate test phase. The zero-noise control retains gradient clipping and subsampling.
 
 | Script | Purpose |
 | --- | --- |
@@ -46,7 +43,6 @@ The script retains `tableS8.csv` as its output filename; do not look for a gener
 
 For each seed and setting, the script first takes the square root of **each fold MSE**, then computes the mean and sample SD across ten folds. It reports the mean and sample SD of the ten seed-specific mean RMSEs; the supplementary output additionally reports the mean of the ten within-seed fold SDs. Final statistics are rounded to one decimal, and sample SDs use `n - 1`. Taking the square root of the mean MSE would give a different result.
 
-**Known numerical difference:** the supplied zero-noise results give a training mean within-seed fold SD of **4.1**, while the supplement reports **3.8**. The generator prints this difference; regenerating the supplied results does not resolve it.
 
 ## Retrain from the cached input
 
@@ -99,8 +95,3 @@ This script selects the last filename matching `binary_classnumber_var_subset_mi
 
 Workers use the cache when present; changing the data-directory variables does not replace an existing cache.
 
-## Interpretation
-
-The preserved training loop uses tensor-wise gradient clipping and nine updates per epoch over 30 epochs, giving 270 updates per fit. The epsilon labels are inherited from the original analysis; this package does not recalculate privacy budgets. The zero-noise control retains clipping and subsampling.
-
-Table regeneration uses the supplied per-fold results. Retraining may vary across software environments and does not guarantee identical numerical results.
