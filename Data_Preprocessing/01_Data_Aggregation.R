@@ -162,9 +162,15 @@ valid_days <- sort(unique(df$time_day[!is.na(df$time_day)]))
 #   colnames(dat_num)[ncol(dat_num)] <- v
 # }
 
+num_var <- which(sapply(colnames(df), function(x) 
+  class(df[[x]])) == "numeric")
+
+# exclude 0,1 binary variables
+num_var_sub <- num_var[setdiff(names(num_var), var_01)]
+
 dat_num <- data.frame(time_day = valid_days)
 
-for(v in num_vars){
+for(v in num_var_sub){
   x <- tapply(df[[v]], df$time_day, mean, na.rm=TRUE)  # exactly like original
   dat_num <- merge(dat_num,
                    data.frame(time_day=names(x), val=as.vector(x)),
@@ -259,6 +265,77 @@ result_table <- dcast(df, time_day ~ standort,
                       value.var="present", fill=0, fun.aggregate=any)
 df$present <- NULL
 
+
+#------------------------------------------------------------------------------
+# In-Between) Investigate participants numbers per time point
+#------------------------------------------------------------------------------
+
+participant_num <- table(df$time_day)[-c(1:3, 
+                                        length(table(df$time_day))-1, 
+                                        length(table(df$time_day)))]
+
+max(participant_num)
+# 278
+min(participant_num)
+# 1
+which(participant_num=="1")
+# 5 times only 1 participant
+mean(participant_num)
+# 141.9821
+sd(participant_num)
+# 67.76761
+
+participant_dataset <- data.frame(participant_num)
+colnames(participant_dataset) <- c("Day", "Participant number")
+
+setwd("S:\\PROJACTIVE\\MUSPAD-LABORERGEBNISSE\\LOKI_ML\\muspad-ml-loki-sp2.1\\Data_preprocessing")
+write.csv2(participant_dataset, "Participants_per_day.csv", row.names=FALSE)
+
+# LaTeX Multi-Column Layout Generator
+
+library(xtable)
+
+# Parameters
+n_rows <- nrow(participant_dataset)
+n_cols <- ncol(participant_dataset)
+n_blocks <- 3  # Number of blocks to display side-by-side
+rows_per_block <- ceiling(n_rows / n_blocks)
+
+# Create blocks
+block_list <- list()
+for (i in 1:n_blocks) {
+  start_row <- (i - 1) * rows_per_block + 1
+  end_row <- min(i * rows_per_block, n_rows)
+  
+  if (start_row <= n_rows) {
+    block_list[[i]] <- participant_dataset[start_row:end_row, ]
+  }
+}
+
+# Pad blocks with NA to ensure all blocks have equal length
+for (i in 1:n_blocks) {
+  if (nrow(block_list[[i]]) < rows_per_block) {
+    na_rows <- rows_per_block - nrow(block_list[[i]])
+    block_list[[i]] <- rbind(block_list[[i]], 
+                             matrix(NA, nrow = na_rows, ncol = n_cols))
+  }
+}
+
+# Combine blocks horizontally
+combined_table <- cbind(block_list[[1]], block_list[[2]], block_list[[3]])
+
+# Generate LaTeX code and save to file
+xtable_obj <- xtable(combined_table, 
+                     digits = 0,  
+                     align = "c|cc|cc|cc")
+
+print(xtable_obj,
+      file = "participant_table.tex",
+      include.rownames = FALSE,
+      include.colnames = TRUE)
+
+# Optional: Print confirmation message
+cat("LaTeX code has been saved to 'participant_table.tex'.\n")
 
 #------------------------------------------------------------------------------
 # 8) Final TS Dataset + Save
