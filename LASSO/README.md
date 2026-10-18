@@ -1,9 +1,8 @@
 # LASSO reproducibility
 
 This folder contains the MuSPAD LASSO model, its time-only baseline, and the
-calculations for their rows in main-text Table 1 and supplementary Tables S3
-and S5. It contains code and this README only; generated results are not inputs
-to the bundle and are not committed.
+calculations for their rows in main-text Table 1 and supplementary Tables S6
+and S8. 
 
 ## Scripts and their relationship
 
@@ -17,8 +16,7 @@ to the bundle and are not committed.
 The last two scripts derive results from the predictions saved by the first
 two. They also accept the original saved predictions without refitting. The
 full-metrics script calculates the bootstrap intervals itself, so a separate
-bootstrap script and saved bootstrap draws are unnecessary. The seed-sweep
-comparison script and all duplicate result/documentation files are omitted.
+bootstrap script and saved bootstrap draws are unnecessary. 
 
 ## Inputs needed to reproduce the reported values
 
@@ -34,8 +32,7 @@ training and 27 test observations per model. They look in
 `LASSO_PRED_DIR`.
 
 The two prediction files are shared repository inputs at
-`Compare_models/Graphics/Predicted_values/`; do not duplicate them in `LASSO/`.
-Include them when pushing the repository. The modeling dataset is needed only
+`Compare_models/Graphics/Predicted_values/`. The modeling dataset is needed only
 for optional refitting. All result CSVs, bootstrap draws and other generated
 outputs can be regenerated and are omitted from this bundle.
 
@@ -88,11 +85,5 @@ Rscript lasso_pointcalibration_2026-10-02.R
 
 Use a separate prediction directory to preserve the original saved run.
 The original fits were unseeded; `LASSO_SEED` is optional for repeatable new
-fits. Refitting can change the numerical table values. Exact regeneration of
-the reported values therefore uses the original predictions.
+fits. 
 
-Changes from the supplied scripts are limited to path configuration, removing
-redundant dependencies on generated check files and Markdown output, and
-reporting published-value differences as warnings. Model fitting and metric,
-bootstrap and calibration calculations are retained. Prediction-interval
-coverage calculations are omitted because they are not required for these tables.
