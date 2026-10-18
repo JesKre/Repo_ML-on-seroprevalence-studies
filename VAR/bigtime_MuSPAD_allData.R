@@ -1,3 +1,8 @@
+# Run from the repository root; keep that base when later sections change directory.
+REPO_ROOT <- normalizePath(getwd(), winslash = "/", mustWork = TRUE)
+if (!dir.exists(file.path(REPO_ROOT, "VAR")) || !file.exists(file.path(REPO_ROOT, "README.md")))
+  stop("Run this script from the repository root (the directory containing README.md and VAR/).")
+DATA_DIR <- Sys.getenv("MUSPAD_DATA_DIR", file.path(REPO_ROOT, "Datasets"))
 
 #------------------------------------------------------------------------------
 #---- Time series modelling with bigtime R package ----------------------------
@@ -13,11 +18,11 @@ library(tidyverse)
 
 # Dataset
 
-setwd("S:\\PROJACTIVE\\MUSPAD-LABORERGEBNISSE\\LOKI_ML\\Datasets")
+setwd(DATA_DIR)
 file <- tail(list.files(pattern = "Time_series_data_all_levelcount_plus_current_incidence_var_subset_basic_all_dates_missing_zero_"), n=1)
 load(file)
 
-# Predict 7 days ahead 
+# Predict 7 days ahead
 
 test_indices <- (dim(df_ts_all_inc)[1]-6):dim(df_ts_all_inc)[1]
 
@@ -34,7 +39,7 @@ scaled_train_mat <- scale(traindat_1)
 # -> training into train and val
 
 scaled_train_mat_v <- scale(traindat_1[-val_indices,])
-scaled_val_mat <- scale(traindat_1[val_indices,], 
+scaled_val_mat <- scale(traindat_1[val_indices,],
                         center = attr(scaled_train_mat_v, "scaled:center"),
                         scale = attr(scaled_train_mat_v, "scaled:scale"))
 
@@ -49,8 +54,8 @@ scale_center_train <- attr(scaled_train_mat, "scaled:center")
 scale_scale_train <- attr(scaled_train_mat, "scaled:scale")
 
 # Use the scaling parameters from the training data to scale the test data
-scaled_test_mat <- scale(testdat_1, 
-                       center = scale_center_train, 
+scaled_test_mat <- scale(testdat_1,
+                       center = scale_center_train,
                        scale = scale_scale_train)
 
 
@@ -74,20 +79,20 @@ param_grid <- expand.grid(
 )
 
 evaluate_model <- function(VARpen, selection, cvcut, scaled_train_mat_v, scaled_val_mat, scale_inc, center_inc) {
-  
+
   h <- 7
 
     # Fit the model
   VARfit <- sparseVAR(Y = scaled_train_mat_v, cvcut = cvcut, p = 7, selection = selection, VARpen = VARpen, h = h)
-  
+
   # Forecast validation period
   pred_val <- tryCatch({
     recursiveforecast(mod = VARfit, h = 7)$fcst[, 1] * scale_inc + center_inc
   }, error = function(e) return(rep(NA, 7)))
-  
+
   real_val <- scaled_val_mat[, 1] * scale_inc + center_inc
   mse_val <- mse(real_val, pred_val)
-  
+
   # Training predictions (aligning with forecastable period)
   if (is.null(VARfit$Phihat)) {
     mse_train <- NA
@@ -98,7 +103,7 @@ evaluate_model <- function(VARpen, selection, cvcut, scaled_train_mat_v, scaled_
     predicted_train <- fitted(VARfit)[, "Inzidenz"] * scale_inc + center_inc
     mse_train <- mse(real_train, predicted_train)
   }
-  
+
   # Return results
   tibble(
     VARpen = VARpen,
@@ -129,7 +134,7 @@ results
 
 res_ord <- results %>% arrange(mse_val)
 
-setwd("S:/PROJACTIVE/MUSPAD-LABORERGEBNISSE/LOKI_ML/muspad-ml-loki-sp2.1/VAR")
+setwd(file.path(REPO_ROOT, "VAR"))
 
 write.csv2(res_ord, "Hyperparameter_validation_VAR_p7_h7.csv")
 
@@ -151,15 +156,15 @@ VARfit <- sparseVAR(Y=scaled_train_mat, p = p, selection = "cv", VARpen = "L1", 
 (Lhat <- lagmatrix(fit=VARfit)) # get estimated lagmatrix
 
 # save
-result_path <- "S:\\PROJACTIVE\\MUSPAD-LABORERGEBNISSE\\LOKI_ML\\muspad-ml-loki-sp2.1\\VAR\\Models\\"
+result_path <- paste0(file.path(REPO_ROOT, "VAR/Models"), "/")
 file <- paste0(result_path, "/model_VAR_p",p,"_h",h,"_",Sys.Date(),".RData")
-save(VARfit, scale_center_train, scale_scale_train, 
-     scaled_train_mat, scaled_test_mat, 
+save(VARfit, scale_center_train, scale_scale_train,
+     scaled_train_mat, scaled_test_mat,
      file = file)
 
 
 # load
-# setwd("S:\\PROJACTIVE\\MUSPAD-LABORERGEBNISSE\\LOKI_ML\\muspad-ml-loki-sp2.1\\VAR\\Models")
+# setwd(file.path(REPO_ROOT, "VAR/Models"))
 # (file <- tail(list.files(pattern = paste0("model_VAR_p",p,"_h",h), n=1)))
 # load(file = file)
 
@@ -194,7 +199,7 @@ predicted_train <- fitted(VARfit)[,"Inzidenz"] * scale_inc + center_inc
 (mse_train <- mse(real_train, predicted_train))
 # 1196
 
-time_train <- 
+time_train <-
   as.Date("2020-01-01") +
   df_ts_all_inc[(p+h):(test_indices[1]-1),2]
 
@@ -204,7 +209,7 @@ time_train <-
 mse_VAR_MuSPAD <- data.frame(mse_train, mse_test)
 
 # Save results
-setwd("S:/PROJACTIVE/MUSPAD-LABORERGEBNISSE/LOKI_ML/muspad-ml-loki-sp2.1/VAR")
+setwd(file.path(REPO_ROOT, "VAR"))
 write.csv2(mse_VAR_MuSPAD, paste0("mse_VAR_MuSPAD_p",p,"_h",h,".csv"), row.names = FALSE)
 
 
@@ -222,11 +227,11 @@ r_p_graph_test <- real_vs_pred_test %>%
 
 graph_VAR_7day_M <- rbind(r_p_graph_train, r_p_graph_test)
 
-setwd("S:/PROJACTIVE/MUSPAD-LABORERGEBNISSE/LOKI_ML/muspad-ml-loki-sp2.1/Compare_models/Graphics/Predicted_values")
+setwd(file.path(REPO_ROOT, "Compare_models/Graphics/Predicted_values/fullData"))
 save(graph_VAR_7day_M, file = paste0("VAR_MuSPAD_p",p,"_h",h,".RData"))
 
 
-ggplot(rbind(r_p_graph_train, r_p_graph_test), aes(y=Incidence, x=time)) + 
+ggplot(rbind(r_p_graph_train, r_p_graph_test), aes(y=Incidence, x=time)) +
   geom_line(aes(color=real_vs_pred)) +
   geom_point(aes(color=real_vs_pred, shape = set)) +
   theme_bw() +
@@ -237,11 +242,11 @@ ggplot(rbind(r_p_graph_train, r_p_graph_test), aes(y=Incidence, x=time)) +
   guides(color=guide_legend(title="Autoregressive"))
 
 
-setwd("S:/PROJACTIVE/MUSPAD-LABORERGEBNISSE/LOKI_ML/muspad-ml-loki-sp2.1/Compare_models/Graphics/Single_graphics")
+setwd(file.path(REPO_ROOT, "Compare_models/Graphics/Single_graphics"))
 
 png(file=paste0("ggplot_forecast_bigtime_muspad_varsubsetbasic_p",p,"_h",h,"_",Sys.Date(),".png"), width=28, height=24, unit="cm", res=800)
 
-ggplot(rbind(r_p_graph_train, r_p_graph_test), aes(y=Incidence, x=time)) + 
+ggplot(rbind(r_p_graph_train, r_p_graph_test), aes(y=Incidence, x=time)) +
   geom_line(aes(color=real_vs_pred)) +
   geom_point(aes(color=real_vs_pred, shape = set)) +
   theme_bw() +
@@ -254,11 +259,11 @@ ggplot(rbind(r_p_graph_train, r_p_graph_test), aes(y=Incidence, x=time)) +
 dev.off()
 
 
-setwd("S:/PROJACTIVE/MUSPAD-LABORERGEBNISSE/LOKI_ML/muspad-ml-loki-sp2.1/VAR")
+setwd(file.path(REPO_ROOT, "VAR"))
 
 png(file=paste0("ggplot_forecast_bigtime_muspad_varsubsetbasic_p",p,"_h",h,"_",Sys.Date(),".png"), width=28, height=24, unit="cm", res=800)
 
-ggplot(rbind(r_p_graph_train, r_p_graph_test), aes(y=Incidence, x=time)) + 
+ggplot(rbind(r_p_graph_train, r_p_graph_test), aes(y=Incidence, x=time)) +
   geom_line(aes(color=real_vs_pred)) +
   geom_point(aes(color=real_vs_pred, shape = set)) +
   theme_bw() +

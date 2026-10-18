@@ -1,3 +1,9 @@
+# Run from the repository root; keep that base when later sections change directory.
+REPO_ROOT <- normalizePath(getwd(), winslash = "/", mustWork = TRUE)
+if (!dir.exists(file.path(REPO_ROOT, "VAR")) || !file.exists(file.path(REPO_ROOT, "README.md")))
+  stop("Run this script from the repository root (the directory containing README.md and VAR/).")
+DATA_DIR <- Sys.getenv("MUSPAD_DATA_DIR", file.path(REPO_ROOT, "Datasets"))
+
 #!/usr/bin/env Rscript
 # ============================================================================
 # var_train_papermetric_w2.R — 2026-09-29
@@ -36,14 +42,14 @@
 #
 # Output: metrics_VAR_w2_train_paper_shifted_2026-09-29.csv
 #         (on S: + local mirror; xlsx afterwards)
-#         log: C:\Users\abz26\AppData\Local\Temp\opencode\var_train_papermetric_log.txt
+#         log: <external location>
 # ============================================================================
 suppressMessages(library(bigtime))
 options(scipen = 999)
 
-mdir <- "S:/PROJACTIVE/MUSPAD-LABORERGEBNISSE/LOKI_ML/muspad-ml-loki-sp2.1/VAR/Models"
-mout <- "S:/PROJACTIVE/MUSPAD-LABORERGEBNISSE/LOKI_ML/muspad-ml-loki-sp2.1/VAR/Metrics"
-lout <- "C:/Users/abz26/AppData/Local/Temp/opencode"
+mdir <- file.path(REPO_ROOT, "VAR/Models")
+mout <- file.path(REPO_ROOT, "VAR/Metrics")
+lout <- file.path(REPO_ROOT, "VAR/Metrics")
 if (!dir.exists(mdir)) stop("Models dir not reachable: ", mdir, " (check S: drive / NEON)")
 if (!dir.exists(mout)) stop("Metrics dir not reachable: ", mout)
 

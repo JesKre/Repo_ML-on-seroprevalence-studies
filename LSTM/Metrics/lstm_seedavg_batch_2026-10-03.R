@@ -1,3 +1,9 @@
+# Run from the repository root; keep that base when later sections change directory.
+REPO_ROOT <- normalizePath(getwd(), winslash = "/", mustWork = TRUE)
+if (!dir.exists(file.path(REPO_ROOT, "VAR")) || !file.exists(file.path(REPO_ROOT, "README.md")))
+  stop("Run this script from the repository root (the directory containing README.md and VAR/).")
+DATA_DIR <- Sys.getenv("MUSPAD_DATA_DIR", file.path(REPO_ROOT, "Datasets"))
+
 #!/usr/bin/env Rscript
 # ============================================================================
 # LSTM seed-averaged wave-2 metrics (SEEDAVG) — run 2026-10-03, R 4.6.1 x64.
@@ -9,7 +15,7 @@
 #   * Per-seed metrics are SECONDARY, reported as mean +/- SD across seeds.
 #
 # Sources (read-only; identical to the locked 2026-10-01 clean run):
-#   S:\...\Compare_models\Graphics\Predicted_values\Diff_seeds\
+#   <external location>
 #     <variant folder>\LSTM_7day_{MuSPAD,baseline}_seeds<tok>.RData
 #     object: graph_LSTM_7day_M/_BL (full_data) or graph_LSTM_M/_BL (others)
 #     long format: time, real_vs_pred, Incidence, set (Training/Test), seed
@@ -97,11 +103,16 @@
 
 options(stringsAsFactors = FALSE, warn = 1)
 
-base   <- "S:/PROJACTIVE/MUSPAD-LABORERGEBNISSE/LOKI_ML"
-proj   <- file.path(base, "muspad-ml-loki-sp2.1")
-pv_dir <- file.path(proj, "Compare_models/Graphics/Predicted_values/Diff_seeds")
-local  <- "C:/Users/abz26/AppData/Local/Temp/opencode/lstm_w2"
+base   <- REPO_ROOT
+proj   <- file.path(REPO_ROOT)
+pv_dir <- file.path(REPO_ROOT, "Compare_models/Graphics/Predicted_values")
+local  <- Sys.getenv("MUSPAD_VERIFICATION_DIR", file.path(REPO_ROOT, "Compare_models/Metric_tables/LSTM_w2"))
 dir.create(local, showWarnings = FALSE, recursive = TRUE)
+verification_files <- file.path(local, c("metrics_LSTM_w2_test_2026-10-01.csv",
+  "metrics_LSTM_w2_train_2026-10-01.csv", "metrics_LSTM_w2_seedpooled_2026-10-01.csv"))
+if (!all(file.exists(verification_files))) stop(
+  "Missing historical verification CSVs: ", paste(verification_files[!file.exists(verification_files)], collapse = ", "),
+  ". Set MUSPAD_VERIFICATION_DIR to the folder containing these inputs.")
 
 DATE   <- "2026-10-03"
 H      <- 7L
@@ -109,7 +120,7 @@ nseeds <- 10
 B      <- 2000
 
 variants <- c("full", "65percentData", "675percentData", "80percentData", "threefourthData")
-vfolder  <- function(v) if (v == "full") "full_data" else gsub("Data$", "_data", v)
+vfolder  <- function(v) if (v == "full") "fullData" else v
 vtoken   <- function(v) if (v == "full") "" else paste0("_", v)
 
 models   <- c("MuSPAD", "onlyIncidence")
@@ -315,8 +326,8 @@ for (v in variants) {
 }
 
 # ---- cross-check: test days vs VAR p7 files of the same origin ----
-vardir <- file.path(proj, "Compare_models/Graphics/Predicted_values/Diff_seeds")
-var_rdatname <- function(m, v) sprintf("VAR_p7_%s_seeds%s.RData",
+vardir <- file.path(REPO_ROOT, "Compare_models/Graphics/Predicted_values")
+var_rdatname <- function(m, v) sprintf("VAR_7day_%s%s_p7_seeds.RData",
                                        if (m == "MuSPAD") "MuSPAD" else "baseline",
                                        vtoken(v))
 var_objnames <- function(m) {
@@ -324,7 +335,7 @@ var_objnames <- function(m) {
   else               c("graph_VAR_7day_bl", "graph_VAR_bl")
 }
 for (v in variants) {
-  fn <- file.path(vardir, vfolder(v), var_rdatname("MuSPAD", v))
+  fn <- file.path(vardir, vfolder(v), "VAR_with_seeds", var_rdatname("MuSPAD", v))
   if (file.exists(fn)) {
     e0 <- new.env(); load(fn, envir = e0)
     found <- var_objnames("MuSPAD")[var_objnames("MuSPAD") %in% ls(e0)]

@@ -1,3 +1,9 @@
+# Run from the repository root; keep that base when later sections change directory.
+REPO_ROOT <- normalizePath(getwd(), winslash = "/", mustWork = TRUE)
+if (!dir.exists(file.path(REPO_ROOT, "VAR")) || !file.exists(file.path(REPO_ROOT, "README.md")))
+  stop("Run this script from the repository root (the directory containing README.md and VAR/).")
+DATA_DIR <- Sys.getenv("MUSPAD_DATA_DIR", file.path(REPO_ROOT, "Datasets"))
+
 # Ten-seed Adam adaptation of the validation phase of:
 # ../../MLP/DP_SGD_MuSPAD_diffOpt_diffSigma_xfold_Expl.R
 # Retains its training loop, tensor-wise clipping, data pipeline and constants.
@@ -15,7 +21,9 @@ if (PKG_ROOT == "") {
   PKG_ROOT <- normalizePath(file.path(dirname(script_file), ".."), mustWork = TRUE)
 }
 PY_EXE <- Sys.getenv("DP10SEED_PYTHON",
-                     unset = "C:/Users/abz26/Documents/.virtualenvs/r-tf312/Scripts/python.exe")
+                     unset = "")
+
+if (!nzchar(PY_EXE)) stop("Set DP10SEED_PYTHON to a compatible Python executable; see the DP README.")
 
 Sys.setenv(TF_USE_LEGACY_KERAS = "True")
 reticulate::use_python(PY_EXE, required = TRUE)
@@ -55,7 +63,7 @@ log_prog(sprintf("START shard seed=%d, already-done cells: %d / 30",
 # ----------------------------------------------------------------------------
 # Data (identical to original script and to dp_rerun_seeded.R)
 # Local RDS cache: data is only read once per startup, but restarts must
-# survive the S: network drive being disconnected. Cache holds df_ts_inc in
+# survive the external data directory being disconnected. Cache holds df_ts_inc in
 # the exact post-preprocessing state the script consumes.
 # ----------------------------------------------------------------------------
 DATA_CACHE <- file.path(PKG_ROOT, "data", "dataset_local_cache.rds")
@@ -63,7 +71,7 @@ if (file.exists(DATA_CACHE)) {
   df_ts_inc <- readRDS(DATA_CACHE)
   log_prog("data: LOCAL CACHE, dim df_ts_inc:", dim(df_ts_inc))
 } else {
-  setwd(Sys.getenv("DP10SEED_DATA_DIR", unset = "S:\\PROJACTIVE\\MUSPAD-LABORERGEBNISSE\\LOKI_ML\\Datasets"))
+  setwd(Sys.getenv("DP10SEED_DATA_DIR", unset = DATA_DIR))
   file <- tail(list.files(pattern = "binary_classnumber_var_subset_missing_zero"), n = 1)
   cat("data file:", file, "\n")
   load(file)

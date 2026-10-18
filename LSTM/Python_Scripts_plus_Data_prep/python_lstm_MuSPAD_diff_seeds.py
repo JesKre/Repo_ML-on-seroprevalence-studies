@@ -1,3 +1,9 @@
+from pathlib import Path
+import os
+
+REPO_ROOT = Path(__file__).resolve().parents[2]
+DATA_DIR = Path(os.environ.get("MUSPAD_DATA_DIR", REPO_ROOT / "Datasets")).resolve()
+
 
 ###works with tensorflow==2.13.0 (and lower)
 from typing import List
@@ -20,10 +26,10 @@ import shap
 
 import shutil
 
-# Hard-coded source paths (unchanged from original)
-# train_csv_path = 'S:\\PROJACTIVE\\MUSPAD-LABORERGEBNISSE\\LOKI_ML\\Datasets\\MuSPAD_traindat_LSTM.csv'
-# test_csv_path  = 'S:\\PROJACTIVE\\MUSPAD-LABORERGEBNISSE\\LOKI_ML\\Datasets\\MuSPAD_testdat_LSTM.csv'
-save_dir_hard  = 'S:\\PROJACTIVE\\MUSPAD-LABORERGEBNISSE\\LOKI_ML\\muspad-ml-loki-sp2.1\\LSTM\\Python_results\\Python_Original\\Different_seeds\\keras_tuner'
+# Portable paths relative to this checkout (override with MUSPAD_DATA_DIR).
+# train_csv_path = str(DATA_DIR / "MuSPAD_traindat_LSTM.csv")
+# test_csv_path  = str(DATA_DIR / "MuSPAD_testdat_LSTM.csv")
+save_dir_hard  = str(REPO_ROOT / "LSTM/Python_results/Python_Original/Different_seeds/keras_tuner")
 
 # Function to run one horizon
 def train_and_predict_seed(prediction, dataset_variant, seeds):
@@ -34,25 +40,22 @@ def train_and_predict_seed(prediction, dataset_variant, seeds):
 
     # Pick correct dataset depending on horizon and variant
 
-    base_path = (
-        r'S:\PROJACTIVE\MUSPAD-LABORERGEBNISSE\LOKI_ML'
-        r'\Datasets\LSTM_data_subsets'
-    )
+    base_path = str(DATA_DIR / "LSTM_data_subsets")
 
     if dataset_variant == "full" and prediction == 7:
-        train_csv_path = fr'{base_path}\MuSPAD_traindat_LSTM.csv'
-        test_csv_path = fr'{base_path}\MuSPAD_testdat_LSTM.csv'
+        train_csv_path = f'{base_path}/MuSPAD_traindat_LSTM.csv'
+        test_csv_path = f'{base_path}/MuSPAD_testdat_LSTM.csv'
 
     elif dataset_variant == "full" and prediction == 14:
-        train_csv_path = fr'{base_path}\MuSPAD_traindat_LSTM_14.csv'
-        test_csv_path = fr'{base_path}\MuSPAD_testdat_LSTM_14.csv'
+        train_csv_path = f'{base_path}/MuSPAD_traindat_LSTM_14.csv'
+        test_csv_path = f'{base_path}/MuSPAD_testdat_LSTM_14.csv'
 
     elif prediction == 7:
         train_csv_path = (
-            fr'{base_path}\MuSPAD_traindat_LSTM_{dataset_variant}.csv'
+            f'{base_path}/MuSPAD_traindat_LSTM_{dataset_variant}.csv'
         )
         test_csv_path = (
-            fr'{base_path}\MuSPAD_testdat_LSTM_{dataset_variant}.csv'
+            f'{base_path}/MuSPAD_testdat_LSTM_{dataset_variant}.csv'
         )
 
     else:

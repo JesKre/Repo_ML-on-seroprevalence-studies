@@ -1,3 +1,8 @@
+# Run from the repository root; keep that base when later sections change directory.
+REPO_ROOT <- normalizePath(getwd(), winslash = "/", mustWork = TRUE)
+if (!dir.exists(file.path(REPO_ROOT, "VAR")) || !file.exists(file.path(REPO_ROOT, "README.md")))
+  stop("Run this script from the repository root (the directory containing README.md and VAR/).")
+DATA_DIR <- Sys.getenv("MUSPAD_DATA_DIR", file.path(REPO_ROOT, "Datasets"))
 
 ###############################################################################
 #--------- Comparison of variable importance table ----------------------------
@@ -8,7 +13,7 @@ library(tidyverse)
 
 # MLP
 
-setwd("S:\\PROJACTIVE\\MUSPAD-LABORERGEBNISSE\\LOKI_ML\\muspad-ml-loki-sp2.1\\MLP\\MLP_varimp_comp_other_methods")
+setwd(file.path(REPO_ROOT, "MLP/MLP_varimp_comp_other_methods"))
 
 (file <- tail(list.files(pattern = "Var_Imp_shapley_low_inc"), n=1))
 shapley_low <- read.csv2(file)[,-1]
@@ -35,9 +40,9 @@ MLP_shapley_high <- shapley_high %>%
 
 # LSTM 7-day prediction
 
-setwd("S:\\PROJACTIVE\\MUSPAD-LABORERGEBNISSE\\LOKI_ML\\muspad-ml-loki-sp2.1\\LSTM\\Python_results")
+setwd(file.path(REPO_ROOT, "LSTM/Python_results"))
 
-setwd(".\\transformed_h7")
+setwd("./transformed_h7")
 
 LSTM_7day_shap_low <- read.csv2("shap_tplus7_allMean_orig_scale_low.csv", fileEncoding = "latin1")[,-1]
 
@@ -60,9 +65,9 @@ which(duplicated(LSTM_7day_shap_high$LSTM_7day_high_Feature))
 
 # LSTM 14-day prediction
 
-setwd("S:\\PROJACTIVE\\MUSPAD-LABORERGEBNISSE\\LOKI_ML\\muspad-ml-loki-sp2.1\\LSTM\\Python_results")
+setwd(file.path(REPO_ROOT, "LSTM/Python_results"))
 
-setwd(".\\transformed_h14")
+setwd("./transformed_h14")
 
 LSTM_14day_shap_low <- read.csv2("shap_tplus14_allMean_orig_scale_low.csv", fileEncoding = "latin1")[,-1]
 
@@ -86,7 +91,7 @@ which(duplicated(LSTM_14day_shap_high$LSTM_14day_high_Feature))
 
 # LASSO
 
-setwd("S:\\PROJACTIVE\\MUSPAD-LABORERGEBNISSE\\LOKI_ML\\muspad-ml-loki-sp2.1\\LASSO")
+setwd(file.path(REPO_ROOT, "LASSO"))
 (file <- tail(list.files(pattern = "Variablelist_LASSO_varsubsetbasic_"), n=1))
 load(file)
 
@@ -99,20 +104,20 @@ which(duplicated(LASSO_Coef$LASSO_Feature))
 
 # VAR model
 
-setwd("S:\\PROJACTIVE\\MUSPAD-LABORERGEBNISSE\\LOKI_ML\\muspad-ml-loki-sp2.1\\VAR")
+setwd(file.path(REPO_ROOT, "VAR"))
 VAR_Coef_p7 <- read.csv2(paste0("Coefficients_mean_over_time_steps_p7_h7.csv"))[,-1]
 VAR_Coef_p14 <- read.csv2(paste0("Coefficients_mean_over_time_steps_p14_h7.csv"))[,-1]
 VAR_Coef_p21 <- read.csv2(paste0("Coefficients_mean_over_time_steps_p21_h7.csv"))[,-1]
 
 #------------------------------------------------------------------------------
 
-Important_Var_Coef <- cbind(MLP_shapley_low[1:50,], MLP_shapley_high[1:50,], 
-                            LASSO_Coef[1:50,], LSTM_7day_shap_low[1:50,], 
-                            LSTM_7day_shap_high[1:50,], LSTM_14day_shap_low[1:50,], 
+Important_Var_Coef <- cbind(MLP_shapley_low[1:50,], MLP_shapley_high[1:50,],
+                            LASSO_Coef[1:50,], LSTM_7day_shap_low[1:50,],
+                            LSTM_7day_shap_high[1:50,], LSTM_14day_shap_low[1:50,],
                             LSTM_14day_shap_high[1:50,], VAR_Coef_p7[1:50,],
                             VAR_Coef_p14[1:50,], VAR_Coef_p21[1:50,])
 
-setwd("S:\\PROJACTIVE\\MUSPAD-LABORERGEBNISSE\\LOKI_ML\\muspad-ml-loki-sp2.1\\Variable_importance")
+setwd(file.path(REPO_ROOT, "Variable_Importance"))
 save(Important_Var_Coef, file = paste0("Variable_importance_shapley_comparison_",Sys.Date(),".RData"))
 write.csv2(Important_Var_Coef, file = paste0("Variable_importance_shapley_comparison_",Sys.Date(),".csv"), fileEncoding = "latin1")
 
@@ -120,14 +125,14 @@ write.csv2(Important_Var_Coef, file = paste0("Variable_importance_shapley_compar
 
 #------------------------------------------------------------------------------
 #------------------------------------------------------------------------------
-# Create table with variable titles 
+# Create table with variable titles
 
 
-setwd("S:\\PROJACTIVE\\MUSPAD-LABORERGEBNISSE\\LOKI_ML\\muspad-ml-loki-sp2.1\\Variable_importance")
+setwd(file.path(REPO_ROOT, "Variable_Importance"))
 load(file = tail(list.files(pattern = glob2rx("Variable_importance_shapley_comparison_*.RData")), n=1))
 # Important_Var_Coef
 
-setwd("S:\\PROJACTIVE\\MUSPAD-LABORERGEBNISSE\\LOKI_ML\\Datasets")
+setwd(DATA_DIR)
 var_sub <- read.csv2("Variable_selection_basic.csv")
 
 # Add the variable "time_day" into the dictionary:
@@ -143,28 +148,28 @@ var_sub[nrow(var_sub) + 1,] = c("Inzidenz",NA , "7-day-Incidence of COVID-19 per
 
 # Function to create title column from a given feature column
 make_feature_titles <- function(df, feature_col, var_sub) {
-  
+
   print(feature_col)
-  
+
   feature_vals <- df[[feature_col]]
   out <- character(length(feature_vals))
-  
+
   for (i in seq_along(feature_vals)) {
     feat <- feature_vals[i]
     if (is.na(feat)) {
       out[i] <- NA_character_
       next
     }
-    
+
     # try exact match
     match <- var_sub[grep(paste0("^", feat, "$"), var_sub$ID_merge), "variable_title_2"]
-    
+
     if (length(match) > 0) {
       out[i] <- match
     } else {
       last_part <- sub(".*_", "", feat)
       base_id   <- sub("_[^_]*$", "", feat)
-      
+
       if (last_part == "1") {
         out[i] <- paste0(
           var_sub[grep(base_id, var_sub$ID_merge), "variable_title_2"],
@@ -183,17 +188,17 @@ make_feature_titles <- function(df, feature_col, var_sub) {
       }
     }
   }
-  
+
   # return vector with same length as input
   out
 }
 
 # Loop over all feature columns to create their feature titles
 
-feature_cols <- c("MLP_low_Feature", "MLP_high_Feature", "LASSO_Feature", 
+feature_cols <- c("MLP_low_Feature", "MLP_high_Feature", "LASSO_Feature",
                   "VAR_p7_Feature", "VAR_p14_Feature", "VAR_p21_Feature",
                   "LSTM_7day_low_Feature", "LSTM_7day_high_Feature",
-                  "LSTM_14day_low_Feature", "LSTM_14day_high_Feature") 
+                  "LSTM_14day_low_Feature", "LSTM_14day_high_Feature")
 
 for (col in feature_cols) {
   new_col <- paste0(col, "_Title")
@@ -205,7 +210,7 @@ for (col in feature_cols) {
 #---------------------------------------------------------
 
 Important_Var_Coef_Shapley <- Important_Var_Coef %>%
-  
+
   select(starts_with("MLP_low_Feat"), starts_with("MLP_low_"),
          starts_with("MLP_high_Feat"), starts_with("MLP_high_"),
          starts_with("LASSO_Feat"), starts_with("LASSO_"),
@@ -237,7 +242,7 @@ for(i in cols){
 }
 
 
-setwd("S:\\PROJACTIVE\\MUSPAD-LABORERGEBNISSE\\LOKI_ML\\muspad-ml-loki-sp2.1\\Variable_importance")
+setwd(file.path(REPO_ROOT, "Variable_Importance"))
 save(Important_Var_Coef_Shapley, file = paste0("Variable_importance_shapley_comparison_with_value_and_title_",Sys.Date(),".RData"))
 write.csv2(Important_Var_Coef_Shapley, file = paste0("Variable_importance_shapley_comparison_with_value_and_title_",Sys.Date(),".csv"), fileEncoding = "latin1")
 

@@ -119,7 +119,18 @@ VAR_PRED_DIR="$PWD/VAR" Rscript VAR/VAR_generate_tables.R --from-refit
 
 `--check-input` validates the data without fitting. The refit runs 300 fits (two models × three lag orders × five origins × ten seeds) and writes its 31 prediction/training-input RData files into `VAR/` by default. The final command generates tables from these new files. These artificial-data results demonstrate the method; they do not recover the manuscript's numerical results. Use `VAR_REFIT_DIR` to change the refit output location and set `VAR_PRED_DIR` to that same directory for table generation.
 
-Several original scripts retain absolute Windows `S:` paths, assume existing output folders, or depend on earlier interactive steps. Configure these before execution. Keep new fitting outputs separate from the supplied manuscript predictions.
+Repository paths now follow the folder structure of this checkout. **Run R scripts from the repository root**; each script captures that directory before any later `setwd()` calls. Python scripts locate the repository from their own file location. Create the output folders expected by the original analysis scripts when needed; earlier interactive dependencies still apply. Keep new fitting outputs separate from the supplied manuscript predictions.
+
+External inputs can be configured without editing the scripts:
+
+| Variable | Purpose / default |
+| --- | --- |
+| `MUSPAD_DATA_DIR` | Prepared modeling data and LSTM CSV/scaling inputs; defaults to `Datasets/` in the repository. |
+| `MUSPAD_CLEAN_DATA` | Required path to the restricted cleaned participant RData file for `01_Data_Aggregation.R`. |
+| `MUSPAD_VERIFICATION_DIR` | Historical LSTM verification CSVs and metrics outputs; defaults to `Compare_models/Metric_tables/LSTM_w2/`. The CSVs must be supplied for the full guarded evaluation. |
+| `DP10SEED_PYTHON` | Compatible Python executable for DP workers; must be explicitly configured. |
+
+For example, in a POSIX shell, set `export MUSPAD_DATA_DIR="/path/to/prepared-data"`; in PowerShell, use `$env:MUSPAD_DATA_DIR = '/path/to/prepared-data'`. Existing module-specific environment variables continue to apply.
 
 The workflow is:
 
@@ -171,7 +182,7 @@ These scripts require original inputs and path adaptation. The selected-variable
 
 Prediction folders are [fullData](Compare_models/Graphics/Predicted_values/fullData/), [65percentData](Compare_models/Graphics/Predicted_values/65percentData/), [675percentData](Compare_models/Graphics/Predicted_values/675percentData/) (67.5%), [threefourthData](Compare_models/Graphics/Predicted_values/threefourthData/) (75%), and [80percentData](Compare_models/Graphics/Predicted_values/80percentData/). All contain LSTM and non-seeded VAR predictions; each has a `VAR_with_seeds/` subfolder for seeded VAR predictions. `fullData/` additionally contains LASSO and MLP predictions and `VAR_train_terms.RData`, which supplies the training observations, fitted values, and preceding observations used by the VAR table generator.
 
-The comparison scripts retain shared-drive paths and historical layouts such as `Diff_seeds/`. Use the model-specific evaluation guides for the revised table calculations.
+The comparison scripts now use repository-relative paths and the current prediction folders. Use the model-specific evaluation guides for the revised table calculations.
 
 ### Variable_Importance/
 
