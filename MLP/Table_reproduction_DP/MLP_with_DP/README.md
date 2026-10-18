@@ -1,79 +1,106 @@
-# Reproduce Tables 7 and S11
+# Reproduce Table 7 and supplementary Table S11
 
-This folder extends the existing DP analysis in to the ten-seed Adam
-study reported in the Table 7 and supplementary Table S11.
+This folder contains the ten-seed Adam differential-privacy analysis and the saved per-fold results used to regenerate its tables. Table generation uses base R and does not require model retraining or TensorFlow.
 
-## Connection to the original scripts
+**Run the examples below from the repository root**, the directory containing the top-level `README.md`, `MLP/`, and `VAR/`. The training and cache scripts require this working directory.
 
-The reference implementation is
-[`DP\_SGD\_MuSPAD\_diffOpt\_diffSigma\_xfold\_Expl.R`](../MLP/DP_SGD_MuSPAD_diffOpt_diffSigma_xfold_Expl.R).
-The new workers adapt its **validation phase**, rather than calling the whole
-original script, which also runs RMSprop optimizer, SHAP/LIME, model saving and a separate
-test phase with fixed local paths. Those stages are not needed for these tables.
+## Connection to the original analysis
 
-|Existing reference component|New script|Relationship|
-|-|-|-|
-|Data loading and preprocessing (`df\_ts\_inc`, numeric `time\_day`, remove day 168)|`01\_make\_data\_cache.R`|Saves the same input state for portable runs|
-|Adam validation arm; `train\_with\_dp`, `clip\_gradients`, architecture and fold preprocessing|`02\_run\_adam\_dp\_grid\_shard.R`|Repeats that analysis over ten explicitly seeded runs; retains the training calculations|
-|Same Adam training loop|`03\_run\_epsinf\_shard.R`|Adds a sigma=0 control retaining clipping and subsampling; this control is new|
-|Fold-level training/validation MSE output|`04\_make\_tables.R`|Converts MSE to fold RMSE and generates both revised tables|
+The reference implementation is [DP_SGD_MuSPAD_diffOpt_diffSigma_xfold_Expl.R](../../DP_Analysis/DP_SGD_MuSPAD_diffOpt_diffSigma_xfold_Expl.R).
 
-## Included files: only the essentials
+The workers adapt its **Adam validation phase**. They do not run the complete reference script, which also includes RMSprop, SHAP/LIME, model saving, and a separate test phase. The zero-noise control retains gradient clipping and subsampling.
 
-* Four R scripts listed above.
-* `data/dataset\_local\_cache.rds`: the supplied post-preprocessing input (279 x 123), before imputation/scaling; needed for retraining.
-* `results/adam10seed\_perfold\_master.csv`: 300 trained-model records (10 seeds x 3 settings x 10 folds).
-* `results/epsinf10seed\_perfold\_master.csv`: 100 baseline records (10 seeds x 10 folds).
+| Script | Purpose |
+| --- | --- |
+| [01_make_data_cache.R](scripts/01_make_data_cache.R) | Optionally rebuild the input cache: convert `time_day` to numeric and remove day 168. |
+| [02_run_adam_dp_grid_shard.R](scripts/02_run_adam_dp_grid_shard.R) | Run one seed over three noise settings and ten folds; save a per-seed results file. |
+| [03_run_epsinf_shard.R](scripts/03_run_epsinf_shard.R) | Run one seed of the zero-noise control over ten folds. |
+| [04_make_tables.R](scripts/04_make_tables.R) | Validate supplied results or combine worker files, convert fold MSEs to RMSEs, and generate tables. |
 
-There are no shipped worker shards, intermediate summaries, paired-delta
-results, RMSprop tables, working copies, duplicate reference scripts, model
-weights or generated table copies. Table outputs are generated when needed.
+## Included inputs
 
-## Reproduce the tables immediately
+| File | Contents |
+| --- | --- |
+| [data/dataset_local_cache.rds](data/dataset_local_cache.rds) | Post-preprocessing input: 279 rows × 123 columns, before imputation/scaling. Used for retraining. |
+| [results/adam10seed_perfold_master.csv](results/adam10seed_perfold_master.csv) | 300 fold records: ten seeds × three noise settings × ten folds. |
+| [results/epsinf10seed_perfold_master.csv](results/epsinf10seed_perfold_master.csv) | 100 zero-noise fold records: ten seeds × ten folds. |
 
-From this folder, run:
+The master CSVs use semicolons and decimal commas and are read with `read.csv2()`. Worker shards and generated table CSVs are not required inputs for the default table-generation command.
+
+## Regenerate the tables
+
+From the repository root:
 
 ```sh
-Rscript scripts/04\_make\_tables.R
+Rscript MLP/Table_reproduction_DP/MLP_with_DP/scripts/04_make_tables.R
 ```
 
-This requires only base R and the two supplied master CSVs. It checks that all
-expected seed/setting/fold combinations occur exactly once, with the expected
-noise multipliers and finite nonnegative MSEs. It writes `results/table7.csv`
-and `results/tableS8.csv` and prints the tables.
+The script checks that every expected seed/setting/fold combination appears exactly once, noise multipliers match the expected values, and MSEs are finite and nonnegative. It writes these files under `MLP/Table_reproduction_DP/MLP_with_DP/results/`:
 
-For each seed/setting, take sqrt of each fold MSE, then calculate the mean and
-sample SD over ten folds. Table 7 reports the mean and sample SD of the ten
-seed-specific mean RMSEs. Table S11 adds the mean of the ten within-seed fold
-SDs. Round final statistics to one decimal; all SDs use n-1. Do not take sqrt
-of the mean MSE.
+| Output | Meaning |
+| --- | --- |
+| `table7.csv` | Training and validation mean RMSE and between-seed SD for each setting. |
+| `tableS8.csv` | Corresponding summaries plus the mean within-seed fold SD. This **legacy filename** corresponds to supplementary **Table S11** in the current README/manuscript numbering. |
+
+The script retains `tableS8.csv` as its output filename; do not look for a generated `tableS11.csv`.
+
+For each seed and setting, the script first takes the square root of **each fold MSE**, then computes the mean and sample SD across ten folds. It reports the mean and sample SD of the ten seed-specific mean RMSEs; the supplementary output additionally reports the mean of the ten within-seed fold SDs. Final statistics are rounded to one decimal, and sample SDs use `n - 1`. Taking the square root of the mean MSE would give a different result.
+
+**Known numerical difference:** the supplied zero-noise results give a training mean within-seed fold SD of **4.1**, while the supplement reports **3.8**. The generator prints this difference; regenerating the supplied results does not resolve it.
 
 ## Retrain from the cached input
 
-Install R packages `reticulate`, `tensorflow`, `keras`, `tidyverse`, `missForest`.
-The supplied training environment was R 4.6.1, Python 3.12.14, TensorFlow 2.21.0
-and compatible legacy `tf-keras`. Set `DP10SEED\_PYTHON` to that environment's
-Python executable. Workers set `TF\_USE\_LEGACY\_KERAS=True` before initialization.
+Retraining requires R packages `reticulate`, `tensorflow`, `keras`, `tidyverse`, and `missForest`, plus a compatible legacy Keras Python environment. The previously documented training environment was R 4.6.1, Python 3.12.14, TensorFlow 2.21.0, and compatible `tf-keras`; these are provenance details, not an automatically installed or locked environment.
 
-For example, in PowerShell, from the current folder:
+Set `DP10SEED_PYTHON` to the Python executable for that environment. Workers set `TF_USE_LEGACY_KERAS=True` before initializing TensorFlow.
+
+To preserve the supplied master results, use a separate run directory. This PowerShell example copies the package into `work/dp-retraining`, then runs the original scripts **from the repository root**:
 
 ```powershell
-$env:DP10SEED\_PYTHON = 'C:/path/to/venv/Scripts/python.exe'
+$package = 'MLP/Table_reproduction_DP/MLP_with_DP'
+$run = Join-Path (Get-Location) 'work/dp-retraining'
+if (Test-Path $run) { throw 'Choose a new run directory, or resume it explicitly.' }
+New-Item -ItemType Directory -Force (Split-Path $run) | Out-Null
+Copy-Item $package $run -Recurse
+
+$env:DP10SEED_ROOT = $run
+$env:DP10SEED_PYTHON = 'C:/path/to/venv/Scripts/python.exe'
 foreach ($seed in 1..10) {
-    Rscript scripts/02\_run\_adam\_dp\_grid\_shard.R $seed
+    Rscript "$package/scripts/02_run_adam_dp_grid_shard.R" $seed
     if ($LASTEXITCODE -ne 0) { throw "DP worker failed: seed $seed" }
-    Rscript scripts/03\_run\_epsinf\_shard.R $seed
+    Rscript "$package/scripts/03_run_epsinf_shard.R" $seed
     if ($LASTEXITCODE -ne 0) { throw "Baseline worker failed: seed $seed" }
 }
-Rscript scripts/04\_make\_tables.R --from-shards
+Rscript "$package/scripts/04_make_tables.R" --from-shards
 if ($LASTEXITCODE -ne 0) { throw 'Table generation failed' }
+Remove-Item Env:DP10SEED_ROOT
 ```
 
-Workers save their progress and resume completed runs. After all ten seeds finish, run 04\_make\_tables.R --from-shards to combine the results and generate Tables 7 and S11. Use a separate folder copy for retraining to preserve the supplied results.
+Workers save `adam10seed_perfold_s01.csv` through `s10.csv` and `epsinf10seed_perfold_s01.csv` through `s10.csv` under the selected run directory's `results/`. They skip completed fold records when restarted. To resume, retain that directory, set `DP10SEED_ROOT` and `DP10SEED_PYTHON` again, and rerun the worker commands. Do not repeat the copy step.
 
-The new scripts retain the original Adam validation procedure and add explicit random seeds and a zero-noise baseline. The baseline retains gradient clipping and subsampling.
+After all workers finish, `04_make_tables.R --from-shards` validates the complete grid, replaces the two master CSVs in the selected run directory, and generates the tables there. Without `--from-shards`, it reads existing master CSVs instead. Unset `DP10SEED_ROOT` to return to the supplied package inputs.
 
-The preserved implementation uses tensor-wise gradient clipping and nine updates per epoch, giving 270 updates in total. The ε labels are inherited from the original analysis; this package does not recalculate privacy budgets.
+## Optional cache rebuilding and configuration
 
-Exact table regeneration uses the supplied per-fold CSVs. Retraining results may vary across software environments.
+The supplied cache is sufficient for retraining. Rebuild it only when intentionally changing the modeling input:
 
+```sh
+Rscript MLP/Table_reproduction_DP/MLP_with_DP/scripts/01_make_data_cache.R
+```
+
+This script selects the last filename matching `binary_classnumber_var_subset_missing_zero` in the configured data directory. Supply the appropriate original modeling dataset; it must produce the expected 279 × 123 cache after preprocessing. Rebuilding overwrites the cache in the selected package/run directory.
+
+| Environment variable | Purpose |
+| --- | --- |
+| `DP10SEED_ROOT` | Package/run directory containing `data/` and `results/`; defaults to the package containing the script. |
+| `DP10SEED_PYTHON` | Required Python executable for training workers. |
+| `DP10SEED_DATA_DIR` | Source modeling-data directory when rebuilding a missing cache or running the cache script. |
+| `MUSPAD_DATA_DIR` | Fallback modeling-data directory; defaults to the repository's `Datasets/`. |
+
+Workers use the cache when present; changing the data-directory variables does not replace an existing cache.
+
+## Interpretation
+
+The preserved training loop uses tensor-wise gradient clipping and nine updates per epoch over 30 epochs, giving 270 updates per fit. The epsilon labels are inherited from the original analysis; this package does not recalculate privacy budgets. The zero-noise control retains clipping and subsampling.
+
+Table regeneration uses the supplied per-fold results. Retraining may vary across software environments and does not guarantee identical numerical results.
